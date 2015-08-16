@@ -2,4 +2,27 @@
 ---
 @charset "utf-8";
 
+body {
+	margin: 0;
+	padding: 0;
+}
 
+.header {
+	background: #111;
+	display: block;
+	padding: 60px 10px;
+	text-align: center;
+}
+
+.logo {
+	width: 580px;
+	border: none;
+}
+
+.page-content {
+	padding: 5px;
+}
+
+.home {
+	text-align: center;
+}
