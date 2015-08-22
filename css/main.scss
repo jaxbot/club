@@ -15,6 +15,9 @@ body {
 
 a {
 	color: #fff;
+	&:hover {
+		color: #F5E8B5;
+	}
 }
 
 .header {
