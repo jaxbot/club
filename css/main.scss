@@ -43,6 +43,7 @@ a {
 	background: rgba(0,0,0,0.6);
 	margin: 0;
 	height: 100%;
+	padding-bottom: 20px;
 }
 
 .footer {
@@ -136,4 +137,15 @@ a {
 	font-size: 15px;
 	width: 90px;
 	font-family: Roboto, sans-serif;
+}
+@media (max-width: 679px) {
+	.logo {
+		width: 80%;
+	}
+	.header {
+		padding: 20px 0;
+	}
+	.wrapper {
+		width: 90%;
+	}
 }

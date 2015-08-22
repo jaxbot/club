@@ -30,6 +30,16 @@ title: Knight Hacks @ UCF
 	<h1>Resources</h1>
 	<div class="resources">
 		<a href="https://education.github.com/pack" target="_blank">GitHub Student Developer Pack</a>
+		<br>
+		<a href="https://www.jetbrains.com/student/" target="_blank">JetBrains Student Developer Pack</a>
+		<br>
+		<a href="https://guides.github.com/activities/hello-world/" target="_blank">Github Guide - Hello World</a>
+		<br>
+		<a href="http://developer.android.com/training/index.html" target="_blank">Android Developer - Getting Started</a>
+		<br>
+		<a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
+		<br>
+		<a href="http://getskeleton.com/" target="_blank">Skeleton</a>
 	</div>
 </div>
 <script>
@@ -37,7 +47,8 @@ function subscribe() {
 	var email = document.getElementById("signupText").value;
 	if (!email) return;
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "/api/mailinglist/subscribe");
+	xhr.open("POST", "/api/mailinglist/subscribe");
+	xhr.setRequestHeader("Content-type", "application/json");
 	xhr.send(JSON.stringify({ email: email }));
 	xhr.onload = function() {
 		var btn = document.getElementById("signupButton");
