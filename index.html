@@ -24,7 +24,7 @@ title: Knight Hacks @ UCF
 		<div>
 			<h2>Mailing list</h2>
 			<input type="text" class="signupText" id="signupText" placeholder="evyna@knights.ucf.edu">
-			<button type="button" class="signupButton" onClick="subscribe()">Subscribe</button>
+			<button type="button" class="signupButton" id="signupButton" onClick="subscribe()">Subscribe</button>
 		</div>
 	</div>
 	<h1>Resources</h1>
@@ -32,3 +32,18 @@ title: Knight Hacks @ UCF
 		<a href="https://education.github.com/pack" target="_blank">GitHub Student Developer Pack</a>
 	</div>
 </div>
+<script>
+function subscribe() {
+	var email = document.getElementById("signupText").value;
+	if (!email) return;
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "/api/mailinglist/subscribe");
+	xhr.send(JSON.stringify({ email: email }));
+	xhr.onload = function() {
+		var btn = document.getElementById("signupButton");
+		btn.className += " done";
+		btn.disabled = true;
+		btn.innerHTML = "Done!";
+	};
+}
+</script>
