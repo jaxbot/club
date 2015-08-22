@@ -52,6 +52,7 @@ a {
 }
 
 .home {
+	text-align: center;
 	h1 {
 		color: #ddc04a;
 		text-align: center;
@@ -60,6 +61,10 @@ a {
 		color: #ddc04a;
 		text-align: center;
 	}
+}
+.upcomingEvents {
+	margin: auto;
+	text-align: left;
 }
 @font-face {
 	font-family: 'icomoon';
@@ -110,9 +115,21 @@ a {
 	text-align: center;
 }
 .signupText {
-	width: 250px;
+	width: 220px;
 	margin: 0;
-	font-size: 24px;
+	font-size: 18px;
 	padding: 5px;
+	height: 28px;
+	font-family: Roboto, sans-serif;
+	vertical-align: top;
+}
+.signupButton {
+	border: solid 1px #333;
+	background: #ddc04a;
+	color: #333;
+	height: 43px;
+	vertical-align: top;
+	font-size: 15px;
+	width: 90px;
 	font-family: Roboto, sans-serif;
 }
