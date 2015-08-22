@@ -38,6 +38,7 @@ function subscribe() {
 	if (!email) return;
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "/api/mailinglist/subscribe");
+	xhr.setRequestHeader("Content-type", "application/json");
 	xhr.send(JSON.stringify({ email: email }));
 	xhr.onload = function() {
 		var btn = document.getElementById("signupButton");
