@@ -141,6 +141,17 @@ a {
 .emailLink {
 	margin-top: 12px;
 }
+.mailingList {
+	transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	overflow: hidden;
+	opacity: 1;
+	height: 120px;
+	&.hidden {
+		opacity: 0;
+		height: 0;
+	}
+}
 @media (max-width: 679px) {
 	.logo {
 		width: 80%;
@@ -157,5 +168,8 @@ a {
 	.signupButton {
 		width: 235px;
 		margin-top: 4px;
+	}
+	.mailingList {
+		height: 180px;
 	}
 }

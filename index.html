@@ -24,10 +24,10 @@ title: Knight Hacks @ UCF
 		<div class="emailLink">
 			or email us at tea<!-- protection from -->m@knighth<!-- the stupidest of bots -->acks.org
 		</div>
-		<div>
+		<div class="mailingList">
 			<h2>Mailing list</h2>
 			<input type="text" class="signupText" id="signupText" placeholder="evyna@knights.ucf.edu">
-			<button type="button" class="signupButton" id="signupButton" onClick="subscribe()">Subscribe</button>
+			<button type="button" class="signupButton" id="signupButton" onClick="Bastide.mailingList.subscribe()">Subscribe</button>
 		</div>
 	</div>
 	<h1>Resources</h1>
@@ -45,19 +45,3 @@ title: Knight Hacks @ UCF
 		<a href="http://getskeleton.com/" target="_blank">Skeleton</a>
 	</div>
 </div>
-<script>
-function subscribe() {
-	var email = document.getElementById("signupText").value;
-	if (!email) return;
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/mailinglist/subscribe");
-	xhr.setRequestHeader("Content-type", "application/json");
-	xhr.send(JSON.stringify({ email: email }));
-	xhr.onload = function() {
-		var btn = document.getElementById("signupButton");
-		btn.className += " done";
-		btn.disabled = true;
-		btn.innerHTML = "Done!";
-	};
-}
-</script>
