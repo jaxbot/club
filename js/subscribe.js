@@ -1,6 +1,12 @@
 // Quick 'n dirty™
 if (!window.Bastide) window.Bastide ={};
 Bastide.mailingList = {
+        checkEnter: function(e) {
+                e = e || window.event;
+                if (e.keyCode === 13) {
+                        Bastide.mailingList.subscribe();
+                }
+        },
         subscribe: function() {
                 var email = document.getElementById("signupText").value;
                 if (!email) return;
