@@ -23,10 +23,16 @@ title: Knight Hacks @ UCF
 			<a class="icon-github3 social" href="https://github.com/knighthacks/" target="_blank" title="GitHub"></a>
 			<a class="icon-instagram social" href="https://instagram.com/knighthacks/" target="_blank" title="Instagram"></a>
 		</div>
-		<div>
+		<div class="knightConnect">
+			<a href="https://ucf.collegiatelink.net/organization/KnightHacks">Knight Connect</a>
+		</div>
+		<div class="emailLink">
+			or email us at <a href="mailto:team@knighthacks.org">team@knighthacks.org</a>
+		</div>
+		<div class="mailingList">
 			<h2>Mailing list</h2>
-			<input type="text" class="signupText" id="signupText" placeholder="evyna@knights.ucf.edu">
-			<button type="button" class="signupButton" id="signupButton" onClick="subscribe()">Subscribe</button>
+			<input type="text" class="signupText" id="signupText" placeholder="evyna@knights.ucf.edu" onKeyDown="Bastide.mailingList.checkEnter()">
+			<button type="button" class="signupButton" id="signupButton" onClick="Bastide.mailingList.subscribe()">Subscribe</button>
 		</div>
 	</div>
 	<h1>Resources</h1>
@@ -44,19 +50,3 @@ title: Knight Hacks @ UCF
 		<a href="http://getskeleton.com/" target="_blank">Skeleton</a>
 	</div>
 </div>
-<script>
-function subscribe() {
-	var email = document.getElementById("signupText").value;
-	if (!email) return;
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/api/mailinglist/subscribe");
-	xhr.setRequestHeader("Content-type", "application/json");
-	xhr.send(JSON.stringify({ email: email }));
-	xhr.onload = function() {
-		var btn = document.getElementById("signupButton");
-		btn.className += " done";
-		btn.disabled = true;
-		btn.innerHTML = "Done!";
-	};
-}
-</script>
