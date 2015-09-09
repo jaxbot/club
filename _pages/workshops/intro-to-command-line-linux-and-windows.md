@@ -6,24 +6,26 @@ Start by opening Terminal. Any command you type should be followed by the `enter
 
 Try running these commands:
 
-`pwd`: Print working directory, i.e. the directory we are currently in
-`cd`: Go somewhere on your filesystem
-- know: .. (up one directory) and . (current directory)
-`ls`: See what is in that folder
-`clear`: Get that junk off the screen
-`mkdir`: Create a folder
-`rm`: Delete a file
+* `pwd`: Print working directory, i.e. the directory we are currently in
+* `cd`: Go somewhere on your filesystem
+* know: .. (up one directory) and . (current directory)
+* `ls`: See what is in that folder
+* `clear`: Get that junk off the screen
+* `mkdir`: Create a folder
+* `rm`: Delete a file
 
-Arguments: additional parameters for the command or program
-`ls -la`: more verbose
-`rm -r`: Recursively delete something
+### Arguments
+These are additional parameters for the command or program
+* `ls -la`: more verbose
+* `rm -r`: Recursively delete something
 
-Redirection:
-`echo thing`: Prints out `thing` to the terminal
-`echo "Hello, world!" > guestbook.txt`: Writes "Hello, world!" to that file
+### Redirection
+* `echo thing`: Prints out `thing` to the terminal
+* `echo "Hello, world!" > guestbook.txt`: Writes "Hello, world!" to that file
+
 Run `cat guestbook.txt` to print out the contents of that file
 
-`ls -la > directory.txt`: Writes the output of `ls -la` to directory.txt
+* `ls -la > directory.txt`: Writes the output of `ls -la` to directory.txt
 
 ### STDIN, STDOUT, STDERR
 
