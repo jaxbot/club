@@ -15,6 +15,10 @@ Bastide.mailingList = {
                 xhr.setRequestHeader("Content-type", "application/json");
                 xhr.send(JSON.stringify({ email: email }));
                 xhr.onload = function() {
+                        if (xhr.status !== 200 || !xhr.responseText || xhr.responseText.indexOf("youtube.com") === -1) {
+                                alert("Oh no! The email signup API seems to be down. Shoot us an email or let us know on Facebook\nHow embarassing.");
+                                return;
+                        }
                         var btn = document.getElementById("signupButton");
                         btn.className += " done";
                         btn.disabled = true;
