@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  <section class="section section--{{ page.title }}">
+    {{ content|safe }}
+  </section>
+{% endblock %}

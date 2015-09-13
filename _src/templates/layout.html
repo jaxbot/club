@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - {{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="{{ site.description }}">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    {% block head %}
+    <script src="../assets/js/modernizr.js"></script>
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Hind:300,400,700">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="nav-menu" role="navigation" aria-label="Menu">
+      <button class="nav-menu__button" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="nav-menu__button__bar"></span>
+        <span class="nav-menu__button__bar"></span>
+        <span class="nav-menu__button__bar"></span>
+      </button>
+
+      <ul aria-hidden="true">
+        <li><a href="#home" data-scroll>Home</a></li>
+        <li><a href="#about" data-scroll>About</a></li>
+        <li><a href="#sponsors" data-scroll>Sponsors</a></li>
+        <li><a href="#faq" data-scroll>FAQ</a></li>
+
+        <li class="nav-menu__social">
+          <a href="{{ site.socialLinks.facebook }}" target="_blank"><span class="fa fa-fw fa-facebook"></span></a>
+          <a href="{{ site.socialLinks.twitter }}" target="_blank"><span class="fa fa-fw fa-twitter"></span></a>
+          <a href="{{ site.socialLinks.github }}" target="_blank"><span class="fa fa-fw fa-github"></span></a>
+        </li>
+      </ul>
+    </nav>
+
+    <main role="main">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer role="contentinfo">
+      <img class="footer-logo" src="../assets/img/logo.png" alt="Knight Hacks">
+      <p>&copy; {{ Date.now() | date('Y') }} Knight Hacks</p>
+      <p>Hosted by the <a href="http://club.knighthacks.org" target="_blank">Knight Hacks Club</a></p>
+      <p>A registered student organization at the University of Central Florida.</p><br>
+      <p>tea<!-- -->m@knighthacks.org</p>
+    </footer>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/scripts.min.js"></script>
+  </body>
+</html>

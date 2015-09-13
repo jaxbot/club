@@ -1,5 +1,10 @@
-# Club Website
-If you wish to run locally and make changes,
-```jekyll serve```.
+# KnightHacks.org
 
-Please be sure to do all changes through pull requests.
+Run:
+```
+npm install
+npm install -g bower gulp
+bower install
+gulp
+# Output will be in _dist/
+```

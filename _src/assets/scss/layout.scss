@@ -1,0 +1,194 @@
+body {
+  font-family: "Hind", sans-serif;
+
+  background: $dark-gray;
+
+  &.modal-active {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font;
+  //font-weight: bold;
+  letter-spacing: rem-calc(5);
+  text-transform: uppercase;
+
+  color: $black;
+}
+
+h1 {
+  margin-bottom: $default-space;
+
+  font-size: 2.125rem;
+
+  @media #{$large-up} {
+    font-size: 2.75rem;
+  }
+}
+
+a {
+  color: $teal;
+}
+
+p {
+  margin-bottom: $default-space;
+
+  line-height: 2;
+
+  &:last-of-type,
+  &:only-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.lead {
+  font-family: $heading-font;
+  letter-spacing: rem-calc(1);
+  text-transform: uppercase;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+form[role=form] {
+  display: flex;
+  width: 100%;
+
+  align-items: center;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: center;
+
+  label {
+    width: 100%;
+
+    flex: none;
+
+    background: rgba(0,0,0,0.1);
+    border: rem-calc(1) solid $white;
+
+    &:last-of-type {
+      flex: 1 0 auto;
+
+      textarea {
+        height: 100%;
+      }
+    }
+
+    span {
+      display: block;
+      padding: rem-calc(7.5) rem-calc(15) 0;
+
+      font-family: $heading-font;
+      font-weight: bold;
+      letter-spacing: rem-calc(1);
+      text-transform: uppercase;
+
+      color: fade-out($black, 0.45);
+    }
+
+    input,
+    textarea {
+      margin: 0;
+      padding: rem-calc(7.5) rem-calc(15);
+
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      color: $black;
+
+      &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+
+  button[type=submit] {
+    flex: none;
+  }
+}
+
+.reveal-modal {
+  padding: $default-space;
+
+  background-color: $dark-gray;
+  border: 0;
+  border-radius: rem-calc(4);
+  color: $white;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $white;
+  }
+
+  form[role=form] {
+    label {
+      background: darken($dark-gray, 7%);
+      border: rem-calc(1) solid $dark-gray;
+
+      span {
+        color: fade-out($white, 0.45);
+      }
+
+      input,
+      textarea {
+        color: $white;
+      }
+    }
+  }
+}
+
+footer[role=contentinfo] {
+  position: relative;
+
+  padding: ($default-space * 2) 0;
+  width: 100%;
+
+  font-weight: bold;
+  letter-spacing: rem-calc(1);
+  text-align: center;
+  text-transform: uppercase;
+
+  background: darken($dark-gray, 7%);
+  color: fade-out($white, 0.3);
+
+  .footer-logo {
+    margin-bottom: $default-space;
+    max-width: rem-calc(175);
+    height: auto;
+
+    @media #{$medium-up} {
+      max-width: rem-calc(200);
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+
+    font-size: 0.85rem;
+
+    &:first-of-type {
+      margin-bottom: $default-space;
+    }
+  }
+}
+
+.reveal-modal .errors {
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+}

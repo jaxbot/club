@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="{{ site.description }}">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+
+    <script src="assets/js/modernizr.js"></script>
+
+    <link href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Hind:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body>
+    <nav class="nav-menu" role="navigation" aria-label="Menu">
+      <button class="nav-menu__button" role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="nav-menu__button__bar"></span>
+        <span class="nav-menu__button__bar"></span>
+        <span class="nav-menu__button__bar"></span>
+      </button>
+
+      <ul aria-hidden="true">
+        <li><a href="#home" data-scroll>Home</a></li>
+        <li><a href="#about" data-scroll>About</a></li>
+        <li><a href="#sponsors" data-scroll>Sponsors</a></li>
+        <li><a href="#faq" data-scroll>FAQ</a></li>
+
+        <li class="nav-menu__social">
+          <a href="{{ site.socialLinks.facebook }}" target="_blank"><span class="fa fa-fw fa-facebook"></span></a>
+          <a href="{{ site.socialLinks.twitter }}" target="_blank"><span class="fa fa-fw fa-twitter"></span></a>
+          <a href="{{ site.socialLinks.github }}" target="_blank"><span class="fa fa-fw fa-github"></span></a>
+        </li>
+      </ul>
+    </nav>
+
+    <main role="main">
+      <section id="home" class="section section--home">
+        <div class="section__content no-margin">
+          <h1 class="section--home__logo">{{ site.title }}</h1>
+
+          <p class="section--home__description lead">{{ site.description }}</p>
+
+          <p class="section--home__date lead">{{ site.hackathonDate }}</p>
+
+          <p><a class="button small" href="#" data-reveal-id="signUpModal">Sign Up!</a></p>
+
+          <a class="button button__down" href="#about" role="button" aria-label="Scroll down to content" data-scroll><span class="fa fa-2x fa-angle-down"></span></a>
+        </div>
+      </section>
+
+      <section id="about" class="section section--about" data-equalizer-watch>
+        <div class="row">
+          <div class="columns">
+            <header>
+              <h1>About</h1>
+            </header>
+
+            <div class="section__content">
+              <p>{{ about }}</p>
+            </div>
+
+            <footer>
+              <p>
+                <a class="button button--social small" href="{{ site.socialLinks.facebook }}" target="_blank"><span class="fa fa-fw fa-facebook"></span></a>
+                <a class="button button--social small" href="{{ site.socialLinks.twitter }}" target="_blank"><span class="fa fa-fw fa-twitter"></span></a>
+                <a class="button button--social small" href="{{ site.socialLinks.github }}" target="_blank"><span class="fa fa-fw fa-github"></span></a>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </section>
+
+      <section id="sponsors" class="section section--sponsors" data-equalizer-watch>
+        <div class="row">
+          <div class="columns">
+            <header>
+              <h1>Sponsors</h1>
+            </header>
+
+            <div class="section__content">
+              <p>{{ sponsors.cta }}</p>
+            </div>
+
+            <footer>
+              <p><a class="button small no-margin" href="#" data-reveal-id="sponsorsModal">Contact Us!</a></p>
+            </footer>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section section--faq">
+        <div class="row">
+          <div class="columns">
+            <header>
+              <h1>FAQ</h1>
+            </header>
+
+            <div class="section__content no-margin">
+              <div class="faq-columns">
+                {% for faq in faqs %}
+                  <div class="faq">
+                    <h3 id="question-{{ loop.key + 1 }}-heading">{{ faq.question }}</h3>
+                    <p>{{ faq.answer }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <hr>
+
+            <h2 class="text-center margin--bottom">Have any more questions for us?</h2>
+            <p class="text-center"><a class="button small" href="#" data-reveal-id="emailModal">Shoot us an email!</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <img class="footer-logo" src="assets/img/logo.png" alt="Knight Hacks">
+      <p>&copy; {{ Date.now() | date('Y') }} Knight Hacks</p>
+      <p>Hosted by the <a href="http://club.knighthacks.org" target="_blank">Knight Hacks Club</a></p>
+      <p>A registered student organization at the University of Central Florida.</p><br>
+      <p>tea<!-- -->m@knighthacks.org</p>
+    </footer>
+
+    <div id="signUpCompletedModal" class="reveal-modal" data-reveal aria-labelledby="thanksModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="thanksModalTitle">Thanks!</h2>
+      Thanks for signing up! We'll be in touch when we have more updates to share.
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="signUpModal" class="reveal-modal" data-reveal aria-labelledby="signUpModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="signUpModalTitle">Sign Up</h2>
+
+      <form role="form">
+        <div class="row small-collapse margin--bottom">
+          <div class="medium-6 columns">
+            <label><span>Name</span>
+              <input type="text" placeholder="John Doe" class="name" required>
+            </label>
+          </div>
+          <div class="medium-6 columns">
+            <label><span>Email</span>
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>School</span>
+              <input type="text" placeholder="University of Central Florida" class="school" required>
+            </label>
+          </div>
+        </div>
+
+        <button class="button small" onClick="Bastide.Registration.signup()" type="button" role="button">Submit</button>
+      </form>
+
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="sponsorsModal" class="reveal-modal" data-reveal aria-labelledby="sponsorsModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="sponsorsUpModalTitle">Contact Us</h2>
+
+      <form role="form">
+        <div class="errors alert-box alert">
+          Please make sure you have provided a valid email address.
+        </div>
+
+        <div class="row small-collapse margin--bottom">
+          <div class="medium-6 columns">
+            <label><span>Name</span>
+              <input type="text" placeholder="John Doe" class="name" required>
+            </label>
+          </div>
+          <div class="medium-6 columns">
+            <label><span>Email</span>
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>Company</span>
+              <input type="text" placeholder="University of Central Florida" class="company" required>
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>Message</span>
+              <textarea class="message" placeholder="Type your message here..." required></textarea>
+            </label>
+          </div>
+        </div>
+
+        <button class="button small" type="button" onClick="Bastide.Contact.sendSponsorEmail();" role="button">Submit</button>
+      </form>
+
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="emailModal" class="reveal-modal" data-reveal aria-labelledby="emailModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="emailModalTitle">Email us</h2>
+
+      <form role="form">
+        <div class="errors alert-box alert">
+          Please make sure you have provided a valid email address.
+        </div>
+
+        <div class="row small-collapse margin--bottom">
+          <div class="columns">
+            <label><span>Name</span>
+              <input type="text" placeholder="John Doe" class="name" required>
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>Email</span>
+              <input type="email" placeholder="hack@knights.ucf.edu" class="email" required>
+            </label>
+          </div>
+          <div class="columns">
+            <label><span>Message</span>
+              <textarea class="message" placeholder="Type your message here..." required></textarea>
+            </label>
+          </div>
+        </div>
+
+        <p class="text-center">
+          <button class="button small" onClick="Bastide.Contact.sendEmail()" type="button" role="button">Send</button>
+          <a class="button secondary small" href="mailto:team@knighthacks.org">Or email us directly</a>
+        </p>
+      </form>
+
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <div id="emailCompletedModal" class="reveal-modal" data-reveal aria-labelledby="emailCompletedModalTitle" aria-hidden="true" role="dialog">
+      <h2 class="text-center no-margin margin--bottom" id="emailCompletedModalTitle">Email sent</h2>
+      <p class="text-center">
+        Thanks for reaching out to us! We'll reply shortly.
+      </p>
+
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/scripts.min.js"></script>
+  </body>
+</html>
