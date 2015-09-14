@@ -1,18 +1,16 @@
 'use strict';
 
+// Gulp plugins
 var del     = require('del'),
     fs      = require('fs'),
     gulp    = require('gulp'),
     merge   = require('merge-stream'),
     path    = require('path'),
     swig    = require('swig'),
-    through = require('through2'),
     yaml    = require('js-yaml'),
     plugins = require('gulp-load-plugins')({
       rename: { // Make sure these non-standard named gulp plugins load correctly
         'gulp-front-matter': 'frontMatter',
-        'gulp-apply-template': 'applyTemplate',
-        'gulp-minify-html': 'minifyHtml'
       }
     });
 
@@ -32,14 +30,23 @@ var htmlminOpts = {
 gulp.task('html', function() {
   return gulp.src([
     './_src/*.html',
-    '!./_src/templates/',
     '!./_src/assets/'
   ])
     .pipe(plugins.plumber())
     .pipe(plugins.data(function(file) {
-      return yaml.safeLoad(fs.readFileSync('./_data/config.yml', 'utf8'));
+      return {
+        site: yaml.safeLoad(fs.readFileSync('./_data/config.yml', 'utf8'))
+      };
     }))
-    .pipe(plugins.swig({ defaults: { cache: false } }))
+    .pipe(plugins.tap(function(file) {
+      var tpl  = swig.compileFile(file.path),
+          data = {
+            site: file.data.site,
+            content: file.contents.toString()
+          }
+
+      file.contents = new Buffer(tpl(data), 'utf8');
+    }))
     .pipe(plugins.htmlmin(htmlminOpts))
     .pipe(gulp.dest('./_dist/'))
     .pipe(plugins.size({ title: 'html' }));
@@ -49,7 +56,6 @@ gulp.task('html', function() {
 gulp.task('content', function() {
   return gulp.src([
     './_src/**/*.md',
-    '!./_src/templates/',
     '!./_src/assets/'
   ])
     .pipe(plugins.plumber())
@@ -62,7 +68,7 @@ gulp.task('content', function() {
     }))
     .pipe(plugins.marked())
     .pipe(plugins.tap(function(file) {
-      var tpl  = swig.compileFile('./_src/templates/' + file.data.page.template + '.html'),
+      var tpl  = swig.compileFile('./_src/assets/templates/' + file.data.page.template + '.html'),
           data = {
             site: file.data.site,
             page: file.data.page,

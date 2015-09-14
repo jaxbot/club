@@ -10,8 +10,8 @@
 
   text-align: center;
 
-  background: $white;
-  color: $white;
+  background-color: $dark-gray;
+  color: fade-out($white, 0.3);
 
   @media #{$large-up} {
     padding: ($default-space * 3);
@@ -110,30 +110,6 @@
     }
   }
 
-  &--faq {
-    background-color: $dark-gray;
-    color: fade-out($white, 0.3);
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: $white;
-    }
-
-    hr {
-      margin: $default-space 0;
-
-      border-color: rgba(0,0,0,0.15);
-
-      @media #{$medium-up} {
-        margin: ($default-space * 1.5) 0;
-      }
-    }
-  }
-
   header {
     flex: none;
 
@@ -150,6 +126,25 @@
       margin: 0 0 $default-space;
 
       line-height: 1;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $white;
+  }
+
+  hr {
+    margin: $default-space 0;
+
+    border-color: rgba(0,0,0,0.15);
+
+    @media #{$medium-up} {
+      margin: ($default-space * 1.5) 0;
     }
   }
 
