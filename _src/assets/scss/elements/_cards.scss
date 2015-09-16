@@ -1,0 +1,14 @@
+.card {
+  position: relative;
+
+  padding: $default-space;
+
+  text-align: center;
+
+  border: rem-calc(1) solid rgba(0,0,0,0.15);
+
+  h3 {
+    font-size: rem-calc(22);
+    letter-spacing: rem-calc(1)
+  }
+}

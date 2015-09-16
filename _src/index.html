@@ -12,14 +12,75 @@
       <h1 class="section--home__logo">{{ site.title }}</h1>
 
       <p class="section--home__description lead">{{ site.description }}</p>
+      <p class="lead">Meetings every Friday at 6:15PM in HEC 117</p>
+
+      <a class="button button__down" href="#schedule" role="button" aria-label="Scroll down to content" data-scroll><span class="fa fa-2x fa-angle-down"></span></a>
     </div>
   </section>
 
   <section id="schedule" class="section section--schedule">
     <div class="section__content no-margin">
-      <h1>Schedule</h1>
+      <header>
+        <h1>Schedule</h1>
+      </header>
 
-      <p>Schedule</p>
+      <div class="section__content">
+        <div class="card margin--bottom">
+          I'm card content!
+        </div>
+
+        <div class="card">
+          I'm card content!
+        </div>
+      </div>
+
+      <p><a class="button" href="/events">View complete schedule</a></p>
+    </div>
+  </section>
+
+  <section id="workshops" class="section section--workshops">
+    <div class="section__content no-margin">
+      <h1>Workshops</h1>
+
+      <div class="section__content">
+        <div class="card">
+          I'm card content!
+        </div>
+      </div>
+
+      <p><a class="button" href="/workshops">View more workshops</a></p>
+    </div>
+  </section>
+
+  <section id="resources" class="section section--resources">
+    <div class="section__content no-margin">
+      <h1>Resources</h1>
+
+      <div class="section__content">
+        <div class="card">
+          I'm card content!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mailing-list" class="section section--mailing-list">
+    <div class="section__content no-margin">
+      <h1>Mailing List</h1>
+
+      <div class="section__content">
+        <form role="form">
+          <div class="row small-collapse margin--bottom">
+            <div class="columns">
+              <label><span>Email</span>
+                <input type="email" placeholder="hack@knights.ucf.edu" class="email" required="" onkeydown="this.className='email'">
+              </label>
+            </div>
+          </div>
+
+          <button class="button small" type="button" role="button">Submit</button>
+        </form>
+      </div>
     </div>
   </section>
 {% endblock %}

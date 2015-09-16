@@ -26,6 +26,8 @@ var htmlminOpts = {
   minifyURLs: true
 }
 
+swig.setDefaults({ cache: false });
+
 // HTML task
 gulp.task('html', function() {
   return gulp.src([
@@ -102,6 +104,7 @@ gulp.task('styles', function() {
     .pipe(plugins.plumber())
     .pipe(plugins.sass({outputStyle: 'compressed'}))
     .pipe(plugins.autoprefixer('last 1 version'))
+    .pipe(plugins.rename('styles.min.css'))
     .pipe(gulp.dest('./_dist/assets/css'))
     .pipe(plugins.size({ title: 'styles' }));
 });
@@ -162,11 +165,12 @@ gulp.task('clear', function(done) {
 });
 
 // Build task
-gulp.task('build', ['html', 'styles', 'scripts', 'fonts', 'images']);
+gulp.task('build', ['html', 'content', 'styles', 'scripts', 'fonts', 'images']);
 
 // Watch task
 gulp.task('watch', function() {
   gulp.watch(['./_src/**/*.html', '_data/*.yml'], ['html']);
+  gulp.watch(['./_src/**/*.md', '!./_src/assets/'], ['content']);
   gulp.watch(['./_src/**/*.xml', './_src/**/*.txt'], ['build']);
   gulp.watch(['./_src/assets/scss/**/*.scss'], ['styles']);
   gulp.watch(['./_src/assets/js/**/*.js'], ['scripts']);
