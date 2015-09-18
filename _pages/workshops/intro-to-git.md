@@ -64,6 +64,12 @@ Now, we want to `commit` this change, or make it set in stone. We also want to d
 
 **NOTE**: If you have never committed on this machine git will ask you to fill out some basic information about yourself (name and email). It will give you the commands to run, so just follow them!
 
+**Side Note**: If you `git commit` without the `-m`, it will open a visual commit message editor. This will probably be VIM and to add and save your commit message follow these steps:
+* Press `i` to go into insert mode, then type out your commit message.
+* Press `esc` to leave insert mode once you finish.
+* Type in `:wq` to write (save) and then quit.
+* All done! You used vim and saved a commit message :D
+
 ```
 // Normally, the first commit is described as the “initial commit”
 $ git commit -m “Initial Commit”
@@ -95,7 +101,7 @@ My changed `hello.txt`:
 ```
 Hi! I am Ivey. I am a member of Knight Hacks!
 ```
-Checking the status now should show hello.txt under `Changes not staged for commit`. This means that there have been changes on this file, but when you commit, that file will not be included in the commit message. The easiest way to describe this is if you make changes to a lot of files but only want to commit a few of the files, the ones not staged for commit will not be included.
+Checking the status now should show hello.txt under `Changes not staged for commit`. This means that there have been changes on this file, but when you commit, that file will not be included in the list of changes. The easiest way to describe this is if you make changes to a lot of files but only want to commit a few of the files, the ones not staged for commit will not be included. An example of this would be if you are working on a few files but only want to commit what is finished, you would add those files and not the unfinished ones.
 ```
 $ git status
 
@@ -109,6 +115,8 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 Now let’s `diff` it! This is checking to see what changes were made between the last commit and now. You should see the changes you made reflected in green if you added anything and red if you deleted anything.
+
+**Side Note**: If your changes are longer than the terminal window, you will be able to scroll through them using vim commands. You can use the arrows keys, `j` and `k`, or enter to scroll through them. To exit, you just have to hit the `q` key.
 ```
 $ git diff
 
@@ -133,7 +141,7 @@ $ git commit -m “Added my Knight Hacks membership status.”
 
 Before we move onto editing a remote repository, let's learn how to branch and merge changes.
 
-Branching is so that you can make all of your changes, make sure they work, and then merge the main branch back into it to make sure your changes keep up to date with any changes anyone else made.
+Branching is so that you can make all of your changes, make sure they work, and then merge the main branch back into it to make sure your changes keep up to date with any changes anyone else made. An example of this is if you want to test out some change you want to make but don't want to affect anyone else's code or the main code base.
 
 Let’s branch off of the master branch to make some changes.
 
@@ -387,6 +395,24 @@ $ git push origin iveysaur-changes
 ```
 
 And you are done! If you have questions please reach out to us. Also, keep an eye on your branch, we may make changes to them and have you pull our changes ;)
+
+# Tips
+
+* `git commit -a`
+  * This replaces `git add` + `git commit`.
+  * It commits all files in the `changes not staged for commit` area. 
+  * This does **not** commit any untracked files.
+  * Be careful with this as it can lead to committing something you didn't mean to!
+* `git checkout -b <SOME_BRANCH>`
+  * This replaces `git branch <SOME_BRANCH>` + `git checkout <SOME_BRANCH>`.
+  * Just a handy shortcut to create and switch to a branch!
+* **NEVER** commit any passwords.
+  * Once you commit something (and especially push it somewhere) it is there for good!
+  * You don't want to commit any passwords or secret keys, because then everyone knows them!
+* **ALWAYS** `git status` and `git diff`.
+  * Moral of the story is to be certain of what you commit before you commit it. 
+  * It saves a lot of time and stress to check your changes before you commit them.
+* If you get stuck there is probably a stack overflow question that answers your issue, just google it!
 
 # More Resources
 
