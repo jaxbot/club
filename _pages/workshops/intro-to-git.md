@@ -59,6 +59,9 @@ Changes to be committed:
 	new file:   hello.txt
 ```
 Now, we want to `commit` this change, or make it set in stone. We also want to describe what we did with this change.
+
+**NOTE**: If you have never committed on this machine git will ask you to fill out some basic information about yourself (name and email). It will give you the commands to run, so just follow them!
+
 ```
 // Normally, the first commit is described as the “initial commit”
 $ git commit -m “Initial Commit”
