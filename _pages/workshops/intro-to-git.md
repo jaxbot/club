@@ -18,13 +18,15 @@ My `hello.txt`:
 ```
 Hi! I am Ivey.
 ```
-Now it is time to get started with git! We are going to "initialize" it inside of the directory, which tells git we want to keep track of this directory with git. 
+Now it is time to get started with git! We are going to "initialize" it inside of the directory, which tells git we want to keep track of this directory with git.
 ```
 $ git init
 
 Initialized empty git repository in <YOUR-DIRECTORY>/knighthacks/git-example/.git/
 ```
-Now to give a bit of a breakdown of what happens once you initialize. We will check the `status` of the directory, which will tell you which files are "tracked" and "untracked" along with which files have changes made to them. It also gives you more information but we will get to that soon.
+Now to give a bit of a breakdown of what happens once you initialize. It creates some hidden `.git`  files/directories which contains the information making the directory a git repository. **IMPORTANT**: If you delete this, you lose all of your git history!
+
+We will check the `status` of the directory, which will tell you which files are "tracked" and "untracked" along with which files have changes made to them. It also gives you more information but we will get to that soon.
 
 So running `git status` at this point should tell you that `hello.txt` is an `untracked file`. This means that git is not keeping track of changes made to this file, we want it to keep track.
 ```
@@ -196,7 +198,7 @@ Now that you know how to branch and merge, let's move onto editing a remote repo
 
 # Editing a Remote Repository
 
-Now we want to `pull` down someone’s code and make changes to them. 
+Now we want to `pull` down someone’s code and make changes to them.
 
 You should still be in the `knighthacks/git-example` directory, let’s step back into `knighthacks/` and `clone` a git repository into it.
 
@@ -204,7 +206,7 @@ Repository: https://github.com/KnightHacks/git-workshop.git
 
 Cloning copies all files from a git repository and puts it into your local folder.
 ```
-// Let's go back into the 'knighthacks/' directory first. 
+// Let's go back into the 'knighthacks/' directory first.
 $ cd ../
 // You should be in 'knighthacks/' now! If you aren't, find you way back.
 $ git clone https://github.com/KnightHacks/git-workshop.git
