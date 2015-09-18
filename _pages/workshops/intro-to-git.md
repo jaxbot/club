@@ -394,6 +394,14 @@ Finally, we can push to a branch on the remote repository, to the same branch we
 **USE YOUR GITHUB USERNAME AND NOT "IVEYSAUR"**
 ```
 $ git push origin iveysaur-changes
+# Note: You will be prompted for a username and password when you push
+# Usually you'd sign in with your personal GitHub username/password, BUT
+# because we didn't want to manually add a bunch of accounts to the repo,
+# use this special access token to push to this repo and this repo only:
+# Username: knighthacksmember
+# Password: 829611391df8970f0c6fdf6a5f109bb4751a6481
+# This is a temp access token that will be nuked after the workshop
+# (You *can* copy and paste that into GitBash or Terminal)
 ```
 
 And you are done! If you have questions please reach out to us. Also, keep an eye on your branch, we may make changes to them and have you pull our changes ;)
