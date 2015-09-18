@@ -279,6 +279,8 @@ You should still be in `knighthacks/git-workshop`
 
 **USE YOUR GITHUB USERNAME AND NOT "IVEYSAUR"**
 ```
+// Make sure we're on master
+$ git checkout master
 // Create a branch called <USERNAME>-changes
 $ git branch iveysaur-changes
 $ git branch
