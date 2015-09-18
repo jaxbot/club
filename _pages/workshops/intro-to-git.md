@@ -2,7 +2,9 @@
 
 **NOTE**: If you are using Windows, use [GitBash](https://git-scm.com/download/win) for all the following commands.
 
-Go to the home directory and make and go into a Knight Hacks Directory (skip if you already have one). Make a `git-example` directory and go into it. Then create a hello.txt file and edit it with whatever editor you choose, add something to the file.
+**Another Note**: If you aren't familiar with command line tools, glance over our [Command Line Workshop](https://github.com/KnightHacks/club/blob/master/_pages/workshops/intro-to-command-line-linux-and-windows.md).
+
+Go to the home directory (~) and make and go into a Knight Hacks Directory (skip if you already have one). Make a `git-example` directory and go into it. Then create a hello.txt file and edit it with whatever editor you choose, add something to the file.
 
 ```
 $ cd ~
