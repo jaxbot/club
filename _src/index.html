@@ -1,6 +1,55 @@
+---
+title: Knight Hacks
+homepage: true
+slug: /
+meeting:
+  day: Friday
+  time: 6:15 PM
+  location: HEC 117
+events:
+  -
+    name: Intro to Git Workshop
+    date: 09/18/15
+  -
+    name: Knight Hacks Hackathon
+    date: 01/15/16
+workshops:
+  -
+    name: '`git` Workshop'
+    date: 9/18/2015
+    time: 6:15 PM
+    url: '/workshops/git-workshop'
+  -
+    name: Command Line Workshop
+    date: 9/11/2015
+    time: 6:15 PM
+    url: '/workshops/command-line'
+resources:
+  -
+    name: GitHub Student Developer Pack
+    url: //education.github.com/pack
+  -
+    name: JetBrains Student Developer Pack
+    url: //www.jetbrains.com/student/
+  -
+    name: Github Guide - Hello World
+    url: //guides.github.com/activities/hello-world/
+  -
+    name: Android Developer - Getting Started
+    url: //developer.android.com/training/index.html
+  -
+    name: Bootstrap
+    url: //getbootstrap.com
+  -
+    name: Foundation
+    url: //foundation.zurb.com
+  -
+    name: Skeleton
+    url: //getskeleton.com
+---
 {% extends './assets/templates/layout.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
 
 {% block head %}
   {% parent %}
@@ -9,77 +58,101 @@
 {% block content %}
   <section id="home" class="section section--home">
     <div class="section__content no-margin">
-      <h1 class="section--home__logo">{{ site.title }}</h1>
+      <h1 class="section--home__logo">{{ page.title }}</h1>
 
       <p class="section--home__description lead">{{ site.description }}</p>
-      <p class="lead">Meetings every Friday at 6:15PM in HEC 117</p>
+      <p class="lead">Meetings every {{ page.meeting.day }} at {{ page.meeting.time }} in {{ page.meeting.location }}</p>
 
-      <a class="button button__down" href="#schedule" role="button" aria-label="Scroll down to content" data-scroll><span class="fa fa-2x fa-angle-down"></span></a>
+      <a class="button button__down" href="#about" role="button" aria-label="Scroll down to content" data-scroll><span class="fa fa-2x fa-angle-down"></span></a>
     </div>
   </section>
 
-  <section id="schedule" class="section section--schedule">
-    <div class="section__content no-margin">
-      <header>
-        <h1>Schedule</h1>
-      </header>
-
-      <div class="section__content">
-        <div class="card margin--bottom">
-          I'm card content!
-        </div>
-
-        <div class="card">
-          I'm card content!
+  <section id="about" class="section section--about">
+    <div class="row collapse">
+      <div class="columns">
+        <div class="section__content no-margin">
+          <p class="lead no-margin">Knight Hacks is a student organization at the University of Central Florida, devoted to the builder in everyone. As an RSO, we provide workshops, activities, and support for the hackers of UCF, giving the tools and skills needed to build something extraordinary.</p>
         </div>
       </div>
-
-      <p><a class="button" href="/events">View complete schedule</a></p>
     </div>
   </section>
 
-  <section id="workshops" class="section section--workshops">
-    <div class="section__content no-margin">
-      <h1>Workshops</h1>
+  <div class="row row--full-width collapse" data-equalizer>
+    <div class="medium-6 columns">
+      <section id="schedule" class="section section--schedule background--lavender" data-equalizer-watch>
+        <div class="row collapse">
+          <div class="columns">
+            <header>
+              <h1>Schedule</h1>
+            </header>
 
-      <div class="section__content">
-        <div class="card">
-          I'm card content!
+            <div class="section__content">
+              {% for event in page.events %}
+                <div class="card {% if !loop.last %}margin--bottom{% endif %}">
+                  {{ event.date }}: {{ event.name }}
+                </div>
+              {% endfor %}
+            </div>
+
+            <footer>
+              <p><a class="button" href="/schedule">View complete schedule</a></p>
+            </footer>
+          </div>
         </div>
-      </div>
-
-      <p><a class="button" href="/workshops">View more workshops</a></p>
+      </section>
     </div>
-  </section>
+
+    <div class="medium-6 columns">
+      <section id="workshops" class="section section--workshops background--teal" data-equalizer-watch>
+        <div class="row collapse">
+          <div class="columns">
+            <header>
+              <h1>Workshops</h1>
+            </header>
+
+            <div class="section__content">
+              {% for workshop in page.workshops %}
+                <a {% if !loop.last %}class="margin--bottom"{% endif %} href="{{ workshop.url }}">
+                  <article class="card">
+                    {{ workshop.date }}: {{ workshop.name }}
+                  </article>
+                </a>
+              {% endfor %}
+            </div>
+
+            <footer>
+              <p><a class="button" href="/workshops">View past workshops</a></p>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
   <section id="resources" class="section section--resources">
     <div class="section__content no-margin">
-      <h1>Resources</h1>
+      <div class="row collapse">
+        <div class="columns">
+          <header>
+            <h1>Resources</h1>
+          </header>
 
-      <div class="section__content">
-        <div class="card">
-          I'm card content!
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="section__content no-margin">
+            <article class="card">
+              <ul class="resource-list no-bullet no-margin">
+                {% for resource in page.resources %}
+                  <li>
+                    <a href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </article>
 
-  <section id="mailing-list" class="section section--mailing-list">
-    <div class="section__content no-margin">
-      <h1>Mailing List</h1>
+            <hr>
 
-      <div class="section__content">
-        <form role="form">
-          <div class="row small-collapse margin--bottom">
-            <div class="columns">
-              <label><span>Email</span>
-                <input type="email" placeholder="hack@knights.ucf.edu" class="email" required="" onkeydown="this.className='email'">
-              </label>
-            </div>
+            {% include "./assets/templates/partials/mailing-list.html" %}
           </div>
-
-          <button class="button small" type="button" role="button">Submit</button>
-        </form>
+        </div>
       </div>
     </div>
   </section>

@@ -43,11 +43,11 @@
 
   &.secondary {
     background: transparent;
-    border-color: darken($gray, 25%);
-    color: darken($gray, 25%);
+    border-color: $dark-gray;
+    color: $dark-gray;
 
     &:hover {
-      background-color: darken($gray, 25%);
+      background-color: $dark-gray;
     }
   }
 }

@@ -19,7 +19,7 @@ var htmlminOpts = {
   removeAttributeQuotes: false,
   removeComments: true,
   collapseWhitespace: true,
-  removeRedundantAttributes: true,
+  removeRedundantAttributes: false,
   removeStyleLinkTypeAttributes: true,
   minifyJS: true,
   minifyCSS: true,
@@ -31,26 +31,37 @@ swig.setDefaults({ cache: false });
 // HTML task
 gulp.task('html', function() {
   return gulp.src([
-    './_src/*.html',
-    '!./_src/assets/'
+    './_src/**/*.html',
+    '!./_src/assets/',
+    '!./_src/assets/**'
   ])
     .pipe(plugins.plumber())
+    .pipe(plugins.frontMatter({ property: 'page', remove: true }))
     .pipe(plugins.data(function(file) {
       return {
-        site: yaml.safeLoad(fs.readFileSync('./_data/config.yml', 'utf8'))
+        site: yaml.safeLoad(fs.readFileSync('./_data/config.yml', 'utf8')),
+        page: file.page
       };
     }))
     .pipe(plugins.tap(function(file) {
       var tpl  = swig.compileFile(file.path),
           data = {
             site: file.data.site,
+            page: file.data.page,
             content: file.contents.toString()
           }
 
       file.contents = new Buffer(tpl(data), 'utf8');
     }))
     .pipe(plugins.htmlmin(htmlminOpts))
-    .pipe(gulp.dest('./_dist/'))
+    .pipe(plugins.rename('index.html'))
+    .pipe(gulp.dest(function(file) {
+      if (!file.data.page.homepage) {
+        return path.join('./_dist', file.data.page.slug);
+      } else {
+        return './_dist';
+      }
+    }))
     .pipe(plugins.size({ title: 'html' }));
 });
 
@@ -58,7 +69,8 @@ gulp.task('html', function() {
 gulp.task('content', function() {
   return gulp.src([
     './_src/**/*.md',
-    '!./_src/assets/'
+    '!./_src/assets/',
+    '!./_src/assets/**'
   ])
     .pipe(plugins.plumber())
     .pipe(plugins.frontMatter({ property: 'page', remove: true }))
@@ -169,8 +181,7 @@ gulp.task('build', ['html', 'content', 'styles', 'scripts', 'fonts', 'images']);
 
 // Watch task
 gulp.task('watch', function() {
-  gulp.watch(['./_src/**/*.html', '_data/*.yml'], ['html']);
-  gulp.watch(['./_src/**/*.md', '!./_src/assets/'], ['content']);
+  gulp.watch(['./_src/**/*.html', './_src/**/*.md', '_data/*.yml'], ['html', 'content']);
   gulp.watch(['./_src/**/*.xml', './_src/**/*.txt'], ['build']);
   gulp.watch(['./_src/assets/scss/**/*.scss'], ['styles']);
   gulp.watch(['./_src/assets/js/**/*.js'], ['scripts']);

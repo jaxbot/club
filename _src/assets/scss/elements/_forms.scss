@@ -1,0 +1,39 @@
+form[role=form] {
+  width: 100%;
+
+  label {
+    width: 100%;
+
+    text-align: left;
+
+    background: $dark-gray;
+    border: rem-calc(1) solid $gray;
+
+    span {
+      display: block;
+      padding: rem-calc(7.5) rem-calc(15) 0;
+
+      font-family: $heading-font;
+      font-weight: bold;
+      letter-spacing: rem-calc(1);
+      text-transform: uppercase;
+
+      color: fade-out($white, 0.45);
+    }
+
+    input,
+    textarea {
+      margin: 0;
+      padding: rem-calc(7.5) rem-calc(15);
+
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      color: $white;
+
+      &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+}

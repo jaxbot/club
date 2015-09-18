@@ -1,0 +1,20 @@
+.background {
+  &--gray {
+    background-color: $gray;
+  }
+  &--dark-gray {
+    background-color: $dark-gray;
+
+    @include background-white-buttons($dark-gray);
+  }
+  &--teal {
+    background-color: $teal;
+
+    @include background-white-buttons($teal);
+  }
+  &--lavender {
+    background-color: $lavender;
+
+    @include background-white-buttons($lavender);
+  }
+}

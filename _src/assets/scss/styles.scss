@@ -13,15 +13,19 @@
 // Mixins import
 @import 'mixins';
 
-// Helpers import
-@import 'helpers';
-
 // Elements import
 @import './elements/accordion';
 @import './elements/buttons';
 @import './elements/cards';
+@import './elements/forms';
+@import './elements/modals';
 @import './elements/navigation';
 @import './elements/sections';
+@import './elements/backgrounds';
+@import './elements/markdown';
+
+// Helpers import
+@import 'helpers';
 
 // Main styles import
 @import 'layout';

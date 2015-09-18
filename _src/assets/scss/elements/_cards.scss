@@ -11,4 +11,10 @@
     font-size: rem-calc(22);
     letter-spacing: rem-calc(1)
   }
+
+  .resource-list {
+    li {
+      margin-bottom: ($default-space / 4);
+    }
+  }
 }

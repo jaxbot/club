@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %} - {{ site.title }}</title>
+    {% if page.homepage %}
+      <title>{% block title %}{% endblock %}</title>
+    {% else %}
+      <title>{% block title %}{% endblock %} - {{ site.title }}</title>
+    {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description" content="{{ site.description }}">
@@ -20,6 +24,10 @@
   </head>
 
   <body>
+    {% if !page.homepage %}
+      {% include "./partials/header.html" %}
+    {% endif %}
+
     {% include "./partials/navigation.html" %}
 
     <main role="main">

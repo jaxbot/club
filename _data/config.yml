@@ -1,6 +1,6 @@
 ---
-  title: "Knight Hacks"
-  url: "http://localhost:8080"
-  author: "The Knight Hacks Team"
-  email: "contact@knighthacks.org"
-  description: "Giving people a space to learn and do things they’ve never done before"
+  title: Knight Hacks
+  url: http://localhost:8080
+  author: The Knight Hacks Team
+  email: contact@knighthacks.org
+  description: Giving people a space to learn and do things they’ve never done before

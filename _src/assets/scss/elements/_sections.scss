@@ -10,7 +10,7 @@
 
   text-align: center;
 
-  background-color: $dark-gray;
+  background-color: $gray;
   color: fade-out($white, 0.3);
 
   @media #{$large-up} {
@@ -48,6 +48,12 @@
       justify-content: center;
     }
 
+    p.lead {
+      font-family: $heading-font;
+      letter-spacing: rem-calc(1);
+      text-transform: uppercase;
+    }
+
     &__description {
       margin: 0 auto $default-space;
       max-width: rem-calc(300);
@@ -82,45 +88,8 @@
     }
   }
 
-  &--schedule {
-    background-color: $lavender;
-
-    .button {
-      border-color: $white;
-      color: $white;
-
-      &:hover {
-        background-color: $white;
-        color: $lavender;
-      }
-    }
-  }
-
-  &--workshops {
-    background-color: $teal;
-
-    .button {
-      border-color: $white;
-      color: $white;
-
-      &:hover {
-        background-color: $white;
-        color: $teal;
-      }
-    }
-  }
-
   header {
     flex: none;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: $white;
-    }
 
     h1 {
       margin: 0 0 $default-space;
@@ -151,6 +120,7 @@
   &__content {
     display: flex;
     margin-bottom: $default-space;
+    width: 100%;
 
     flex: 1 0 auto;
     flex-direction: column;

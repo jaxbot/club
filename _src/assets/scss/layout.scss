@@ -1,11 +1,16 @@
 body {
   font-family: "Hind", sans-serif;
 
-  background: darken($dark-gray, 7%);
+  background: $dark-gray;
 
   &.modal-active {
     overflow: hidden;
   }
+}
+
+a {
+  border-bottom: rem-calc(1) solid $teal;
+  color: $teal;
 }
 
 h1,
@@ -14,26 +19,29 @@ h3,
 h4,
 h5,
 h6 {
+  margin-bottom: $default-space;
+
   font-family: $heading-font;
-  //font-weight: bold;
   letter-spacing: rem-calc(5);
   text-transform: uppercase;
 
-  color: $black;
+  color: $white;
 }
 
-h1 {
-  margin-bottom: $default-space;
+@each $header, $size in (
+  h1: rem-calc(44),
+  h2: rem-calc(36),
+  h3: rem-calc(30),
+  h4: rem-calc(24),
+  h5: rem-calc(22),
+  h6: rem-calc(18)) {
+  #{$header} {
+    font-size: ($size * 0.85);
 
-  font-size: 2.125rem;
-
-  @media #{$large-up} {
-    font-size: 2.75rem;
+    @media #{$large-up} {
+      font-size: $size;
+    }
   }
-}
-
-a {
-  color: $teal;
 }
 
 p {
@@ -47,107 +55,20 @@ p {
   }
 }
 
-.lead {
-  font-family: $heading-font;
-  letter-spacing: rem-calc(1);
-  text-transform: uppercase;
-}
-
 img {
   height: auto;
   max-width: 100%;
 }
 
-form[role=form] {
-  display: flex;
-  width: 100%;
+header[role=banner] {
+  padding: ($default-space * 1.5) 0;
 
-  align-items: center;
-  flex: 1 0 auto;
-  flex-direction: column;
-  justify-content: center;
+  text-align: center;
 
-  label {
-    width: 100%;
-
-    flex: none;
-
-    background: rgba(0,0,0,0.1);
-    border: rem-calc(1) solid $white;
-
-    &:last-of-type {
-      flex: 1 0 auto;
-
-      textarea {
-        height: 100%;
-      }
-    }
-
-    span {
-      display: block;
-      padding: rem-calc(7.5) rem-calc(15) 0;
-
-      font-family: $heading-font;
-      font-weight: bold;
-      letter-spacing: rem-calc(1);
-      text-transform: uppercase;
-
-      color: fade-out($black, 0.45);
-    }
-
-    input,
-    textarea {
-      margin: 0;
-      padding: rem-calc(7.5) rem-calc(15);
-
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-      color: $black;
-
-      &:focus {
-        background-color: transparent;
-      }
-    }
-  }
-
-  button[type=submit] {
-    flex: none;
-  }
-}
-
-.reveal-modal {
-  padding: $default-space;
-
-  background-color: $dark-gray;
-  border: 0;
-  border-radius: rem-calc(4);
+  background: $dark-gray url('../img/space-bg.png') no-repeat center;
+  // background-attachment: fixed;
+  background-size: cover;
   color: $white;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $white;
-  }
-
-  form[role=form] {
-    label {
-      background: darken($dark-gray, 7%);
-      border: rem-calc(1) solid $dark-gray;
-
-      span {
-        color: fade-out($white, 0.45);
-      }
-
-      input,
-      textarea {
-        color: $white;
-      }
-    }
-  }
 }
 
 footer[role=contentinfo] {
@@ -161,7 +82,7 @@ footer[role=contentinfo] {
   text-align: center;
   text-transform: uppercase;
 
-  background: darken($dark-gray, 7%);
+  background: $dark-gray;
   color: fade-out($white, 0.3);
 
   .footer-logo {
@@ -182,13 +103,5 @@ footer[role=contentinfo] {
     &:first-of-type {
       margin-bottom: $default-space;
     }
-  }
-}
-
-.reveal-modal .errors {
-  display: none;
-
-  &.visible {
-    display: block;
   }
 }

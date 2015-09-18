@@ -1,0 +1,25 @@
+.reveal-modal {
+  padding: $default-space;
+
+  background-color: $dark-gray;
+  border: 0;
+  border-radius: rem-calc(4);
+  color: $white;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $white;
+  }
+
+  .errors {
+    display: none;
+
+    &.visible {
+      display: block;
+    }
+  }
+}
