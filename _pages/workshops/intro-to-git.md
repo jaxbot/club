@@ -385,3 +385,8 @@ $ git push origin iveysaur-changes
 ```
 
 And you are done! If you have questions please reach out to us. Also, keep an eye on your branch, we may make changes to them and have you pull our changes ;)
+
+# More Resources
+
+* [Github git tutorial](https://try.github.io/levels/1/challenges/1)
+* [Learn Git Branching](http://pcottle.github.io/learnGitBranching/)
