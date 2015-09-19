@@ -397,13 +397,12 @@ Finally, we can push to a branch on the remote repository, to the same branch we
 ```
 $ git push origin iveysaur-changes
 # Note: You will be prompted for a username and password when you push
-# Usually you'd sign in with your personal GitHub username/password, BUT
-# because we didn't want to manually add a bunch of accounts to the repo,
-# use this special access token to push to this repo and this repo only:
-# Username: knighthacksmember
-# Password: (visit knighthacks.party/token.txt -- github won't let us commit it :p)
-# This is a temp access token that will be nuked after the workshop
-# (You *can* copy and paste that into GitBash or Terminal)
+# During the workshop, we had people push to our public repo using
+# certain credientials. If you are following along after the fact,
+# please fork the main repository and push to your fork instead
+# You can change the remote by doing:
+$ git remote remove origin
+$ git remote add origin <whatever shows up in the clone URL box>
 ```
 
 And you are done! If you have questions please reach out to us. Also, keep an eye on your branch, we may make changes to them and have you pull our changes ;)
