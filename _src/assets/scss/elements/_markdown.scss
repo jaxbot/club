@@ -6,15 +6,15 @@
 // includes some GitHub Flavored Markdown specific styling (like @mentions)
 .markdown-body {
   overflow: hidden;
-  padding: ($default-space / 2) $default-space;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  padding: $default-space;
+  // font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   text-align: left;
   word-wrap: break-word;
-  background: $white;
-  border-radius: rem-calc(3);
-  color: $black;
+  // background: $dark-gray;
+  border: rem-calc(1) solid rgba(0,0,0,0.15);
+  color: fade-out($white, 0.2);
 
   > *:first-child {
     margin-top: 0 !important;
@@ -61,13 +61,13 @@
     margin-top: 1em;
     margin-bottom: $default-space;
 
-    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+    // font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
     font-weight: bold;
     letter-spacing: 0;
     line-height: 1.4;
     text-transform: none;
 
-    color: $black;
+    color: $white;
 
     .octicon-link {
       display: none;
@@ -95,7 +95,7 @@
     padding-bottom: 0.3em;
     font-size: 2.25em;
     line-height: 1.2;
-    border-bottom: 1px solid #eee;
+    border-bottom: rem-calc(1) solid rgba(0,0,0,0.15);
 
     .anchor {
       line-height: 1;
@@ -106,7 +106,7 @@
     padding-bottom: 0.3em;
     font-size: 1.75em;
     line-height: 1.225;
-    border-bottom: 1px solid #eee;
+    border-bottom: rem-calc(1) solid rgba(0,0,0,0.15);
 
     .anchor {
       line-height: 1;
@@ -259,11 +259,11 @@
     }
 
     tr {
-      background-color: $white;
+      background-color: transparent;
       border-top: 1px solid #ccc;
 
       &:nth-child(2n) {
-        background-color: darken($white, 5%);
+        background-color: rgba(0,0,0,0.15);
       }
     }
   }
@@ -378,8 +378,9 @@
     padding-bottom: 0.2em;
     margin: 0;
     font-size: 85%;
-    background-color: rgba(0,0,0,0.04);
+    background-color: rgba(0,0,0,0.25);
     border-radius: 3px; // don't add padding, gives scrollbars
+    color: $white;
 
     &:before,
     &:after {
@@ -400,6 +401,7 @@
     word-break: normal;
     white-space: pre;
     background: transparent;
+    color: $white;
     border: 0;
   }
 
@@ -413,7 +415,7 @@
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: darken($white, 5%);
+    background-color: rgba(0,0,0,0.25);
     border-radius: 3px;
   }
 

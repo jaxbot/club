@@ -69,6 +69,19 @@ header[role=banner] {
   // background-attachment: fixed;
   background-size: cover;
   color: $white;
+
+  .logo {
+    height: rem-calc(98);
+    margin: 0 auto;
+    width: rem-calc(275);
+
+    text-indent: rem-calc(-9999);
+
+    background: url('../img/logo.png') no-repeat center;
+    background-size: contain;
+
+    color: transparent;
+  }
 }
 
 footer[role=contentinfo] {

@@ -1,51 +1,47 @@
-.no-margin {
-  margin: 0 !important;
+// Margin and padding classes go afterwards so they can function as overrides
+@each $spacing in margin, padding {
+  .no-#{$spacing} {
+    #{$spacing}: 0 !important;
 
-  &--top {
-    margin-top: 0 !important;
+    &--top    { #{$spacing}-top:    0 !important; }
+    &--right  { #{$spacing}-right:  0 !important; }
+    &--bottom { #{$spacing}-bottom: 0 !important; }
+    &--left   { #{$spacing}-left:   0 !important; }
   }
 
-  &--right {
-    margin-top: 0 !important;
-  }
+  .#{$spacing} {
+    #{$spacing}: $default-space !important;
 
-  &--bottom {
-    margin-bottom: 0 !important;
-  }
+    &--top {
+      #{$spacing}-top: $default-space !important;
 
-  &--left {
-    margin-left: 0 !important;
-  }
-}
-
-.margin {
-  margin: $default-space !important;
-
-  &--top {
-    margin-top: $default-space !important;
-    &--half {
-      margin-top: ($default-space / 2) !important;
+      &--half { #{$spacing}-top: ($default-space / 2) !important; }
+      &--2    { #{$spacing}-top: ($default-space * 2) !important; }
+      &--3    { #{$spacing}-top: ($default-space * 3) !important; }
     }
-  }
 
-  &--right {
-    margin-right: $default-space !important;
-    &--half {
-      margin-right: ($default-space / 2) !important;
+    &--right {
+      #{$spacing}-right: $default-space !important;
+
+      &--half { #{$spacing}-right: ($default-space / 2) !important; }
+      &--2    { #{$spacing}-right: ($default-space * 2) !important; }
+      &--3    { #{$spacing}-right: ($default-space * 3) !important; }
     }
-  }
 
-  &--bottom {
-    margin-bottom: $default-space !important;
-    &--half {
-      margin-bottom: ($default-space / 2) !important;
+    &--bottom {
+      #{$spacing}-bottom: $default-space !important;
+
+      &--half { #{$spacing}-bottom: ($default-space / 2) !important; }
+      &--2    { #{$spacing}-bottom: ($default-space * 2) !important; }
+      &--3    { #{$spacing}-bottom: ($default-space * 3) !important; }
     }
-  }
 
-  &--left {
-    margin-left: $default-space !important;
-    &--half {
-      margin-left: ($default-space / 2) !important;
+    &--left {
+      #{$spacing}-left: $default-space !important;
+
+      &--half { #{$spacing}-left: ($default-space / 2) !important; }
+      &--2    { #{$spacing}-left: ($default-space * 2) !important; }
+      &--3    { #{$spacing}-left: ($default-space * 3) !important; }
     }
   }
 }
@@ -54,25 +50,10 @@
   float: none !important;
 }
 
-.padding {
-  padding: $default-space !important;
-}
-.no-padding {
-  padding: 0 !important;
-}
-
-.row--full-width {
-  max-width: 100%;
-  max-width: 100vw;
-}
-
-.row-padding {
-  padding-top:    $default-space;
-  padding-bottom: $default-space;
-
-  &--double {
-    padding-top:    $default-space * 2;
-    padding-bottom: $default-space * 2;
+.row {
+  &--full-width {
+    max-width: 100%; // for browsers that don't suppoer vw
+    max-width: 100vw;
   }
 }
 
@@ -138,310 +119,61 @@
   }
 }
 
-@media #{$small-only} {
-  .small-only {
-    &--no-margin {
-      margin: 0 !important;
+@each $size, $break in ($small-only, small-only),
+                       ($medium-only, medium-only),
+                       ($medium-up, medium-up),
+                       ($large-only, large-only),
+                       ($large-up, large-up) {
+  @media #{$size} {
+    .#{$break} {
+      @each $spacing in margin, padding {
+        &--no-#{$spacing} {
+          #{$spacing}: 0 !important;
 
-      &--top {
-        margin-top: 0 !important;
-      }
+          &--top    { #{$spacing}-top:    0 !important; }
+          &--right  { #{$spacing}-right:  0 !important; }
+          &--bottom { #{$spacing}-bottom: 0 !important; }
+          &--left   { #{$spacing}-left:   0 !important; }
+        }
 
-      &--right {
-        margin-top: 0 !important;
-      }
+        &--#{$spacing} {
+          #{$spacing}: $default-space !important;
 
-      &--bottom {
-        margin-bottom: 0 !important;
-      }
+          &--top {
+            #{$spacing}-top: $default-space !important;
 
-      &--left {
-        margin-left: 0 !important;
-      }
-    }
+            &--half { #{$spacing}-top: ($default-space / 2) !important; }
+            &--2    { #{$spacing}-top: ($default-space * 2) !important; }
+            &--3    { #{$spacing}-top: ($default-space * 3) !important; }
+          }
 
-    &--margin {
-      margin: $default-space !important;
+          &--right {
+            #{$spacing}-right: $default-space !important;
 
-      &--top {
-        margin-top: $default-space !important;
-        &--half {
-          margin-top: ($default-space / 2) !important;
+            &--half { #{$spacing}-right: ($default-space / 2) !important; }
+            &--2    { #{$spacing}-right: ($default-space * 2) !important; }
+            &--3    { #{$spacing}-right: ($default-space * 3) !important; }
+          }
+
+          &--bottom {
+            #{$spacing}-bottom: $default-space !important;
+
+            &--half { #{$spacing}-bottom: ($default-space / 2) !important; }
+            &--2    { #{$spacing}-bottom: ($default-space * 2) !important; }
+            &--3    { #{$spacing}-bottom: ($default-space * 3) !important; }
+          }
+
+          &--left {
+            #{$spacing}-left: $default-space !important;
+
+            &--half { #{$spacing}-left: ($default-space / 2) !important; }
+            &--2    { #{$spacing}-left: ($default-space * 2) !important; }
+            &--3    { #{$spacing}-left: ($default-space * 3) !important; }
+          }
         }
       }
 
-      &--right {
-        margin-right: $default-space !important;
-        &--half {
-          margin-right: ($default-space / 2) !important;
-        }
-      }
-
-      &--bottom {
-        margin-bottom: $default-space !important;
-        &--half {
-          margin-bottom: ($default-space / 2) !important;
-        }
-      }
-
-      &--left {
-        margin-left: $default-space !important;
-        &--half {
-          margin-left: ($default-space / 2) !important;
-        }
-      }
-    }
-
-    &--no-float {
-      float: none !important;
-    }
-
-    &--padding {
-      padding: $default-space !important;
-    }
-
-    &--no-padding {
-      padding: 0 !important;
-    }
-
-    &--row-padding {
-      padding-top:    $default-space;
-      padding-bottom: $default-space;
-      &--double {
-        padding-top:    ($default-space * 2);
-        padding-bottom: ($default-space * 2);
-      }
-    }
-  }
-}
-
-@media #{$medium-up} {
-  .medium-up {
-    &--no-margin {
-      margin: 0 !important;
-
-      &--top {
-        margin-top: 0 !important;
-      }
-
-      &--right {
-        margin-top: 0 !important;
-      }
-
-      &--bottom {
-        margin-bottom: 0 !important;
-      }
-
-      &--left {
-        margin-left: 0 !important;
-      }
-    }
-
-    &--margin {
-      margin: $default-space !important;
-
-      &--top {
-        margin-top: $default-space !important;
-        &--half {
-          margin-top: ($default-space / 2) !important;
-        }
-      }
-
-      &--right {
-        margin-right: $default-space !important;
-        &--half {
-          margin-right: ($default-space / 2) !important;
-        }
-      }
-
-      &--bottom {
-        margin-bottom: $default-space !important;
-        &--half {
-          margin-bottom: ($default-space / 2) !important;
-        }
-      }
-
-      &--left {
-        margin-left: $default-space !important;
-        &--half {
-          margin-left: ($default-space / 2) !important;
-        }
-      }
-    }
-
-    &--no-float {
-      float: none !important;
-    }
-
-    &--padding {
-      padding: $default-space !important;
-    }
-
-    &--no-padding {
-      padding: 0 !important;
-    }
-
-    &--row-padding {
-      padding-top:    $default-space;
-      padding-bottom: $default-space;
-      &--double {
-        padding-top:    ($default-space * 2);
-        padding-bottom: ($default-space * 2);
-      }
-    }
-  }
-}
-
-@media #{$medium-only} {
-  .medium-only {
-    &--no-margin {
-      margin: 0 !important;
-    }
-
-    &--no-margin-top {
-      margin-top: 0 !important;
-    }
-
-    &--no-margin-right {
-      margin-top: 0 !important;
-    }
-
-    &--no-margin-bottom {
-      margin-bottom: 0 !important;
-    }
-
-    &--no-margin-left {
-      margin-left: 0 !important;
-    }
-
-    &--margin {
-      margin: $default-space !important;
-    }
-
-    &--margin-top {
-      margin-top: $default-space !important;
-      &--half {
-        margin-top: ($default-space / 2) !important;
-      }
-    }
-
-    &--margin-right {
-      margin-right: $default-space !important;
-      &--half {
-        margin-right: ($default-space / 2) !important;
-      }
-    }
-
-    &--margin-bottom {
-      margin-bottom: $default-space !important;
-      &--half {
-        margin-bottom: ($default-space / 2) !important;
-      }
-    }
-
-    &--margin-left {
-      margin-left: $default-space !important;
-      &--half {
-        margin-left: ($default-space / 2) !important;
-      }
-    }
-
-    &--no-float {
-      float: none !important;
-    }
-
-    &--padding {
-      padding: $default-space !important;
-    }
-
-    &--no-padding {
-      padding: 0 !important;
-    }
-
-    &--row-padding {
-      padding-top:    $default-space;
-      padding-bottom: $default-space;
-      &--double {
-        padding-top:    ($default-space * 2);
-        padding-bottom: ($default-space * 2);
-      }
-    }
-  }
-}
-
-@media #{$large-up} {
-  .large-up {
-    &--no-margin {
-      margin: 0 !important;
-    }
-
-    &--no-margin-top {
-      margin-top: 0 !important;
-    }
-
-    &--no-margin-right {
-      margin-top: 0 !important;
-    }
-
-    &--no-margin-bottom {
-      margin-bottom: 0 !important;
-    }
-
-    &--no-margin-left {
-      margin-left: 0 !important;
-    }
-
-    &--margin {
-      margin: $default-space !important;
-    }
-
-    &--margin-top {
-      margin-top: $default-space !important;
-      &--half {
-        margin-top: ($default-space / 2) !important;
-      }
-    }
-
-    &--margin-right {
-      margin-right: $default-space !important;
-      &--half {
-        margin-right: ($default-space / 2) !important;
-      }
-    }
-
-    &--margin-bottom {
-      margin-bottom: $default-space !important;
-      &--half {
-        margin-bottom: ($default-space / 2) !important;
-      }
-    }
-
-    &--margin-left {
-      margin-left: $default-space !important;
-      &--half {
-        margin-left: ($default-space / 2) !important;
-      }
-    }
-
-    &--no-float {
-      float: none !important;
-    }
-
-    &--padding {
-      padding: $default-space !important;
-    }
-
-    &--no-padding {
-      padding: 0 !important;
-    }
-
-    &--row-padding {
-      padding-top:    $default-space;
-      padding-bottom: $default-space;
-      &--double {
-        padding-top:    ($default-space * 2);
-        padding-bottom: ($default-space * 2);
-      }
+      &--no-float { float: none !important; }
     }
   }
 }

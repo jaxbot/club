@@ -8,9 +8,6 @@ meeting:
   location: HEC 117
 events:
   -
-    name: Intro to Git Workshop
-    date: 09/18/15
-  -
     name: Knight Hacks Hackathon
     date: 01/15/16
 workshops:
@@ -80,78 +77,68 @@ resources:
   <div class="row row--full-width collapse" data-equalizer>
     <div class="medium-6 columns">
       <section id="schedule" class="section section--schedule background--lavender" data-equalizer-watch>
-        <div class="row collapse">
-          <div class="columns">
-            <header>
-              <h1>Schedule</h1>
-            </header>
+        <header>
+          <h1>Schedule</h1>
+        </header>
 
-            <div class="section__content">
-              {% for event in page.events %}
-                <div class="card {% if !loop.last %}margin--bottom{% endif %}">
-                  {{ event.date }}: {{ event.name }}
-                </div>
-              {% endfor %}
-            </div>
-
-            <footer>
-              <p><a class="button" href="/schedule">View complete schedule</a></p>
-            </footer>
-          </div>
+        <div class="section__content">
+          <ul class="card-list text-left">
+            {% for event in page.events %}
+              <li class="card">
+                <span class="card__date">{{ event.date }}</span> {{ event.name }}
+              </li>
+            {% endfor %}
+          </ul>
         </div>
+
+        <footer>
+          <p><a class="button" href="/events">View complete schedule</a></p>
+        </footer>
       </section>
     </div>
 
     <div class="medium-6 columns">
       <section id="workshops" class="section section--workshops background--teal" data-equalizer-watch>
-        <div class="row collapse">
-          <div class="columns">
-            <header>
-              <h1>Workshops</h1>
-            </header>
+        <header>
+          <h1>Workshops</h1>
+        </header>
 
-            <div class="section__content">
-              {% for workshop in page.workshops %}
-                <a {% if !loop.last %}class="margin--bottom"{% endif %} href="{{ workshop.url }}">
-                  <article class="card">
-                    {{ workshop.date }}: {{ workshop.name }}
-                  </article>
+        <div class="section__content">
+          <ul class="card-list text-left">
+            {% for workshop in page.workshops %}
+              <li>
+                <a class="card" href="{{ workshop.url }}">
+                  <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
                 </a>
-              {% endfor %}
-            </div>
-
-            <footer>
-              <p><a class="button" href="/workshops">View past workshops</a></p>
-            </footer>
-          </div>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
+
+        <footer>
+          <p><a class="button" href="/workshops">View past workshops</a></p>
+        </footer>
       </section>
     </div>
   </div>
 
   <section id="resources" class="section section--resources">
-    <div class="section__content no-margin">
-      <div class="row collapse">
-        <div class="columns">
-          <header>
-            <h1>Resources</h1>
-          </header>
+    <div class="row collapse">
+      <div class="columns">
+        <header>
+          <h1>Resources</h1>
+        </header>
 
-          <div class="section__content no-margin">
-            <article class="card">
-              <ul class="resource-list no-bullet no-margin">
-                {% for resource in page.resources %}
-                  <li>
-                    <a href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            </article>
+        <div class="section__content no-margin">
+          <article class="card-columns">
+            {% for resource in page.resources %}
+              <a class="card" href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
+            {% endfor %}
+          </article>
 
-            <hr>
+          <hr>
 
-            {% include "./assets/templates/partials/mailing-list.html" %}
-          </div>
+          {% include "./assets/templates/partials/mailing-list.html" %}
         </div>
       </div>
     </div>

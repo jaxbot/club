@@ -1,17 +1,17 @@
 ---
-title: Workshops
-slug: workshops
-workshops:
+title: Events Schedule
+slug: events
+events:
   -
     name: '`git` Workshop'
     date: 9/18/2015
     time: 6:15 PM
-    url: '/workshops/git-workshop'
+    url: '/events/git-event'
   -
     name: Command Line Workshop
     date: 9/11/2015
     time: 6:15 PM
-    url: '/workshops/command-line'
+    url: '/events/command-line'
 ---
 
 {% extends '../assets/templates/layout.html' %}
@@ -23,7 +23,7 @@ workshops:
 {% endblock %}
 
 {% block content %}
-  <section id="about" class="section section--workshops">
+  <section id="about" class="section section--events">
     <div class="row collapse">
       <div class="columns">
         <header>
@@ -32,11 +32,9 @@ workshops:
 
         <div class="section__content no-margin">
           <ul class="card-list text-left">
-            {% for workshop in page.workshops %}
-              <li>
-                <a class="card" href="{{ workshop.url }}">
-                  <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
-                </a>
+            {% for event in page.events %}
+              <li class="card">
+                <span class="card__date">{{ event.date }}</span> {{ event.name }}
               </li>
             {% endfor %}
           </ul>
