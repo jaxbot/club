@@ -2,11 +2,10 @@
 
 <form id="mailing-list" role="form">
   <div class="row collapse margin--bottom">
-      <label><span>Email</span>
-        <input class="signupText" id="signupText" type="email" name="email" placeholder="hack@knights.ucf.edu" required onKeyDown="Bastide.mailingList.checkEnter()">
-      </label>
-    </div>
+    <label><span>Email</span>
+      <input class="signupText" id="signupText" type="email" name="email" placeholder="hack@knights.ucf.edu" required onKeyDown="Bastide.mailingList.checkEnter()">
+    </label>
   </div>
 
-  <button class="button small signupButton" id="signupButton" type="button" role="button" onclick="Bastide.mailingList.subscribe()">Sign up</button>
+  <button class="button small signupButton" type="submit" role="button" onclick="Bastide.mailingList.subscribe()">Sign up</button>
 </form>
