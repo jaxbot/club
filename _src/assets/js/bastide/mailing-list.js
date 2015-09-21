@@ -1,13 +1,6 @@
 // Quick 'n dirty™
 if (!window.Bastide) window.Bastide = {};
 Bastide.mailingList = {
-  checkEnter: function(e) {
-    e = e || window.event;
-
-    if (e.keyCode === 13) {
-      Bastide.mailingList.subscribe();
-    }
-  },
   subscribe: function() {
     var form  = document.querySelector('#mailing-list');
     var email = document.querySelector('#mailing-list [name=email]').value;
@@ -17,7 +10,6 @@ Bastide.mailingList = {
         form.querySelector('.alert-box').remove();
       }
 
-      form.className = 'error';
       form.insertAdjacentHTML(
         'afterbegin',
         '<div class="alert-box alert text-left">Please enter a valid email address</div>'
@@ -38,7 +30,6 @@ Bastide.mailingList = {
           form.querySelector('.alert-box').remove();
         }
 
-        form.className = 'error';
         form.insertAdjacentHTML(
           'afterbegin',
           '<div class="alert-box alert text-left">The email signup API seems to be down. Shoot us an email or let us know on Facebook.</div>'
