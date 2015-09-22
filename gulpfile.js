@@ -171,13 +171,21 @@ gulp.task('images', function() {
     .pipe(plugins.size({ title: 'images' }));
 });
 
+// Static resources
+gulp.task('static', function() {
+  return gulp.src('./_src/public/**/*')
+    .pipe(plugins.plumber())
+    .pipe(gulp.dest('./_dist/'))
+    .pipe(plugins.size({ title: 'static' }));
+});
+
 // Clear cache
 gulp.task('clear', function(done) {
   return require('gulp-cache').clearAll(done);
 });
 
 // Build task
-gulp.task('build', ['html', 'content', 'styles', 'scripts', 'fonts', 'images']);
+gulp.task('build', ['static', 'html', 'content', 'styles', 'scripts', 'fonts', 'images']);
 
 // Watch task
 gulp.task('watch', function() {
