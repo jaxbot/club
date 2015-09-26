@@ -8,9 +8,20 @@ meeting:
   location: HEC 117
 events:
   -
+    name: Internship Social
+    date: 10/02/15
+  -
+    name: Advanced Git Workshop
+    date: 10/09/15
+  -
     name: Knight Hacks Hackathon
     date: 01/15/16
 workshops:
+  -
+    name: Set up a free cloud server with Azure
+    date: 9/25/2015
+    time: 6:15 PM
+    url: 'none'
   -
     name: '`git` Workshop'
     date: 9/18/2015
@@ -53,22 +64,12 @@ resources:
 {% endblock %}
 
 {% block content %}
-  <section id="home" class="section section--home">
-    <div class="section__content no-margin">
-      <h1 class="section--home__logo">{{ page.title }}</h1>
-
-      <p class="section--home__description lead">{{ site.description }}</p>
-      <p class="lead">Meetings every {{ page.meeting.day }} at {{ page.meeting.time }} in {{ page.meeting.location }}</p>
-
-      <a class="button button__down" href="#about" role="button" aria-label="Scroll down to content" data-scroll><span class="fa fa-2x fa-angle-down"></span></a>
-    </div>
-  </section>
-
   <section id="about" class="section section--about">
     <div class="row collapse">
       <div class="columns">
         <div class="section__content no-margin">
-          <p class="lead no-margin">Knight Hacks is a student organization at the University of Central Florida, devoted to the builder in everyone. As an RSO, we provide workshops, activities, and support for the hackers of UCF, giving the tools and skills needed to build something extraordinary.</p>
+          <p class="lead">Knight Hacks is a student organization at the University of Central Florida, devoted to the builder in everyone. As an RSO, we provide workshops, activities, and support for the hackers of UCF, giving the tools and skills needed to build something extraordinary.</p>
+          <p class="lead">Meetings every {{ page.meeting.day }} at {{ page.meeting.time }} in {{ page.meeting.location }}</p>
         </div>
       </div>
     </div>
@@ -106,11 +107,17 @@ resources:
         <div class="section__content">
           <ul class="card-list text-left">
             {% for workshop in page.workshops %}
-              <li>
-                <a class="card" href="{{ workshop.url }}">
+              {% if workshop.url !== 'none' %}
+                <li>
+                  <a class="card" href="{{ workshop.url }}">
+                    <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
+                  </a>
+                </li>
+              {% else %}
+                <li class="card">
                   <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
-                </a>
-              </li>
+                </li>
+              {% endif %}
             {% endfor %}
           </ul>
         </div>
