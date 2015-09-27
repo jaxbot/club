@@ -16,6 +16,13 @@
     padding: ($default-space * 3);
   }
 
+  &--about {
+    padding: rem-calc(20);
+    .meetings {
+      color: #fff;
+    }
+  }
+
   &--home {
     // padding: 0;
 
