@@ -83,42 +83,6 @@
   }
 }
 
-.faq-columns {
-  column-count: 1;
-  column-gap: ($default-space / 2);
-
-  @media #{$medium-up} {
-    column-count: 2;
-    column-gap: $default-space;
-  }
-
-  @media #{$large-up} {
-    column-count: 3;
-  }
-
-  .faq {
-    position: relative;
-
-    display: inline-block;
-    margin-bottom: ($default-space / 2);
-    padding: $default-space;
-    width: 100%;
-
-    text-align: center;
-
-    border: rem-calc(1) solid rgba(0,0,0,0.15);
-
-    @media #{$medium-up} {
-      margin-bottom: $default-space;
-    }
-
-    h3 {
-      font-size: rem-calc(22);
-      letter-spacing: rem-calc(1)
-    }
-  }
-}
-
 @each $size, $break in ($small-only, small-only),
                        ($medium-only, medium-only),
                        ($medium-up, medium-up),
