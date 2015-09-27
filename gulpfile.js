@@ -102,11 +102,10 @@ gulp.task('content', function() {
 // Fonts task
 gulp.task('fonts', function() {
   return gulp.src([
-    './_src/assets/fonts/**/*',
-    './_src/assets/_bower_components/font-awesome/fonts/**/*'
+    './_src/assets/font/**/*',
   ])
     .pipe(plugins.plumber())
-    .pipe(gulp.dest('./_dist/assets/fonts'))
+    .pipe(gulp.dest('./_dist/assets/font'))
     .pipe(plugins.size({ title: 'fonts' }));
 });
 
@@ -123,38 +122,14 @@ gulp.task('styles', function() {
 
 // Scripts task
 gulp.task('scripts', function() {
-  var modernizr = gulp.src('./_src/assets/_bower_components/foundation/js/vendor/modernizr.js')
-    .pipe(gulp.dest('./_dist/assets/js'));
-
-  var jquery = gulp.src('./_src/assets/_bower_components/jquery/dist/jquery.min.js')
-    .pipe(gulp.dest('./_dist/assets/js'));
-
   var scripts = gulp.src([
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.abide.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.accordian.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.alert.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.clearing.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.dropdown.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.equalizer.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.interchange.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.joyride.js',
-      // './_src/assets/_bower_components/foundation/js/foundation/foundation.magellan.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.offcanvas.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.orbit.js',
-      './_src/assets/_bower_components/foundation/js/foundation/foundation.reveal.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.slider.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.tab.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.tooltip.js',
-      //'./_src/assets/_bower_components/foundation/js/foundation/foundation.topbar.js',
       './_src/assets/js/**/*.js',
     ])
     .pipe(plugins.concat('scripts.min.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest('./_dist/assets/js'));
 
-  return merge(jquery, modernizr, scripts)
-    .pipe(plugins.plumber())
+  return scripts.pipe(plugins.plumber())
     .pipe(plugins.size({ title: 'scripts' }));
 })
 

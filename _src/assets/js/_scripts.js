@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  $(document).foundation();
-  smoothScroll.init();
-
   document.querySelector('.nav-menu__button').addEventListener('click', function(e) {
     document.querySelector('.nav-menu').classList.toggle('active');
 

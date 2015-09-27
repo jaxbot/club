@@ -17,7 +17,6 @@
     {% block head %}
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300,400,700|Hind:300,400,700">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ site.url }}/assets/css/styles.min.css?{{ Date.now().toString(36) }}">
     {% endblock %}
   </head>
@@ -33,7 +32,6 @@
 
     {% include "./partials/footer.html" %}
 
-    <script src="{{ site.url }}/assets/js/jquery.min.js"></script>
     <script src="{{ site.url }}/assets/js/scripts.min.js?{{ Date.now().toString(36) }}"></script>
   </body>
 </html>
