@@ -135,3 +135,18 @@
     flex: none;
   }
 }
+
+.social-icons {
+  .links {
+    a {
+      text-decoration: none;
+      border: none;
+      color: #fff;
+      font-size: 50px;
+      &:hover {
+        color: #aaa;
+      }
+    }
+    margin-bottom: 20px;
+  }
+}
