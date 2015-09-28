@@ -1,37 +1,11 @@
 ---
-title: Knight Hacks
+title: Knight Hacks @ UCF
 homepage: true
 slug: /
 meeting:
   day: Friday
   time: 6:15 PM
   location: HEC 117
-events:
-  -
-    name: Internship Social
-    date: 10/02/15
-  -
-    name: Advanced Git Workshop
-    date: 10/09/15
-  -
-    name: Knight Hacks Hackathon
-    date: 01/15/16
-workshops:
-  -
-    name: Set up a free cloud server with Azure
-    date: 9/25/2015
-    time: 6:15 PM
-    url: 'none'
-  -
-    name: '`git` Workshop'
-    date: 9/18/2015
-    time: 6:15 PM
-    url: '/workshops/git-workshop'
-  -
-    name: Command Line Workshop
-    date: 9/11/2015
-    time: 6:15 PM
-    url: '/workshops/command-line'
 resources:
   -
     name: GitHub Student Developer Pack
@@ -84,7 +58,7 @@ resources:
 
         <div class="section__content">
           <ul class="card-list text-left">
-            {% for event in page.events %}
+            {% for event in site.events %}
               <li class="card">
                 <span class="card__date">{{ event.date }}</span> {{ event.name }}
               </li>
@@ -106,7 +80,7 @@ resources:
 
         <div class="section__content">
           <ul class="card-list text-left">
-            {% for workshop in page.workshops %}
+            {% for workshop in site.workshops %}
               {% if workshop.url !== 'none' %}
                 <li>
                   <a class="card" href="{{ workshop.url }}">

@@ -1,17 +1,6 @@
 ---
 title: Workshops
 slug: workshops
-workshops:
-  -
-    name: '`git` Workshop'
-    date: 9/18/2015
-    time: 6:15 PM
-    url: '/workshops/git-workshop'
-  -
-    name: Command Line Workshop
-    date: 9/11/2015
-    time: 6:15 PM
-    url: '/workshops/command-line'
 ---
 
 {% extends '../assets/templates/layout.html' %}
@@ -32,7 +21,7 @@ workshops:
 
         <div class="section__content no-margin">
           <ul class="card-list text-left">
-            {% for workshop in page.workshops %}
+            {% for workshop in site.workshops %}
               <li>
                 <a class="card" href="{{ workshop.url }}">
                   <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
