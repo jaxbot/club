@@ -22,11 +22,17 @@ slug: workshops
         <div class="section__content no-margin">
           <ul class="card-list text-left">
             {% for workshop in site.workshops %}
-              <li>
-                <a class="card" href="{{ workshop.url }}">
+              {% if workshop.url !== 'none' %}
+                <li>
+                  <a class="card" href="{{ workshop.url }}">
+                    <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
+                  </a>
+                </li>
+              {% else %}
+                <li class="card">
                   <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
-                </a>
-              </li>
+                </li>
+              {% endif %}
             {% endfor %}
           </ul>
         </div>
