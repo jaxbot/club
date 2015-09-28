@@ -1,0 +1,92 @@
+.card {
+  position: relative;
+
+  display: block;
+  padding: $default-space;
+
+  border: rem-calc(1) solid rgba(0,0,0,0.15);
+
+  transition: all 0.25s ease;
+
+  h3 {
+    font-size: rem-calc(22);
+    letter-spacing: rem-calc(1)
+  }
+
+  .resource-list {
+    li {
+      margin-bottom: ($default-space / 4);
+    }
+  }
+}
+
+a.card:hover {
+  background: rgba(255,255,255,0.1);
+  color: $white;
+}
+
+.card-list {
+  padding: 0;
+  margin: 0;
+
+  border: rem-calc(1) solid rgba(0,0,0,0.15);
+  list-style-type: none;
+
+  .card {
+    margin: 0;
+
+    border: 0;
+
+    &__date {
+      display: inline-block;
+      margin-right: $default-space / 2;
+      padding: rem-calc(2) rem-calc(12);
+      width: rem-calc(112);
+
+      letter-spacing: rem-calc(1);
+      text-align: center;
+
+      background: rgba(0,0,0,0.15);
+    }
+  }
+
+  li,
+  li.card {
+    border-bottom: rem-calc(1) solid rgba(0,0,0,0.15);
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+}
+
+.card-columns {
+  column-count: 1;
+  column-gap: ($default-space / 2);
+
+  @media #{$medium-up} {
+    column-count: 2;
+    column-gap: $default-space;
+  }
+
+  @media #{$large-up} {
+    column-count: 3;
+  }
+
+  .card {
+    position: relative;
+
+    display: inline-block;
+    margin-bottom: ($default-space / 2);
+    width: 100%;
+
+    @media #{$medium-up} {
+      margin-bottom: $default-space;
+    }
+
+    h3 {
+      font-size: rem-calc(22);
+      letter-spacing: rem-calc(1)
+    }
+  }
+}

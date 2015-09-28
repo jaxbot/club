@@ -1,0 +1,134 @@
+---
+title: Knight Hacks @ UCF
+homepage: true
+slug: /
+meeting:
+  day: Friday
+  time: 6:15 PM
+  location: HEC 117
+resources:
+  -
+    name: GitHub Student Developer Pack
+    url: //education.github.com/pack
+  -
+    name: JetBrains Student Developer Pack
+    url: //www.jetbrains.com/student/
+  -
+    name: Github Guide - Hello World
+    url: //guides.github.com/activities/hello-world/
+  -
+    name: Android Developer - Getting Started
+    url: //developer.android.com/training/index.html
+  -
+    name: Bootstrap
+    url: //getbootstrap.com
+  -
+    name: Foundation
+    url: //foundation.zurb.com
+  -
+    name: Skeleton
+    url: //getskeleton.com
+---
+{% extends './assets/templates/layout.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  <section id="about" class="section section--about">
+    <div class="row collapse">
+      <div class="columns">
+        <div class="section__content no-margin">
+          <p class="lead">Knight Hacks is a student organization at the University of Central Florida, devoted to the builder in everyone. As an RSO, we provide workshops, activities, and support for the hackers of UCF, giving the tools and skills needed to build something extraordinary.</p>
+          <p class="lead meetings">Meetings every {{ page.meeting.day }} at {{ page.meeting.time }} in {{ page.meeting.location }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="flex row row--full-width collapse">
+    <div class="flex medium-6 columns">
+      <section id="schedule" class="section section--schedule background--lavender flex">
+        <header>
+          <h1>Schedule</h1>
+        </header>
+
+        <div class="section__content">
+          <ul class="card-list text-left">
+            {% for event in site.events %}
+              <li class="card">
+                <span class="card__date">{{ event.date }}</span> {{ event.name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <footer>
+          <p><a class="button" href="/events">View complete schedule</a></p>
+        </footer>
+      </section>
+    </div>
+
+    <div class="flex medium-6 columns">
+      <section id="workshops" class="section section--workshops background--teal flex">
+        <header>
+          <h1>Workshops</h1>
+        </header>
+
+        <div class="section__content">
+          <ul class="card-list text-left">
+            {% for workshop in site.workshops %}
+              {% if workshop.url !== 'none' %}
+                <li>
+                  <a class="card" href="{{ workshop.url }}">
+                    <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
+                  </a>
+                </li>
+              {% else %}
+                <li class="card">
+                  <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+
+        <footer>
+          <p><a class="button" href="/workshops">View past workshops</a></p>
+        </footer>
+      </section>
+    </div>
+  </div>
+
+  <section id="resources" class="section section--resources">
+    <div class="row collapse">
+      <div class="columns">
+        {% include "./assets/templates/partials/mailing-list.html" %}
+        <hr>
+        {% include "./assets/templates/partials/stay-connected.html" %}
+
+        <hr>
+
+        <header>
+          <h1>Resources</h1>
+        </header>
+
+        <div class="section__content no-margin">
+
+          <article class="card-columns">
+            {% for resource in page.resources %}
+              <a class="card" href="{{ resource.url }}" target="_blank">{{ resource.name }}</a>
+            {% endfor %}
+          </article>
+        </div>
+
+        <hr>
+
+        {% include "./assets/templates/partials/hackathon.html" %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

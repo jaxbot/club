@@ -1,0 +1,143 @@
+// Margin and padding classes go afterwards so they can function as overrides
+@each $spacing in margin, padding {
+  .no-#{$spacing} {
+    #{$spacing}: 0 !important;
+
+    &--top    { #{$spacing}-top:    0 !important; }
+    &--right  { #{$spacing}-right:  0 !important; }
+    &--bottom { #{$spacing}-bottom: 0 !important; }
+    &--left   { #{$spacing}-left:   0 !important; }
+  }
+
+  .#{$spacing} {
+    #{$spacing}: $default-space !important;
+
+    &--top {
+      #{$spacing}-top: $default-space !important;
+
+      &--half { #{$spacing}-top: ($default-space / 2) !important; }
+      &--2    { #{$spacing}-top: ($default-space * 2) !important; }
+      &--3    { #{$spacing}-top: ($default-space * 3) !important; }
+    }
+
+    &--right {
+      #{$spacing}-right: $default-space !important;
+
+      &--half { #{$spacing}-right: ($default-space / 2) !important; }
+      &--2    { #{$spacing}-right: ($default-space * 2) !important; }
+      &--3    { #{$spacing}-right: ($default-space * 3) !important; }
+    }
+
+    &--bottom {
+      #{$spacing}-bottom: $default-space !important;
+
+      &--half { #{$spacing}-bottom: ($default-space / 2) !important; }
+      &--2    { #{$spacing}-bottom: ($default-space * 2) !important; }
+      &--3    { #{$spacing}-bottom: ($default-space * 3) !important; }
+    }
+
+    &--left {
+      #{$spacing}-left: $default-space !important;
+
+      &--half { #{$spacing}-left: ($default-space / 2) !important; }
+      &--2    { #{$spacing}-left: ($default-space * 2) !important; }
+      &--3    { #{$spacing}-left: ($default-space * 3) !important; }
+    }
+  }
+}
+
+.no-float {
+  float: none !important;
+}
+
+.row {
+  &--full-width {
+    max-width: 100%; // for browsers that don't suppoer vw
+    max-width: 100vw;
+  }
+}
+
+.ellipsis-overflow {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  word-wrap: none;
+}
+
+.true-inline-list {
+  margin: 0 auto 1.0625rem auto;
+  margin-left:  -1.375rem;
+  margin-right: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+
+  li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 1.375rem;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+}
+
+@each $size, $break in ($small-only, small-only),
+                       ($medium-only, medium-only),
+                       ($medium-up, medium-up),
+                       ($large-only, large-only),
+                       ($large-up, large-up) {
+  @media #{$size} {
+    .#{$break} {
+      @each $spacing in margin, padding {
+        &--no-#{$spacing} {
+          #{$spacing}: 0 !important;
+
+          &--top    { #{$spacing}-top:    0 !important; }
+          &--right  { #{$spacing}-right:  0 !important; }
+          &--bottom { #{$spacing}-bottom: 0 !important; }
+          &--left   { #{$spacing}-left:   0 !important; }
+        }
+
+        &--#{$spacing} {
+          #{$spacing}: $default-space !important;
+
+          &--top {
+            #{$spacing}-top: $default-space !important;
+
+            &--half { #{$spacing}-top: ($default-space / 2) !important; }
+            &--2    { #{$spacing}-top: ($default-space * 2) !important; }
+            &--3    { #{$spacing}-top: ($default-space * 3) !important; }
+          }
+
+          &--right {
+            #{$spacing}-right: $default-space !important;
+
+            &--half { #{$spacing}-right: ($default-space / 2) !important; }
+            &--2    { #{$spacing}-right: ($default-space * 2) !important; }
+            &--3    { #{$spacing}-right: ($default-space * 3) !important; }
+          }
+
+          &--bottom {
+            #{$spacing}-bottom: $default-space !important;
+
+            &--half { #{$spacing}-bottom: ($default-space / 2) !important; }
+            &--2    { #{$spacing}-bottom: ($default-space * 2) !important; }
+            &--3    { #{$spacing}-bottom: ($default-space * 3) !important; }
+          }
+
+          &--left {
+            #{$spacing}-left: $default-space !important;
+
+            &--half { #{$spacing}-left: ($default-space / 2) !important; }
+            &--2    { #{$spacing}-left: ($default-space * 2) !important; }
+            &--3    { #{$spacing}-left: ($default-space * 3) !important; }
+          }
+        }
+      }
+
+      &--no-float { float: none !important; }
+    }
+  }
+}

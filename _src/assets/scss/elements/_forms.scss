@@ -1,0 +1,106 @@
+form[role=form] {
+  width: 100%;
+
+  label {
+    width: 100%;
+
+    text-align: left;
+
+    background: $dark-gray;
+    border: rem-calc(1) solid $gray;
+
+    &.disabled {
+      opacity: 0.5;
+    }
+
+    span {
+      display: block;
+      padding: rem-calc(7.5) rem-calc(15) 0;
+
+      font-family: $heading-font;
+      font-weight: bold;
+      letter-spacing: rem-calc(1);
+      text-transform: uppercase;
+
+      color: fade-out($white, 0.45);
+    }
+
+    input,
+    textarea {
+      margin: 0;
+      padding: rem-calc(7.5) rem-calc(15);
+
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      color: $white;
+
+      &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+input[type='text'][disabled],
+input[type='text'][readonly],
+fieldset[disabled] input[type='text'],
+input[type='password'][disabled],
+input[type='password'][readonly],
+fieldset[disabled] input[type='password'],
+input[type='date'][disabled],
+input[type='date'][readonly],
+fieldset[disabled] input[type='date'],
+input[type='datetime'][disabled],
+input[type='datetime'][readonly],
+fieldset[disabled] input[type='datetime'],
+input[type='datetime-local'][disabled],
+input[type='datetime-local'][readonly],
+fieldset[disabled] input[type='datetime-local'],
+input[type='month'][disabled],
+input[type='month'][readonly],
+fieldset[disabled] input[type='month'],
+input[type='week'][disabled],
+input[type='week'][readonly],
+fieldset[disabled] input[type='week'],
+input[type='email'][disabled],
+input[type='email'][readonly],
+fieldset[disabled] input[type='email'],
+input[type='number'][disabled],
+input[type='number'][readonly],
+fieldset[disabled] input[type='number'],
+input[type='search'][disabled],
+input[type='search'][readonly],
+fieldset[disabled] input[type='search'],
+input[type='tel'][disabled],
+input[type='tel'][readonly],
+fieldset[disabled] input[type='tel'],
+input[type='time'][disabled],
+input[type='time'][readonly],
+fieldset[disabled] input[type='time'],
+input[type='url'][disabled],
+input[type='url'][readonly],
+fieldset[disabled] input[type='url'],
+input[type='color'][disabled],
+input[type='color'][readonly],
+fieldset[disabled] input[type='color'],
+textarea[disabled],
+textarea[readonly],
+fieldset[disabled] textarea,
+input[type='text']:disabled,
+input[type='password']:disabled,
+input[type='date']:disabled,
+input[type='datetime']:disabled,
+input[type='datetime-local']:disabled,
+input[type='month']:disabled,
+input[type='week']:disabled,
+input[type='email']:disabled,
+input[type='number']:disabled,
+input[type='search']:disabled,
+input[type='tel']:disabled,
+input[type='time']:disabled,
+input[type='url']:disabled,
+input[type='color']:disabled,
+textarea:disabled {
+  background: transparent;
+}

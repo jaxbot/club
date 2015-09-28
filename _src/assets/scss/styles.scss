@@ -1,0 +1,31 @@
+// Foundation import
+@import '../_bower_components/foundation/scss/foundation';
+
+// Fontello import
+@import './fontello';
+
+// Variables import
+@import 'variables';
+
+// Animations import
+@import 'animations';
+
+// Mixins import
+@import 'mixins';
+
+// Elements import
+@import './elements/accordion';
+@import './elements/buttons';
+@import './elements/cards';
+@import './elements/forms';
+@import './elements/modals';
+@import './elements/navigation';
+@import './elements/sections';
+@import './elements/backgrounds';
+@import './elements/markdown';
+
+// Helpers import
+@import 'helpers';
+
+// Main styles import
+@import 'layout';

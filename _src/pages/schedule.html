@@ -1,0 +1,34 @@
+---
+title: Events Schedule
+slug: events
+---
+
+{% extends '../assets/templates/layout.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  <section id="about" class="section section--events">
+    <div class="row collapse">
+      <div class="columns">
+        <header>
+          <h1>{{ page.title }}</h1>
+        </header>
+
+        <div class="section__content no-margin">
+          <ul class="card-list text-left">
+            {% for event in site.events %}
+              <li class="card">
+                <span class="card__date">{{ event.date }}</span> {{ event.name }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

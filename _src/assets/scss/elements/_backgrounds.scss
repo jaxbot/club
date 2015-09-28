@@ -1,0 +1,16 @@
+$colors: 'gray' $gray false,
+         'dark-gray' $dark-gray true,
+         'teal' $teal true,
+         'lavender' $lavender true;
+
+.background {
+  @each $color in $colors {
+    &--#{nth($color, 1)} {
+      background-color: #{nth($color, 2)};
+
+      @if nth($color, 1) != false {
+        @include background-white-buttons(nth($color, 2));
+      }
+    }
+  }
+}

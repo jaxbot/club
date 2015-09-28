@@ -1,0 +1,36 @@
+---
+title: Workshops
+slug: workshops
+---
+
+{% extends '../assets/templates/layout.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  <section id="about" class="section section--workshops">
+    <div class="row collapse">
+      <div class="columns">
+        <header>
+          <h1>{{ page.title }}</h1>
+        </header>
+
+        <div class="section__content no-margin">
+          <ul class="card-list text-left">
+            {% for workshop in site.workshops %}
+              <li>
+                <a class="card" href="{{ workshop.url }}">
+                  <span class="card__date">{{ workshop.date }}</span> {{ workshop.name }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

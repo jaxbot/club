@@ -1,0 +1,19 @@
+@mixin background-white-buttons($button-hover-text-color: $black) {
+  a {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .button {
+    border-color: $white;
+    color: $white;
+
+    &:hover {
+      background-color: $white;
+      color: $button-hover-text-color;
+    }
+  }
+}

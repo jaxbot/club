@@ -1,0 +1,43 @@
+---
+  title: Knight Hacks
+  url: ""
+  author: The Knight Hacks Team
+  email: team@knighthacks.org
+  description: Giving people a space to learn and do things they’ve never done before
+  socialLinks:
+    facebook: "https://www.facebook.com/groups/knighthacksclub/"
+    twitter: "https://twitter.com/knighthacks"
+    github: "https://github.com/knighthacks"
+    instagram: "https://instagram.com/knighthacks/"
+  events:
+    -
+      name: Internship Social
+      date: 10/02/15
+    -
+      name: Advanced Git Workshop
+      date: 10/09/15
+    -
+      name: Knight Hacks Hackathon
+      date: 01/15/16
+  workshops:
+    -
+      name: Set up a free cloud server with Azure
+      date: 9/25/2015
+      time: 6:15 PM
+      url: 'none'
+    -
+      name: '`git` Workshop'
+      date: 9/18/2015
+      time: 6:15 PM
+      url: '/workshops/git-workshop'
+    -
+      name: 'Using GitHub effectively (Slides)'
+      date: 9/17/2015
+      time: 7:30 PM
+      url: 'https://docs.google.com/presentation/d/1hbq1V4rirMkDv0saQVP-cqzi0SJr04xF-DW1FhbDrMk/edit?usp=sharing'
+    -
+      name: Command Line Workshop
+      date: 9/11/2015
+      time: 6:15 PM
+      url: '/workshops/command-line'
+
