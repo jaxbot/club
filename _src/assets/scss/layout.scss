@@ -118,3 +118,10 @@ footer[role=contentinfo] {
     }
   }
 }
+
+.flex {
+  @media #{$medium-up} {
+    display: flex;
+    flex: 1;
+  }
+}

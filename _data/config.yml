@@ -31,6 +31,11 @@
       time: 6:15 PM
       url: '/workshops/git-workshop'
     -
+      name: 'Using GitHub effectively (Slides)'
+      date: 9/17/2015
+      time: 7:30 PM
+      url: 'https://docs.google.com/presentation/d/1hbq1V4rirMkDv0saQVP-cqzi0SJr04xF-DW1FhbDrMk/edit?usp=sharing'
+    -
       name: Command Line Workshop
       date: 9/11/2015
       time: 6:15 PM
