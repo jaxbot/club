@@ -395,6 +395,47 @@ Nice! Saved us from having to manually compile, run, check the output, and tell 
 
 What if we wanted to be sure nobody ever committed bad code?
 
+Copy these contents into `.git/hooks/pre-commit`
+```
+#!/bin/bash
+# We want to test what is currently staged, so stash any stages
+# in the working directroy
+git stash -q --keep-index
+gcc test.c -o test && ./test
+RESULT=$?
+# Put the working directory back to the way it was
+git stash pop -q
+if [ $RESULT -ne 0 ]; then
+	echo "Cowardly refusing to commit because the tests are not passing."
+	exit 1
+fi
+exit 0
+```
+
+Now make that file runnable:
+
+```
+$ chmod +x .git/hooks/pre-commit
+```
+
+Cool! Now modify fib.c into a stage where the tests won't pass (i.e. change fib-1 to fib-5) and try to commit:
+
+```
+$ git add fib.c
+$ git commit
+Bad!
+Cowardly refusing to commit because the tests are not passing.
+```
+
+Perfect! We've blocked the bad code from being checked in. But what if, idk, we really wanted to get our code in, even if tests failed? Try --no-verify
+
+```
+$ git commit --no-verify
+# Yay, we can commit!
+```
+
+As said above, there are tons of uses for git hooks. Try reading the samples in .git/hooks for ideas.
+
 # Aliases
 
 One last quick thing. Git allows you to make aliases to commands you want to run frequently. Here's an example:
