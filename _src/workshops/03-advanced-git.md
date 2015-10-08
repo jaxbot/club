@@ -102,6 +102,55 @@ $ git commit -m "Remove unneeded scripts definition"
 
 Cool! Now we have our changes split into two commits.
 
+# Stashing
+
+Sometimes we'll do work that puts the working directory in a dirty, or changed state, and suddenly need to pull or switch branches. We can't do this if the new state would overwrite our changes, because git won't merge uncommitted files. In that case, we need to use `git stash`.
+
+Let's simulate this. We want to add an event to the KH club site, so we start editing the config file:
+
+```
+$ vim _data/config.yml
+# Change something in here, it doesn't matter
+# I added this before the hackathon lines:
+    -
+      name: Big party
+      date: 01/15/16
+```
+
+Save and exit the file. Now try to switch branches:
+
+```
+$ git checkout origin/updates/remove-social
+error: Your local changes to the following files would be overwritten by checkout:
+	_data/config.yml
+Please, commit your changes or stash them before you can switch branches.
+Aborting
+```
+
+Bam, blocked. Before we can do that, we need to `stash` our changes into a stack.
+
+```
+$ git stash
+```
+
+Now notice that all of our changes in the working directory are seamingly gone. This is what we wanted, since we're now able to switch branches.
+
+```
+$ git checkout origin/updates/remove-social
+# Works!
+```
+
+Now how do we get our precious changes back? Just `git stash apply`:
+
+
+```
+# Go where we want to apply the changes. We could theoretically apply them to origin/updates/remove-scial if we wanted to
+$ git checkout master
+$ git stash apply
+```
+
+Now the working directory is back in the state we want it. Nice.
+
 # Rebasing
 
 Rebasing is useful for rebuilding history. It can often be used as a replacement for merging:
@@ -111,6 +160,7 @@ $ git checkout patch-readme
 $ git rebase master
 First, rewinding head to replay your work on top of it...
 Fast-forwarded patch-readme to master.
+$ git checkout master
 ```
 
 Instead of merging, we've rebuilt the history to incorporate the new commits. This particular workshop won't go deep into the details of rebasing vs. merging, but if you're curious, <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing" target="_blank">add this to your reading list</a>.
@@ -285,7 +335,14 @@ Boom. Now check `git log` and notice we're back to where we were before we rebas
 
 Ever found yourself with broken code and wanted to isolate where the problem came from? Bisecting preforms a binary search to help introduce what commit caused a bug.
 
-We'll be using a different repo to experiment with this.
+We'll be using a different repo to experiment with this, so clone this and go to its working directory:
+
+```
+$ git clone https://github.com/KnightHacks/bisect-example.git
+$ cd bisect-example
+```
+
+Cool! So here's the context. We have a program in this repo that is supposed to print out the Fibonacci number for 10. The expected output is 55, but we've started to see the program spit out different output lately. Let's try to figure out which commit went wrong with `git bisect`
 
 ```
 $ git bisect start
@@ -302,6 +359,7 @@ $ git bisect good
 Bisecting: 2 revisions left to test after this (roughly 1 step)
 [282adb128c12631e7956329f353a2980eb160bc4] Add useless comments
 
+# Now we're on a different commit. Let's see if it's any good.
 $ gcc fib.c -o fib && ./fib
 55
 # This one is also good!
@@ -326,6 +384,8 @@ Date:   Mon Oct 5 21:42:05 2015 -0400
 
 :100644 100644 aa3f6dd016142ff301c6a6379a9075a65b62d0d9 ddb04e09f668c4cbd745495b28241da0cfbd3a83 M	fib.c
 ```
+
+Bam! Found the commit where things first started breaking. This took a couple of steps, but imagine if we had 100 commits and needed to find the bad one. We could do it in approximately 7 steps instead of having to check each one individually. Pretty cool.
 
 Curious what was changed? Run `git diff HEAD~1` to see what changed between this commit and the commit before this one.
 
@@ -395,7 +455,12 @@ Nice! Saved us from having to manually compile, run, check the output, and tell 
 
 What if we wanted to be sure nobody ever committed bad code?
 
+Hooks allow us to have code executed at before and after different events in git, and have git take action or abort actions depending on their output.
+
+In this case, we're going to use a pre-commit hook to stop committing if the tests do not pass. If you browse .git/hooks, you'll find tons of samples to get a good idea of what you can use hooks for.
+
 Copy these contents into `.git/hooks/pre-commit`
+
 ```
 #!/bin/bash
 # We want to test what is currently staged, so stash any stages
