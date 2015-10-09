@@ -216,7 +216,9 @@ pick 5a7ba10 Removed unneeded script block
 # Note that empty commits are commented out
 ```
 
-Let's start by getting rid of the commits we don't want. All the commits with "Relevant issue" aren't important and can be deleted. Delete those lines from the file. It should now look like:
+Let's start by getting rid of the commits we don't want. All the commits with "Relevant issue" aren't important and can be deleted. Delete those lines from the file. In Vim, you can use the arrow keys or `j` and `k` to move be cursor over the line, then press `dd` to delete the line.
+
+It should now look like:
 
 ```
 pick 809c968 Add Google events
@@ -281,7 +283,7 @@ Removed unneeded script block
 
 ```
 
-Edit this as you please. I changed it to:
+Edit this as you please. I changed the entire text to be:
 
 ```
 Update package description and remove unneeded script block
