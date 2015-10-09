@@ -300,7 +300,7 @@ Awesome! We've successfully modified the history. Take a look at it with `git lo
 
 ## Can we push this?
 
-<img src="pics/gitpushforce.jpg" alt="A girl looking at a house on fire with a michevious look on her face and the caption 'Push rejected, rebase or merge. git push --force'">
+<img src="/pics/gitpushforce.jpg" alt="A girl looking at a house on fire with a michevious look on her face and the caption 'Push rejected, rebase or merge. git push --force'">
 
 That depends. The general rule is not to edit public history. If you've already pushed the changes that you rebased and you try to push, git will reject your changes since they do not match the history on the server. You can force your version of history to overwrite the version on the server, but this can screw over anyone else who is working on the project and cause them to lose commits. Only do this if you're sure you want your copy of the code to completely steamroll any other copy of it.
 
