@@ -5,6 +5,8 @@ date: 10/09/2015
 template: workshop
 ---
 
+Welcome to the Knight Hacks Advanced Git workshop! We're going to build on top of the previous [git workshop](http://knighthacks.club/git) and teach some more advanced skills.
+
 Start by opening Terminal (OSX/Linux) or GitBash (Windows). Any command you type should be followed by the `enter` key to execute that command in the shell.
 
 # Getting started
@@ -144,7 +146,7 @@ Now how do we get our precious changes back? Just `git stash apply`:
 
 
 ```
-# Go where we want to apply the changes. We could theoretically apply them to origin/updates/remove-scial if we wanted to
+# Go where we want to apply the changes. We could theoretically apply them to origin/updates/remove-social if we wanted to
 $ git checkout master
 $ git stash apply
 ```
