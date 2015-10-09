@@ -1,6 +1,6 @@
 ---
 title: Advanced Git Workshop
-slug: workshops/advanced-git
+slug: workshops/advanced-git-workshop
 date: 10/09/2015
 template: workshop
 ---
