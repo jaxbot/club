@@ -181,7 +181,7 @@ Here's an interactive (no pun intended) example: The club website has a lot of g
 $ git rebase -i HEAD~10
 ```
 
-At this point, you've probably been dropped into Vim with a list of commits. It's important to note that these execute from top to bottom. Here's what it looks like for me:
+At this point, you've probably been dropped into Vim with a list of commits. Git will run through this list and rebuild history based off it. It's important to note that these execute from top to bottom. Here's what it looks like for me:
 
 ```
 pick 0ade98c Relevant issue: #
@@ -296,7 +296,7 @@ Update package description and remove unneeded script block
 Successfully rebased and updated refs/heads/master.
 ```
 
-Awesome! We've successfully modified the history. Take a look at it with `git log` and notice that we've totally changed the list of commits as compared to it previously?
+Awesome! We've successfully modified the history. Take a look at it with `git log` and notice that we've totally changed the list of commits as compared to it previously.
 
 ## Can we push this?
 
