@@ -20,7 +20,7 @@ First lets download a text file that we'll be using later. Run the following com
 
 Second make sure you have Vim installed on your machine. Run the following command.
 
-* `vim -v`
+* `vim --version`
 
 The first line should say `VIM - Vi Improved 7.x...`  
 If you don't see that, follow the directions below to install Vim, otherwise skip to **"Normal and Insert Mode"**.
@@ -82,7 +82,7 @@ Next we'll get comfortable using the 4 movement keys.
 * `k` Move Cursor Up
 * `l` Move Cursor Right
 
-Try these movment keys out in your current window. Next we'll use these keys to navigate through a maze.  
+We'll use these keys to navigate through a maze.  
 Open the practice text file in vim with
 
 * `vim vim_practice.txt`
@@ -178,7 +178,8 @@ Now you'll need to put what you've yanked.
 * `p` Put (paste) after the cursor
 * `P` Put (paste) before the cursor
 
-**Side Note**: yanking text doesn't copy it to the system clipboard, it only exists in vim.
+**Side Note**: By default yanking text doesn't copy it to the system clipboard, it only exists in vim.
+However, it is possible to configure vim to yank to the clipboard. See section on **vimrc** for more details.
 
 Try out yanking and putting in Exercise 6.
 
@@ -234,7 +235,7 @@ Next are keys that are commonly used in refactoring code.
 Shifting is used to indent a line. These two shift keys can also be used in visual mode, to shift blocks of highlighted text.
 
 * `>>` Shift right
-* `>>` Shift left
+* `<<` Shift left
 
 `J` comes in very handy when merging lines together. It takes the line below and shifts it upward to the right of the cursor.
 
@@ -252,6 +253,8 @@ This file is located in your home directory. You can find the location of your .
 In this file you can set a persistent configuration for your Vim installation.  
 For example, if `set number` is in your .vimrc, then you won't have to do `:set number` to display the line numbers everytime you open vim.
 There's so many ways you can configure your Vim. This [link](http://vim.wikia.com/wiki/Example_vimrc) is an example .vimrc with a description for each setting.
+
+To configure Vim to yank to the system clipboard you'll need to include `set clipboard=unnamed` in your .vimrc. See `:help clipboard` for more details.
 
 # Resources
 * [r/vim](https://www.reddit.com/r/vim/) - Vim subreddit
