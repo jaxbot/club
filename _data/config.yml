@@ -19,6 +19,11 @@
       date: 01/15/16
   workshops:
     -
+      name: 'Introduction to Vim'
+      date: 10/16/2015
+      time: 6:15 PM
+      url: '/workshops/vim-workshop'
+    -
       name: 'Advanced Git Workshop'
       date: 10/9/2015
       time: 6:15 PM
