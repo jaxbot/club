@@ -2,7 +2,7 @@ Vim Practice
 
 Exercise 1      Keys: h j k l
 -------------------------------------------------------------------------------
-h - Move right      j - Move down       k - Move up     l - Move left
+h - Move left      j - Move down       k - Move up     l - Move right
 
 Move the cursor to the 'S' in 'START' below or type 9G in Normal mode to start.
 
