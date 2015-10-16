@@ -1,0 +1,604 @@
+Vim Practice
+
+Exercise 1      Keys: h j k l
+-------------------------------------------------------------------------------
+h - Move right      j - Move down       k - Move up     l - Move left
+
+Move the cursor to the 'S' in 'START' below or type 9G in Normal mode to start.
+
+START
+.##############################################################################
+.##############################################################################
+.............##################################################################
+############.##################################################################
+############.##################################################################
+############.##################################################################
+#............##################################################################
+#.#############.......................#########################################
+#.#############.#####################.#########################################
+#..........####.#####################.#########################################
+##########.####.................#####.#########################################
+##########.####################.#####.#########################################
+##########.######.........#####.#####.....................#####################
+##########.######.#######.#####.#########################.#####################
+##########.######.#######.#####.#########################.#####################
+##########.######.#######.#####.#########################.#####################
+##########........#######.#####.################.......##.#####################
+#########################.#####.########.........#####.##.#####################
+###.....#################.#####.########.#############.##.#####################
+##..###.#################.......########.#############.##.#####################
+##.####.################################.#############....#####################
+##.####.################################........###############################
+##.####.#######################################.###############################
+##.####......##################################.##########...............######
+##.#########.##################################.##########.#############.######
+##.#########.##################################.##########.#############.######
+##.#########....................................##########.#############.######
+##.#######################################################.#############.######
+##.#######################################################.#############.######
+##.#######################################################.#############.######
+##...............................................#########.#######.......######
+################################################.#########.#######.############
+################################################.#########.#######.############
+################################################...........#######.############
+##################################################################.############
+##################################################################.############
+                                                                FINISH
+
+Exercise 2      Keys: w W b B e E
+-------------------------------------------------------------------------------
+Try out these keys to move through the code below.
+
+w - Jump to the start of the next word
+b - Jump to the start of the previous word
+e - Jump to the end of the next word.
+
+W - Jump to the start of the next word after a whitespace.
+B - Jump to the start of the previous after a whitespace
+E - Jump to the end of the next word after a whitespace.
+
+/* Opens a file and returns a FILE pointer */
+FILE* openFile(const char* path, const char* op) {
+    FILE* filePtr;
+    filePtr = fopen(path, op);
+    if(filePtr == NULL) {
+        perror("[STACK-ERROR] Error opening file.");
+        return NULL;
+    }
+    return filePtr;
+}
+
+-------------------------------------------------------------------------------
+
+
+
+Exercise 3 Keys: gg G nG
+-------------------------------------------------------------------------------
+
+Jump to the end of the file using G, follow the directions from there.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Go to line 220!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Now go to line 99!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Now go to line 300!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You made it to line 300! Here's a pig.
+   m___
+@="    )~~
+   W  W"
+
+Move to the next section below.
+
+
+
+
+
+
+
+
+
+
+
+Exercise 4      Keys: f t / ? n N
+-------------------------------------------------------------------------------
+
+Try out f and t by jumping to characters like k, -, = and *. 
+
+int rank(struct binTreeNode* ptr, int k) {
+    // Get the number of nodes in the left tree
+    int nodeRank = numNodes(ptr->left);
+
+    if (nodeRank == k-1)
+        return ptr->data;
+    // If there's more nodes in the left tree than the k number go left
+    else if (nodeRank > k-1)
+        return rank(ptr->left, k);
+    // If there's less nodes in the left tree thank k number go right
+    else 
+        return rank(ptr->right,k-nodeRank-1);
+}
+
+
+Find occurances of WALDO in this latin text using / or ?. Cycle through the occurances with n or N.
+
+Lore nam id, ad nec ridens convenire efficiantur, sea prompta gloriatur id. Ei sea soleat vidisse, usu an iusto timeam phaedrum. Te esse accusata interesset vel. Fastidii eligendi comprehensam ad vis, justo labores ea nec, ius amet vidit tempor id. Usu meis voluptatum an, ridens phaedrum inciderint cu pri.
+Discere patrioque in eum. Cu mel option aperiam, ex vide dolore invidunt sit. Paulo putant et eam, ad augue offendit mediocrem sed, has eu albucius insolens. Possit aliquip accusata has ut, ne dicat denique probatus pri, essent voluptaria ea mea.
+Ut cum liber euismod. Vel nusquam omnesque luptatum cu. Suscipit urbanitas ei vis, meliore salutatus dissentias his an. Has at prompta persecuti, similique ullamcorper no eos. WALDO. Usu explicari aliquando et, munere copiosae vel cu, rebum ullum vituperata sit ne.
+Usu doctus perfecto ex, ei graeco signiferumque duo. Nec dolor scripta id. In scaevola deseruisse scriptorem sed. Amet laudem ancillae ne cum. Has omnis vitae no.
+Ne duo vocent labitur vituperata, nibh labitur prodesset mel et. Dicam essent partiendo ex nam, ei choro lobortis mea, sea tota adhuc putent te. Eum natum labores vocibus ut, est at sensibus torquatos intellegam, cu eos case dolore integre. Tempor nostro scripserit an vix, essent volumus tincidunt id cum, errem dolorem cu quo. Dicam dignissim eos an, solum dicta ut cum.
+Vis ea fugit praesent expetendis, est scaevola suscipiantur ei, vim no nihil blandit tractatos. Ad mei vidisse inermis, utamur WALDO petentium in nec. Ne amet oportere vel, vim soluta tamquam eligendi ei, ei singulis adipisci patrioque duo. Ut utamur inermis vituperatoribus quo. WALDO. Quo eros liber imperdiet at, eu sed veritus qualisque molestiae.
+
+
+
+
+
+Exercise 5      Keys: ^ $ 0
+-------------------------------------------------------------------------------
+
+Use can use w/W/e/E to jump through this long line or you can use $ to jump to the end.
+Then use ^ to jump back to the beginning.
+
+int someReallyLongMysteryFunctionThatHasTooManyParameters(int a, int b, int pizza, int pigs, int cats, int lizards, int y, int x, int j, int notAnInt, int theBestString, int theLastParameter, int justKidding);
+            int anotherReallyLongMysteryFunctionThatHasWayTooManyParameters(int cheerios, int luckyCharms, int captainCrunch, int trix, int specialK, int waffles, int appleJacks, int riceCrispies, int frostedFlakes, int frankenBerry, int countChocula, int booBerry, int bagels);
+
+
+
+
+Exercise 6      Keys: y p
+-------------------------------------------------------------------------------
+
+Below you'll see a java print statement that prints "HEY". 
+Using yanks and puts, add 2 more print statements below it that print "HEYHEY" and "HEYHEYHEY".
+Remember that when you use `p`, you'll put after the cursor.
+If you want to undo your changes, use `u`.
+
+
+System.out.println("HEY");
+
+
+
+
+
+
+
+Exercise 7      Keys: d x c s
+-------------------------------------------------------------------------------
+
+Delete the infinate loop in the code with `d` commands.
+
+Then change the debt variable to equal -100 instead of 100 using `cw` or `s`.
+
+Lastly, change the line that has printf to
+    System.out.println("I owe you " + debt + " dollars");
+using `cc`.
+
+
+public static void main(String[] args) {
+
+    while(1 == 1) {
+        System.out.print("Around the world");
+        System.out.print("Around the world");
+        System.out.print("Around the world");
+    }
+
+    int debt = 100;
+
+    printf("I owe you %d dollars", debt);
+}
+
+
+
+
+Exercise 8      Visual Mode
+-------------------------------------------------------------------------------
+
+Copy/Paste the entire maze from exercise 1 below using Visual Mode, `y` and `p`.
+You can quickly jump there with `/START` or `gg`.
+To return here you can do `412G` or `/Exercise 8`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Exercise 9      Keys: A I o O
+-------------------------------------------------------------------------------
+Use `I` to append "int" to the front of this function.
+Then use `A` to add the missing semicolon on the first printf.
+This function doesn't return anything so, use `o` to add a line below the 
+second printf, then add "return 5;"
+
+returnFive(int a, int b) {
+    printf("%d\n", a)
+    printf("%d\n", b);
+}
+
+
+
+
+
+Exercise 10     Keys: << >> J
+-------------------------------------------------------------------------------
+
+The method below has messy indentation.
+Correct the indents by selecting a block of code in Visual Mode and shift the block right with `>>`.
+Then put the method's open bracket on the same line as the method name by using `J`.
+Do the same for the while loop.
+
+public static void main(String[] args)
+{
+int i = 10;
+while(i > 0)
+{
+System.out.println(i);
+i--;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You've reached the end of the file! Go to line 133 with 133G
