@@ -25,6 +25,11 @@
       date: 01/15/16
   workshops:
     -
+      name: 'Introduction to Android'
+      date: 10/23/2015
+      time: 6:15 PM
+      url: '/workshops/intro-android-workshop'
+    -
       name: 'Introduction to Vim'
       date: 10/16/2015
       time: 6:15 PM
