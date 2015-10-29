@@ -118,7 +118,7 @@ The file should now look like this:
 </html>
 ```
 
-Pat yourselves on the back, as you've just finished writing the markup for an entire web page! Now, open index.html in your browser of choice.
+Pat yourselves on the back, as you've just finished writing the markup for an entire web page! Now, save the file and open it in your browser of choice.
 
 ![alt text](https://puu.sh/l2vXE/83ef49112c.png "Base KH workshop site")
 
@@ -221,14 +221,16 @@ Let's explain these selectors and the styles that are being applied to them a bi
 
 `footer` - All we're doing here is adding a top margin which is pushing the footer `32px` away from the rest of the content.
 
+Save your file, and refresh your browser tab.
+
 ![alt text](http://puu.sh/l26RS/9b0a9ecfe5.png "Styled KH workshop website")
 
 Congratulate yourself once more, as you've now styled your first web page! Isn't it pretty? You may notice that the button *still* doesn't do anything when clicked. Let's take care of that...
 
-# JavaScript <small>No long form here!</small>
-JavaScript (commonly referred to as JS and will be referred to as JS from this point) is a high-level, interpreted, and object-oriented programming language. All modern web browsers support JS and almost all websites on the Internet utilize it. JS is run on the client side of a web page/application and is used to program how elements or even entire web pages react when certain events happen. JS can also be used in many [non-browser based environments](https://nodejs.org/en/).
+# JavaScript <small>(JS)</small>
+JavaScript (commonly referred to as JS) is a high-level, interpreted, and object-oriented programming language. All modern web browsers support JavaScript and almost all websites on the Internet utilize it. JavaScript is run on the client side of a web page/application and is used to program how elements or even entire web pages react when certain events happen. JavaScript can also be used in many [non-browser based environments](https://nodejs.org/en/).
 
-We're going to use JS to make the button on our web page display a message when clicked!
+We're going to use JavaScript to make the button on our web page display a message when clicked!
 
 We need to add one more bit of HTML to our document before really beginning. So, insert this tag before the closing `<body>` tag in our HTML:
 
