@@ -118,7 +118,11 @@ The file should now look like this:
 </html>
 ```
 
-Pat yourselves on the back, as you've just finished writing the markup for an entire web page! Now, open index.html in your browser of choice. As you can see, while we've written all of the markup needed for a page, it's still unstyled. And that brings us to...
+Pat yourselves on the back, as you've just finished writing the markup for an entire web page! Now, open index.html in your browser of choice.
+
+![alt text](https://puu.sh/l2vXE/83ef49112c.png "Base KH workshop site")
+
+As you can see, while we've written all of the markup needed for a page, it's still unstyled. And that brings us to...
 
 # CSS <small>(Cascading Style-Sheets)</small>
 ![alt text](https://raw.githubusercontent.com/jglovier/gifs/gh-pages/web-dev/family-guy-css.gif "Peter Griffin struggling to comprehend CSS")
@@ -221,11 +225,67 @@ Let's explain these selectors and the styles that are being applied to them a bi
 
 Congratulate yourself once more, as you've now styled your first web page! Isn't it pretty? You may notice that the button *still* doesn't do anything when clicked. Let's take care of that...
 
+# JavaScript <small>No long form here!</small>
+JavaScript (commonly referred to as JS and will be referred to as JS from this point) is a high-level, interpreted, and object-oriented programming language. All modern web browsers support JS and almost all websites on the Internet utilize it. JS is run on the client side of a web page/application and is used to program how elements or even entire web pages react when certain events happen. JS can also be used in many [non-browser based environments](https://nodejs.org/en/).
 
-# Javascript <small>This ain't an abbreviation!</small>
-lololololol
+We're going to use JS to make the button on our web page display a message when clicked!
+
+We need to add one more bit of HTML to our document before really beginning. So, insert this tag before the closing `<body>` tag in our HTML:
+
+```
+<script src="scripts.js"></script>
+```
+
+The `<script>` tag can do two things. It can reference an external script to be executed or execute any script between the opening in closing tab. For what we're doing, we're just going to reference the "scripts.js" that's sitting in the root directory of this project.
+
+Now, let's open "scripts.js" and write some code! Add this code into the blank file:
+
+```
+document.addEventListener('DOMContentLoaded', function() {
+
+});
+
+```
+
+Let's break this down a bit:
+
+`document` is an object interface representing the entire web page. `.addEventListener()` is a method we are calling on the `document` object. The first argument in `.addEventListener()` is the type of event we want to happen, in this case we're listening for `'DOMContentLoaded'` which is the event that fires when the web page is finished loading. The second argument is referred to as a "listener", it is most commonly an anonymous function. This "listener" receives a notification when the event specified happens and then executes.
+
+Now, we're going to write the code that really matters. Add this code into the fucntion being passed as the second argument:
+
+```
+document.querySelector('#kh-button').addEventListener('click', function() {
+  window.alert('Happy Halloween!');
+});
+```
+
+We are now calling another method of the `document` object: `.querySelector()`. This method returns the first element that is a child of whatever element it's being invoked on. In our case, it will return our `<button>` element with the `id` of `kh-button` that we gave it earlier. Afterwards, we are chaining the `.addEventListener()` method on that button to listen for when it's clicked.
+
+When the button is clicked, `window.alert('Happy Halloween!');` will execute. `window` is an object interface representing the browser window, and the `.alert()` method renders an alert box containing whatever content is passed into it.
+
+Your scripts.js file should now look like this:
+
+```
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('#kh-button').addEventListener('click', function() {
+    window.alert('Happy Halloween!');
+  });
+});
+```
+
+Save it, refresh your browser tab for the last time, and then click the button.
+
+![alt text](http://puu.sh/l2xgW/61c6c99d6f.png "Styled KH workshop page with a JavaScript alert box")
+
+Ta-da! You've now completed your first web page using HTML, CSS, and JavaScript! This is only the tip of the iceberg, so please give the additional resources linked below a read to continue learning!
 
 ## Additional resources
-[Mozilla Documentation on HTML elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+[Mozilla Documentation on HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+
+[Mozilla Documentation on CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+[Mozilla Documentation on JavaScript](https://developer.mozilla.org/en-US/docs/Web/JS)
 
 ... Mozilla just has really amazing documentation, okay?
+
+[Code Academy](https://www.codecademy.com/)
