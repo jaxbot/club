@@ -2,7 +2,7 @@
   position: relative;
 
   display: flex;
-  padding: ($default-space * 1.5);
+  padding: ($default-space * 1);
 
   flex-direction: column;
   justify-content: center;
@@ -12,14 +12,17 @@
   background-color: $gray;
   color: fade-out($white, 0.3);
 
+  @media #{$medium-up} {
+    padding: ($default-space * 2);
+  }
+
   @media #{$large-up} {
     padding: ($default-space * 3);
   }
 
   &--about {
-    padding: rem-calc(20);
     .meetings {
-      color: #fff;
+      color: lighten($white, 5%);
     }
   }
 
