@@ -18,6 +18,10 @@
       name: 'T-shirt first batch order deadline'
       date: 10/30/15
     -
+      name: 'Microsoft Hack Knight'
+      date: 11/06/15
+      url: 'https://www.facebook.com/events/525866190901317/'
+    -
       name: 'Knight Hacks Hackathon'
       date: 01/15/16
       url: 'http://knighthacks.org/'
