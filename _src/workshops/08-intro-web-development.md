@@ -182,7 +182,57 @@ Three new CSS properties are now being added to this selector.
 
 `color` - This sets the foreground color of an elements text content.
 
-We're off to a great start! Refresh your browser tab and you'll see these changes instantly take effect! But, let's not let that stop us, let's style the rest of the content; that will involve writing some new selectors. Add the following CSS after the body selector.
+We're off to a great start! Refresh your browser tab and you'll see these changes instantly take effect! But, let's not let that stop us, we still need to style the rest of the content; that will involve writing some new selectors. Add the following CSS after the body selector:
+
+```
+header .logo {
+  width: 275px;
+  height: 73px;
+}
+
+main h1 {
+  margin-bottom: 32px;
+
+  font-size: 24px;
+}
+
+main p button {
+  padding: 16px 32px;
+
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+
+  background: #16a9c1;
+  border: 0;
+  border-radius: 4px;
+  color: #fafafa;
+}
+
+footer p {
+  margin-top: 32px;
+}
+
+.hidden {
+  display: none;
+}
+```
+
+Let's explain these selectors and the styles that are being applied to them a bit:
+
+`header .logo` - This is selecting ***all*** elements with the class "logo" that is a child of the `<header>` element. In this case, it is selecting the Knight Hacks logo because that `<img>` tag for it has a class of "logo". This selector is currently applying a `width` and `height` property to the image.
+
+`main h1` - This is selecting ***all*** `<h1>` elements that are a child of the `<main>` element. We're applying the `margin-bottom` and `font-size` properties to the `<h1>`. We've covered what `font-size` does; the `margin-bottom` property is pushing all content after the `<h1>` element `32px` away from it.
+
+`header p button` - This is selecting ***all*** `<button>` elements that are a child of ***all*** `<p>` elements that are a child of the `<main>` element. As you can see, we've added quite a few properties to this element, so let's go over the properties that haven't been discussed already: `padding` adds inner padding on all sides of an element around its text content, `border` is used to control various border styles that can be applied to an element, in this case we're just removing the border that is applied to buttons by default altogether.
+
+`footer` - All we're doing here is adding a top margin which is pushing the footer `32px` away from the rest of the content.
+
+`.hidden` - This is a CSS class that will apply its properties to any element that contains the name of this class in its `class` attribute. The `display` property this class uses controls the rendering box of the element its being applied to. We've set it to `none` which simply hides the element.
+
+Something important to keep in mind: The difference bettwen classes and ids in CSS is that classes may be applied to multiple elements on the same page, while ids may only be applied to *one* element on a page.
+
+Save your file, it should look like this:
 
 ```
 body {
@@ -231,21 +281,7 @@ footer p {
 }
 ```
 
-Let's explain these selectors and the styles that are being applied to them a bit:
-
-`header .logo` - This is selecting ***all*** elements with the class "logo" that is a child of the `<header>` element. In this case, it is selecting the Knight Hacks logo because that `<img>` tag for it has a class of "logo". This selector is currently applying a `width` and `height` property to the image.
-
-`main h1` - This is selecting ***all*** `<h1>` elements that are a child of the `<main>` element. We're applying the `margin-bottom` and `font-size` properties to the `<h1>`. We've covered what `font-size` does; the `margin-bottom` property is pushing all content after the `<h1>` element `32px` away from it.
-
-`header p button` - This is selecting ***all*** `<button>` elements that are a child of ***all*** `<p>` elements that are a child of the `<main>` element. As you can see, we've added quite a few properties to this element, so let's go over the properties that haven't been discussed already: `padding` adds inner padding on all sides of an element around its text content, `border` is used to control various border styles that can be applied to an element, in this case we're just removing the border that is applied to buttons by default altogether.
-
-`footer` - All we're doing here is adding a top margin which is pushing the footer `32px` away from the rest of the content.
-
-`.hidden` - This is a CSS class that will apply its properties to any element that contains the name of this class in its `class` attribute. The `display` property this class uses controls the rendering box of the element its being applied to. We've set it to `none` which simply hides the element.
-
-Something important to keep in mind: The difference bettwen classes and ids in CSS is that classes may be applied to multiple elements on the same page, while ids may only be applied to *one* element on a page.
-
-Save your file, and refresh your browser tab.
+Now, refresh your browser tab!
 
 ![alt text](/pics/workshops/web/css-completed.png "Styled KH workshop website")
 
@@ -254,7 +290,7 @@ Congratulate yourself once more, as you've now styled your first web page! Isn't
 # JavaScript <small>(JS)</small>
 JavaScript (commonly referred to as JS) is a high-level, interpreted, and object-oriented programming language. All modern web browsers support JavaScript and almost all websites on the Internet utilize it. JavaScript is run on the client side of a web page/application and is used to program how elements or even entire web pages react when certain events happen. JavaScript can also be used in many [non-browser based environments](https://nodejs.org/en/).
 
-We're going to use JavaScript to make the button on our web page display a message when clicked!
+We're going to use JavaScript to make the button on our web page display the "Happy Halloween!" message when clicked!
 
 We need to add one more bit of HTML to our document before really beginning. So, insert this tag before the closing `<body>` tag in our HTML:
 
