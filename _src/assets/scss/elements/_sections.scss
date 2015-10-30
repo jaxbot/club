@@ -21,6 +21,15 @@
     .meetings {
       color: #fff;
     }
+    .announcement {
+      background: #DDC04A;
+      color: #333;
+      a {
+        color: #333;
+        border: none;
+        text-decoration: underline;
+      }
+    }
   }
 
   &--home {
