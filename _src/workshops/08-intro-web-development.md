@@ -3,6 +3,7 @@ title: Intro to Web Development
 slug: workshops/intro-web-development
 date: 10/30/2015
 template: workshop
+author: Eric Colon
 ---
 
 Welcome to the Knight Hacks Intro to Web Development workshop! We're going to cover the basics of HTML, CSS, and Javascript while building a simple Knight Hacks styled landing page.

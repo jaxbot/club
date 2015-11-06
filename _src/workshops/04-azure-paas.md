@@ -3,6 +3,7 @@ title: Azure Platform-as-a-Service Cloud Workshop
 slug: workshops/azure
 date: 9/25/2015
 template: workshop
+author: Kevin Brown
 ---
 
 Table of Contents
