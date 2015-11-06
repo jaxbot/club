@@ -162,3 +162,9 @@
     margin-bottom: 20px;
   }
 }
+
+a {
+  &.no-underline {
+    border: none;
+  }
+}
