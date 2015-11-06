@@ -20,6 +20,9 @@ resources:
     name: Android Developer - Getting Started
     url: //developer.android.com/training/index.html
   -
+    name: Mozilla Web Developer Guide
+    url: //developer.mozilla.org/en-US/docs/Web/Guide
+  -
     name: Bootstrap
     url: //getbootstrap.com
   -
@@ -62,7 +65,7 @@ resources:
             {% for event in site.events %}
               {% if event.url && event.url !== 'none' %}
                 <li>
-                  <a class="card" href="{{ event.url }}">
+                  <a class="card" href="{{ event.url }}" target="_blank">
                     <span class="card__date">{{ event.date }}</span> {{ event.name }}
                   </a>
                 </li>
