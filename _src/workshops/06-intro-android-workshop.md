@@ -3,6 +3,7 @@ title: Intro to Android Workshop
 slug: workshops/intro-android-workshop
 date: 10/23/2015
 template: workshop
+author: Ivey Padgett
 ---
 
 Welcome to the Knight Hacks Intro to Android workshop! We're going to build a simple application for android devices, just to get everyone started on something.

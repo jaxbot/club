@@ -3,6 +3,7 @@ title: Command Line Workshop
 slug: workshops/command-line
 date: 9/11/2015
 template: workshop
+author: Jonathan Warner
 ---
 # Linux or OSX
 

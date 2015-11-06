@@ -3,6 +3,7 @@ title: Vim Workshop
 slug: workshops/vim-workshop
 date: 10/16/2015
 template: workshop
+author: Ricardo Vasquez
 ---
 
 Welcome to the Knight Hacks Vim workshop!

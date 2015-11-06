@@ -3,6 +3,7 @@ title: Advanced Git Workshop
 slug: workshops/advanced-git-workshop
 date: 10/09/2015
 template: workshop
+author: Jonathan Warner
 ---
 
 Welcome to the Knight Hacks Advanced Git workshop! We're going to build on top of the previous [git workshop](http://knighthacks.club/git) and teach some more advanced skills.

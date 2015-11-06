@@ -162,3 +162,14 @@
     margin-bottom: 20px;
   }
 }
+
+a {
+  &.no-underline {
+    border: none;
+  }
+}
+
+span.author {
+  margin-bottom: 20px;
+  display: block;
+}

@@ -3,6 +3,7 @@ title: Workshop Guidelines
 slug: workshops/guidelines
 date: 10/11/2015
 template: workshop
+author: Jonathan Warner
 ---
 
 At Knight Hacks, we hold workshops to provide everyone with extracirricular opportunities to learn skills used in the industry. We also strive to build a healthy hacker culture here at UCF.
