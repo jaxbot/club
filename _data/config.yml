@@ -11,9 +11,18 @@
     instagram: 'https://instagram.com/knighthacks/'
   events:
     -
-      name: 'Microsoft Hack Knight'
-      date: 11/06/15
-      url: 'https://www.facebook.com/events/525866190901317/'
+      name: 'Frontend Web Development Workshop'
+      date: 11/13/15
+      url: 'https://www.facebook.com/events/1654505018099994/'
+    -
+      name: 'Pebble Development Workshop'
+      date: 11/20/15
+    -
+      name: 'No meeting, go shopping or something'
+      date: 11/27/15
+    -
+      name: 'Rails Workshop (Final Meeting of Semester)'
+      date: 12/4/15
     -
       name: 'Knight Hacks Hackathon'
       date: 01/15/16
