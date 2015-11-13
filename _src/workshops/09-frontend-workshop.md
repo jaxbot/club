@@ -8,7 +8,7 @@ author: Eric Colon
 Welcome to the Knight Hacks Front End Web Development workshop! This is part 1 in a series of workshops in which we will be creating a functional to-do list app.
 
 Begin by cloning down this repo containing the necessary files for our app:
-`git clone https://github.com/KnightHacks/web-dev-workshop.git`
+`git clone https://github.com/KnightHacks/frontend-workshop.git`
 
 Navigate to the directory you cloned the repo down to and Open `index.html`. As you can see there's not much in it:
 
