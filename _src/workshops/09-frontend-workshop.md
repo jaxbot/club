@@ -36,12 +36,12 @@ Let's begin scaffolding the actual to-do list. Add this block of HTML after the 
 ```
 <main class="TodoListContainer">
   <div class="TodoList">
-    <h1>To-do</h1>
+    <h1 class="title">To-do</h1>
 
     <div id="itemsList" class="itemsList">
     </div>
 
-    <div class="buttonContainer">
+    <div class="magic">
       <button class="addButton" id="addButton">+</button>
     </div>
   </div>
@@ -58,7 +58,7 @@ We've added quite a few elements, so let's break this down a bit.
 
 `<main class="TodoListContainer">` is acting as a container for the entire to-do list, including the input field for us to add new items. It has a `class` attribute set to `ToDoListContainer`.
 
-`<div class="TodoList">` is the actual to-do list card. It contains an `<h1>`, a `<div id="itemsList" class="itemsList">`, and a `<div class="buttonContainer">` with a `<button class="addButton" id="addButton">` as its child. That element is the button that will reveal an input field for us to add new items with.
+`<div class="TodoList">` is the actual to-do list card. It contains an `<h1 class="title">`, a `<div id="itemsList" class="itemsList">`, and a `<div class="magic">` with a `<button class="addButton" id="addButton">` as its child. That element is the button that will reveal an input field for us to add new items with.
 
 `<div class="inputBoxContainer">` is a container for our input field and `<input type="text" id="newTodoLabel" placeholder="To-do item...">` is the input field. Notice it has a `placeholder` attribute set to `To-do item...`, this string acts as placeholder text for the input field until we begin writing content in it.
 
@@ -66,11 +66,11 @@ Now, add this remaining bit of HTML after the previous block we've added.
 
 ```
 <div id="itemTemplate" class="template item">
-	<div class="checkBox">
-		<input type="checkbox" id="item_id">
-	</div>
+  <div class="checkBox">
+    <input type="checkbox" id="{{item_id}}">
+  </div>
 
-	<div class="itemTitle">item_title</div>
+  <div class="itemTitle">{{item_title}}</div>
 </div>
 ```
 
@@ -85,19 +85,19 @@ Your file should now look like so:
 		<title>Todo List</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto+Condensed:400,700" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="css/todolist.css">
+		<link rel="stylesheet" href="todolist.css">
 	</head>
 
 	<body>
-		<div class="TodoListContainer">
+		<main class="TodoListContainer">
 			<div class="TodoList">
-				<div class="title">To-do</div>
+				<h1 class="title">To-do</h1>
 
 				<div id="itemsList" class="itemsList">
 				</div>
 
 				<div class="magic">
-					<div class="addButton" id="addButton">+</div>
+					<button class="addButton" id="addButton">+</button>
 				</div>
 			</div>
 
@@ -106,17 +106,17 @@ Your file should now look like so:
 					<input type="text" id="newTodoLabel" placeholder="To-do item...">
 				</div>
 			</div>
-		</div>
+		</main>
 
 		<div id="itemTemplate" class="template item">
 			<div class="checkBox">
-				<input type="checkbox" id="item_id">
+				<input type="checkbox" id="{{item_id}}">
 			</div>
 
-			<div class="itemTitle">item_title</div>
+			<div class="itemTitle">{{item_title}}</div>
 		</div>
 
-		<script src="js/todolist.js"></script>
+		<script src="todolist.js"></script>
 	</body>
 </html>
 ```
@@ -404,12 +404,14 @@ Finally, we loop through each checkbox to add a listener so that whenever they'r
 And with that, we are done!
 
 ## Additional resources
-[Mozilla Documentation on HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[AngularJS](https://angularjs.org/)
 
-[Mozilla Documentation on CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[React](https://facebook.github.io/react/)
 
-[Mozilla Documentation on JavaScript](https://developer.mozilla.org/en-US/docs/Web/JS)
+[SASS](http://sass-lang.com/)
 
-[Mozilla Web Developer Guide](https://developer.mozilla.org/en-US/docs/Web/Guide)
+[PostCSS](https://github.com/postcss/postcss)
 
-Never stop consulting the Mozilla docs.
+[Gulp](http://gulpjs.com/)
+
+[Yeoman](http://yeoman.io)
