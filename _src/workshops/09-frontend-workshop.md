@@ -67,10 +67,10 @@ Now, add this remaining bit of HTML after the previous block we've added.
 ```
 <div id="itemTemplate" class="template item">
   <div class="checkBox">
-    <input type="checkbox" id="{{item_id}}">
+    <input type="checkbox" id="item_id">
   </div>
 
-  <div class="itemTitle">{{item_title}}</div>
+  <div class="itemTitle">item_title</div>
 </div>
 ```
 
