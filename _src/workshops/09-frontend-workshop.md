@@ -29,7 +29,7 @@ Navigate to the directory you cloned the repo down to and Open `index.html`. As 
 </html>
 ```
 
-This this is just some basic scaffolding that links to an external Google Fonts stylesheet, and the `.css` and `.js` files we will be working on later.
+This is just some basic scaffolding that links to an external Google Fonts stylesheet, and the `.css` and `.js` files we will be working on later.
 
 Let's begin scaffolding the actual to-do list. Add this block of HTML after the opening `<body>` tag:
 
@@ -56,11 +56,11 @@ Let's begin scaffolding the actual to-do list. Add this block of HTML after the 
 
 We've added quite a few elements, so let's break this down a bit.
 
-`<main class="TodoListContainer">` is acting as a container for the entire to-do list, including the input box for us to add new items. It has a `class` attribute set to `ToDoListContainer`.
+`<main class="TodoListContainer">` is acting as a container for the entire to-do list, including the input field for us to add new items. It has a `class` attribute set to `ToDoListContainer`.
 
-`<div class="TodoList">` is the actual to-do list card. It contains an `<h1>`, a `<div id="itemsList" class="itemsList">`, and a `<div class="buttonContainer">` with a `<button class="addButton" id="addButton">` as its child. That element is the button that will reveal an input box for us to add new items with.
+`<div class="TodoList">` is the actual to-do list card. It contains an `<h1>`, a `<div id="itemsList" class="itemsList">`, and a `<div class="buttonContainer">` with a `<button class="addButton" id="addButton">` as its child. That element is the button that will reveal an input field for us to add new items with.
 
-`<div class="inputBoxContainer">` is a container for our input box and `<input type="text" id="newTodoLabel" placeholder="To-do item...">` is clearly the input box. Notice it has a `placeholder` attribute set to `To-do item...`, this string acts as placeholder text for the input box until we begin writing content in it.
+`<div class="inputBoxContainer">` is a container for our input field and `<input type="text" id="newTodoLabel" placeholder="To-do item...">` is the input field. Notice it has a `placeholder` attribute set to `To-do item...`, this string acts as placeholder text for the input field until we begin writing content in it.
 
 Now, add this remaining bit of HTML after the previous block we've added.
 
@@ -143,7 +143,7 @@ body {
 
 Some base styling has been included. We're using the `*` selector to target all elements and assign them a `box-sizing` property set to `border-box`. The `border-box` value makes the `padding` and `border` of an element fill the inside of the element, instead of outside by default. It's a useful trick that helps with managing layouts.
 
-Add this CSS before `.template`:
+Add this CSS after `.template`:
 
 ```
 .TodoListContainer {
@@ -224,7 +224,7 @@ As you can see, that's a lot of CSS, so it won't be very time efficient to do an
 
 `.TodoListContainer` has been assigned a `position`, `margin`, and `width` property. This has given us a centered container for our list.
 
-`.TodoList` has been assigned a `position`, `padding-bottom`, `background`, and `box-shadow` property. The result is an off-white card with a subtle shadow that bottom padding for the "add" button.
+`.TodoList` has been styled into an off-white card with a subtle shadow and bottom padding for the "add" button.
 
 `.TodoList .title` has been styled to have padding around it, its typeface set to a bolded form of "Robot Condensed", and a faint bottom border.
 
@@ -232,7 +232,7 @@ As you can see, that's a lot of CSS, so it won't be very time efficient to do an
 
 `.addButton:hover` changes the background of the button to a lighter shade of red when hovered over.
 
-`.addButton:active` changes the background of the button to a darker shade of red when hovered over.
+`.addButton:active` changes the background of the button to a darker shade of red when clicked.
 
 `.magic` is a special container for the button. It's the full width of the to-do list card and assists with centering the button and moving it halfway off the edge of the to-do list card.
 
@@ -243,8 +243,6 @@ We're almost there! Add this remaining CSS after `.magic`:
 	padding: 10px 20px;
 
 	font-family: 'Roboto Slab','Times New Roman',serif;
-	font-size: 14px;
-	line-height: 19px;
 	word-wrap: break-word;
 
 	border-bottom: 1px solid rgba(0,0,0,0.1);
@@ -311,7 +309,7 @@ We're almost there! Add this remaining CSS after `.magic`:
 
 Once again, a high-level explanation will be necessary for all of this.
 
-`.item` has been given a nice amount of padding, the "Roboto Slab" typeface, a
+`.item` has been given a nice amount of padding, the "Roboto Slab" typeface, a bottom border, and a faded black text color.
 
 `.item .itemTitle` has been assigned a `position`, `padding-bottom`, `background`, and `box-shadow` property. The result is an off-white card with a subtle shadow that bottom padding for the "add" button.
 
@@ -321,7 +319,7 @@ Once again, a high-level explanation will be necessary for all of this.
 
 `.inputBox` mimics the white background and padding of the main to-do list card.
 
-`.inputBoxContainer` hides the input box by having its `height` set to 0 and its `overflow` property set to `hidden`. This will hide any content that overflows from this element, and since it has a height of 0 that means everything within it will be hidden. Then a shadow is added and a [special transition property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions). The `transition` property controls animation speed and applies timing functions when a property changes. In this case, an easing function will be applied to the height of this element over a span of `0.25` seconds whenever its changed.
+`.inputBoxContainer` hides the input field by having its `height` set to 0 and its `overflow` property set to `hidden`. This will hide any content that overflows from this element, and since it has a height of 0 that means everything within it will be hidden. Then a shadow is added and a [special transition property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions). The `transition` property controls animation speed and applies timing functions when a property changes. In this case, an easing function will be applied to the height of this element over a span of `0.25` seconds whenever its changed.
 
 `.inputBoxContainer.visible` this sets the height of the container to 80px.
 
@@ -353,13 +351,13 @@ document.querySelector("#addButton").addEventListener("click", function() {
 }, false);
 ```
 
-This code is listening for when we click the add button. When that happens our `inputBox` variable will have the `.visible` class toggled on; this will reveal the input box (and render a nice transition as well). Afterwards, we select the input box and apply the `.focus()` method... Which focuses it.
+This code is listening for when we click the add button. When that happens our `inputBox` variable will have the `.visible` class toggled on; this will reveal the input field (and render a nice transition as well). Afterwards, we select the input field and apply the `.focus()` method... Which focuses it.
 
 Now we need to handle inputting data into the input field. Add this code after the previous block:
 
 ```
-document.querySelector("#newTodoLabel").addEventListener("keydown", function(e) {
-  if (e.keyCode === 13) {
+document.querySelector("#newTodoLabel").addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
     items.push({ title: e.target.value });
     updateList();
     inputBox.classList.toggle("visible");
@@ -369,7 +367,9 @@ document.querySelector("#newTodoLabel").addEventListener("keydown", function(e) 
 }, false);
 ```
 
-What's happening here is we're checking if the key code of whatever button we're entered while using the form is `13` (which is for `enter`), and if so, we push an object onto the `items` array. This object has a `title` property that contains the value (`e.target.value`) of what was typed into the input field.
+`e` being passed in as an argument represents the event object. It does not have to be named "e", some other comment names are "event", "element", or "el".
+
+What's happening here is we're checking the `keyCode` property of the event if the key code of whatever button we're entered while using the form is `13` (which is for `enter`), and if so, we push an object onto the `items` array. This object has a `title` property that contains the value (`e.target.value`) of what was typed into the input field.
 
 After that, an `updateList();` function is called (we'll define that later) and the `inputBox` has the `.visible` class toggled once again to hide it.
 
@@ -399,7 +399,7 @@ function updateList() {
 
 We've defined two variables within the scope of this function: `html` and `template`. `html` is merely an empty string for now, and `template` has been assigned the child nodes of `<div id="itemTemplate" class="template item">`.
 
-Next, we loop through each item in the `items` array and assign a new `contents` variable the HTML that's within the `template` variable. However, it has been modified in that `{{item_id}}` has been replaced with `"item_" + i` (which will be "item_1 ... n") and `{{item_title}}` has been replaced with the value of `title` at whichever iteration we are at in the loop.
+Next, we loop through each item in the previously declared `items` array and assign a new `contents` variable an updated form of the HTML that's within the `template` variable. Those updates were replacing `{{item_id}}` with `"item_" + i` (which will output as "item_1 ... n") and `{{item_title}}` with the value of `title` at whichever iteration we are at in the loop.
 
 Then we select `<div id="itemsList" class="itemsList">` and update its inner HTML to our newly generated list!
 
