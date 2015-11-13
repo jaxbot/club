@@ -222,7 +222,7 @@ Add this CSS after `.template`:
 
 As you can see, that's a lot of CSS, so it won't be very time efficient to do anything other than a high-level explanation of all this.
 
-`.TodoListContainer` has been assigned a `position`, `margin`, and `width` property. This has given us a centered container for our list.
+`.TodoListContainer` has been assigned a `position`, `margin`, and `width` property. Thanks to the `margin` property being set to `auto`, this has given us a centered container for our content.
 
 `.TodoList` has been styled into an off-white card with a subtle shadow and bottom padding for the "add" button.
 
@@ -325,9 +325,7 @@ Once again, a high-level explanation will be necessary for all of this.
 
 `.inputBox input` these styles give the input field a faded black background, bottom border, padding, and makes it span the width of the container.
 
-Phew, we're done with the CSS for this thing! If you open `index.html` in your browser, you should have a gorgeous Material Design inspired to-do list:
-
-<SCREENSHOT>
+Phew, we're done with the CSS for this thing! If you open `index.html` in your browser, you should have a gorgeous Material Design inspired to-do list!
 
 Let's make this work now. Open `todolist.js`:
 
@@ -340,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
-Some groundwork has been laid out for us already. As explained in the [intro workshop](/workshops/intro-web-development), we're placing all of our code within an anonymous function that will be called when the DOM finishes loading. This is to prevent the infamous FOUC (flash of unstyled content). We're also initialized two variables, `items` and `inputBox`. The `items` variable has been assigned as an empty array for now, while `inputBox` has been assigned the `<div>` with its class set to `.inputBoxContainer`.
+Some groundwork has been laid out for us already. As explained in the [intro workshop](/workshops/intro-web-development), we're placing all of our code within an anonymous function that will be called when the DOM finishes loading. This is to prevent the infamous FOUC (flash of unstyled content). We've also initialized two variables, `items` and `inputBox`. The `items` variable has been assigned as an empty array for now, while `inputBox` has been assigned the `<div>` with its class set to `.inputBoxContainer`.
 
 Let's get the button working now. Replace `// the magic happens here` with this code:
 
@@ -405,7 +403,7 @@ Next, we loop through each item in the previously declared `items` array and ass
 
 Then we select `<div id="itemsList" class="itemsList">` and update its inner HTML to our newly generated list!
 
-Finally, we add a selector to all checkboxes within that list so that whenever they're clicked, a `.checked` class will be toggled on that list item which will add or remove a line through the text.
+Finally, we loop through each checkbox to add a listener so that whenever they're clicked, a `.checked` class will be toggled on that list item which will add or remove a line through the text.
 
 And with that, we are done!
 
