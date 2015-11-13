@@ -358,22 +358,24 @@ Now we need to handle inputting data into the input field. Add this code after t
 ```
 document.querySelector("#newTodoLabel").addEventListener("keydown", function(event) {
   if (event.keyCode === 13) {
-    items.push({ title: e.target.value });
+    items.push({ title: event.target.value });
     updateList();
     inputBox.classList.toggle("visible");
 
-    e.target.value = "";
+    event.target.value = "";
   }
 }, false);
 ```
 
-`e` being passed in as an argument represents the event object. It does not have to be named "e", some other comment names are "event", "element", or "el".
+`event` being passed in as an argument represents the event object. It does not have to be named "event", some other comment names are "e", "element", or "el".
 
-What's happening here is we're checking the `keyCode` property of the event if the key code of whatever button we're entered while using the form is `13` (which is for `enter`), and if so, we push an object onto the `items` array. This object has a `title` property that contains the value (`e.target.value`) of what was typed into the input field.
+What's happening here is we're checking the `keyCode` property -- which represents the numerical code of a key pressed -- of the event object. If if it is `13` (which is for `enter`), we push an object onto the `items` array. This object has a `title` property that contains the value (`event.target.value`) of what was typed into the input field.
 
 After that, an `updateList();` function is called (we'll define that later) and the `inputBox` has the `.visible` class toggled once again to hide it.
 
-We then reset the value of `e.target.value` to an empty string.
+We then clear `e.target.value`.
+
+For reference, `event.target` presents the object that dispatched the event to begin with, this object being `<input type="text" id="newTodoLabel" placeholder="To-do item...">`. The `value` property of `event.target` is the value of whatever we input into that field.
 
 Last but not least, let's define the `updateList()` function. Add this code after the previous block we've written:
 
