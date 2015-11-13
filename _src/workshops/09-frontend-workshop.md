@@ -19,12 +19,12 @@ Navigate to the directory you cloned the repo down to and Open `index.html`. As 
 		<title>Todo List</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto+Condensed:400,700" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="css/todolist.css">
+		<link rel="stylesheet" href="todolist.css">
 	</head>
 
 	<body>
 
-		<script src="js/todolist.js"></script>
+		<script src="todolist.js"></script>
 	</body>
 </html>
 ```
