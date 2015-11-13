@@ -220,7 +220,7 @@ Add this CSS before `.template`:
 }
 ```
 
-As you can see, that's a lot of CSS, so it won't be very time efficient to do anything other than a high-level explaination of all this.
+As you can see, that's a lot of CSS, so it won't be very time efficient to do anything other than a high-level explanation of all this.
 
 `.TodoListContainer` has been assigned a `position`, `margin`, and `width` property. This has given us a centered container for our list.
 
@@ -311,21 +311,21 @@ We're almost there! Add this remaining CSS after `.magic`:
 
 Once again, a high-level explanation will be necessary for all of this.
 
-`.item` has been assigned a `position`, `margin`, and `width` property. This has given us a centered container for our list.
+`.item` has been given a nice amount of padding, the "Roboto Slab" typeface, a
 
 `.item .itemTitle` has been assigned a `position`, `padding-bottom`, `background`, and `box-shadow` property. The result is an off-white card with a subtle shadow that bottom padding for the "add" button.
 
 `.item .checkBox` has been styled to have padding around it, its typeface set to a bolded form of "Robot Condensed", and a faint bottom border.
 
-`.item.checked .itemTitle` has a lot of styling applied to it that's necessary to give it a nice "Material Design" look and feel.
+`.item.checked .itemTitle` adds a line through the next of a to-do list item and fades out its color.
 
-`.inputBox` changes the background of the button to a lighter shade of red when hovered over.
+`.inputBox` mimics the white background and padding of the main to-do list card.
 
-`.inputBoxContainer` changes the background of the button to a darker shade of red when hovered over. TALK ABOUT THE TRANSITION
+`.inputBoxContainer` hides the input box by having its `height` set to 0 and its `overflow` property set to `hidden`. This will hide any content that overflows from this element, and since it has a height of 0 that means everything within it will be hidden. Then a shadow is added and a [special transition property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions). The `transition` property controls animation speed and applies timing functions when a property changes. In this case, an easing function will be applied to the height of this element over a span of `0.25` seconds whenever its changed.
 
-`.inputBoxContainer.visible ` is a special container for the button. It's the full width of the to-do list card and assists with centering the button and moving it halfway off the edge of the to-do list card.
+`.inputBoxContainer.visible` this sets the height of the container to 80px.
 
-`.inputBox input` is a special container for the button. It's the full width of the to-do list card and assists with centering the button and moving it halfway off the edge of the to-do list card.
+`.inputBox input` these styles give the input field a faded black background, bottom border, padding, and makes it span the width of the container.
 
 Phew, we're done with the CSS for this thing! If you open `index.html` in your browser, you should have a gorgeous Material Design inspired to-do list:
 
