@@ -301,10 +301,6 @@ We're almost there! Add this remaining CSS after `.magic`:
 	text-align: left;
 	color: inherit;
 }
-
-.template {
-	display: none;
-}
 ```
 
 Once again, a high-level explanation will be necessary for all of this.
