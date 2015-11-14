@@ -11,12 +11,9 @@
     instagram: 'https://instagram.com/knighthacks/'
   events:
     -
-      name: 'Front End Web Development Workshop'
-      date: 11/13/15
-      url: 'https://www.facebook.com/events/1654505018099994/'
-    -
-      name: 'Pebble Development Workshop'
+      name: 'Lightning Talk Social'
       date: 11/20/15
+      url: 'https://www.facebook.com/events/464724443652648/'
     -
       name: 'No meeting'
       date: 11/27/15
