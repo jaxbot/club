@@ -1,14 +1,15 @@
 'use strict';
 
 // Gulp plugins
-var del     = require('del'),
-    fs      = require('fs'),
-    gulp    = require('gulp'),
-    merge   = require('merge-stream'),
-    path    = require('path'),
-    swig    = require('swig'),
-    yaml    = require('js-yaml'),
-    plugins = require('gulp-load-plugins')({
+var del         = require('del'),
+    fs          = require('fs'),
+    gulp        = require('gulp'),
+    merge       = require('merge-stream'),
+    path        = require('path'),
+    swig        = require('swig'),
+    yaml        = require('js-yaml'),
+    browserSync = require('browser-sync'),
+    plugins     = require('gulp-load-plugins')({
       rename: { // Make sure these non-standard named gulp plugins load correctly
         'gulp-front-matter': 'frontMatter',
       }
@@ -62,7 +63,8 @@ gulp.task('html', function() {
         return './_dist';
       }
     }))
-    .pipe(plugins.size({ title: 'html' }));
+    .pipe(plugins.size({ title: 'html' }))
+    .pipe(browserSync.stream());
 });
 
 // Content task
@@ -96,7 +98,8 @@ gulp.task('content', function() {
     .pipe(gulp.dest(function(file) {
       return path.join('./_dist', file.data.page.slug);
     }))
-    .pipe(plugins.size({ title: 'content' }));
+    .pipe(plugins.size({ title: 'content' }))
+    .pipe(browserSync.stream());
 });
 
 // Fonts task
@@ -106,7 +109,8 @@ gulp.task('fonts', function() {
   ])
     .pipe(plugins.plumber())
     .pipe(gulp.dest('./_dist/assets/font'))
-    .pipe(plugins.size({ title: 'fonts' }));
+    .pipe(plugins.size({ title: 'fonts' }))
+    .pipe(browserSync.stream());
 });
 
 // SCSS task
@@ -117,7 +121,8 @@ gulp.task('styles', function() {
     .pipe(plugins.autoprefixer('last 1 version'))
     .pipe(plugins.rename('styles.min.css'))
     .pipe(gulp.dest('./_dist/assets/css'))
-    .pipe(plugins.size({ title: 'styles' }));
+    .pipe(plugins.size({ title: 'styles' }))
+    .pipe(browserSync.stream());
 });
 
 // Scripts task
@@ -130,7 +135,8 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./_dist/assets/js'));
 
   return scripts.pipe(plugins.plumber())
-    .pipe(plugins.size({ title: 'scripts' }));
+    .pipe(plugins.size({ title: 'scripts' }))
+    .pipe(browserSync.stream());
 })
 
 // Optimizes images
@@ -143,7 +149,8 @@ gulp.task('images', function() {
       interlaced: true
     })))
     .pipe(gulp.dest('./_dist/assets/img'))
-    .pipe(plugins.size({ title: 'images' }));
+    .pipe(plugins.size({ title: 'images' }))
+    .pipe(browserSync.stream());
 });
 
 // Static resources
@@ -151,7 +158,8 @@ gulp.task('static', function() {
   return gulp.src('./_src/public/**/*')
     .pipe(plugins.plumber())
     .pipe(gulp.dest('./_dist/'))
-    .pipe(plugins.size({ title: 'static' }));
+    .pipe(plugins.size({ title: 'static' }))
+    .pipe(browserSync.stream());
 });
 
 // Clear cache
@@ -161,6 +169,14 @@ gulp.task('clear', function(done) {
 
 // Build task
 gulp.task('build', ['static', 'html', 'content', 'styles', 'scripts', 'fonts', 'images']);
+
+gulp.task('serve', ['build', 'watch'], function() {
+  browserSync.init({
+    server: {
+      baseDir: './_dist'
+    }
+  });
+});
 
 // Watch task
 gulp.task('watch', function() {
