@@ -9,6 +9,8 @@
     twitter: 'https://twitter.com/knighthacks'
     github: 'https://github.com/knighthacks'
     instagram: 'https://instagram.com/knighthacks/'
+  eventDisplayLimit: 4
+  workshopDisplayLimit: 4
   events:
     -
       name: 'Lightning Talk Social'
