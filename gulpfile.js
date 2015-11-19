@@ -8,6 +8,7 @@ var del         = require('del'),
     path        = require('path'),
     swig        = require('swig'),
     yaml        = require('js-yaml'),
+    symlink     = require('gulp-symlink'),
     browserSync = require('browser-sync'),
     plugins     = require('gulp-load-plugins')({
       rename: { // Make sure these non-standard named gulp plugins load correctly
@@ -170,12 +171,26 @@ gulp.task('clear', function(done) {
 // Build task
 gulp.task('build', ['static', 'html', 'content', 'styles', 'scripts', 'fonts', 'images']);
 
+// Serve task
 gulp.task('serve', ['build', 'watch'], function() {
   browserSync.init({
     server: {
       baseDir: './_dist'
     }
   });
+});
+
+// Release task
+gulp.task('release', ['build'], function(done) {
+  var stamp = new Date().toISOString().replace(/[^\w]/g, '-');
+
+  return gulp.src('./_dist/**/*')
+    .pipe(gulp.dest('_releases/' + stamp))
+    .on('end', function () {
+      return gulp.src('_releases/' + stamp)
+        .pipe(symlink('_releases/current', { force: true }))
+        .on('end', done);
+    });
 });
 
 // Watch task
