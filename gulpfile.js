@@ -28,6 +28,8 @@ var htmlminOpts = {
   minifyURLs: true
 }
 
+const timestamp = new Date().toISOString().replace(/[^\w]/g, '-');
+
 swig.setDefaults({ cache: false });
 
 // HTML task
@@ -163,6 +165,26 @@ gulp.task('static', function() {
     .pipe(browserSync.stream());
 });
 
+// Release create task
+gulp.task('release:create', ['build'], function(done) {
+  return gulp.src('./_dist/**/*')
+    .pipe(gulp.dest('_releases/' + timestamp))
+    .on('end', function() {
+      return gulp.src('_releases/' + timestamp)
+        .pipe(symlink('_releases/current', { force: true }))
+        .on('end', done);
+    })
+});
+
+// Release cleanup task
+gulp.task('release:cleanup', ['release:create'], function(done) {
+  del([
+    '_releases/*',
+    '!_releases/' + timestamp,
+    '!_releases/current'],
+  done);
+});
+
 // Clear cache
 gulp.task('clear', function(done) {
   return require('gulp-cache').clearAll(done);
@@ -181,17 +203,7 @@ gulp.task('serve', ['build', 'watch'], function() {
 });
 
 // Release task
-gulp.task('release', ['build'], function(done) {
-  var stamp = new Date().toISOString().replace(/[^\w]/g, '-');
-
-  return gulp.src('./_dist/**/*')
-    .pipe(gulp.dest('_releases/' + stamp))
-    .on('end', function () {
-      return gulp.src('_releases/' + stamp)
-        .pipe(symlink('_releases/current', { force: true }))
-        .on('end', done);
-    });
-});
+gulp.task('release', ['release:create', 'release:cleanup']);
 
 // Watch task
 gulp.task('watch', function() {
