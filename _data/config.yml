@@ -13,10 +13,6 @@
   workshopDisplayLimit: 4
   events:
     -
-      name: 'Lightning Talk Social'
-      date: 11/20/15
-      url: 'https://www.facebook.com/events/464724443652648/'
-    -
       name: 'No meeting'
       date: 11/27/15
     -
