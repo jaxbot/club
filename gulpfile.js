@@ -8,6 +8,7 @@ var del         = require('del'),
     path        = require('path'),
     swig        = require('swig'),
     yaml        = require('js-yaml'),
+    symlink     = require('gulp-symlink'),
     browserSync = require('browser-sync'),
     plugins     = require('gulp-load-plugins')({
       rename: { // Make sure these non-standard named gulp plugins load correctly
@@ -26,6 +27,8 @@ var htmlminOpts = {
   minifyCSS: true,
   minifyURLs: true
 }
+
+const timestamp = new Date().toISOString().replace(/[^\w]/g, '-');
 
 swig.setDefaults({ cache: false });
 
@@ -162,6 +165,26 @@ gulp.task('static', function() {
     .pipe(browserSync.stream());
 });
 
+// Release create task
+gulp.task('release:create', ['build'], function(done) {
+  return gulp.src('./_dist/**/*')
+    .pipe(gulp.dest('_releases/' + timestamp))
+    .on('end', function() {
+      return gulp.src('_releases/' + timestamp)
+        .pipe(symlink('_releases/current', { force: true }))
+        .on('end', done);
+    })
+});
+
+// Release cleanup task
+gulp.task('release:cleanup', ['release:create'], function(done) {
+  del([
+    '_releases/*',
+    '!_releases/' + timestamp,
+    '!_releases/current'],
+  done);
+});
+
 // Clear cache
 gulp.task('clear', function(done) {
   return require('gulp-cache').clearAll(done);
@@ -170,6 +193,7 @@ gulp.task('clear', function(done) {
 // Build task
 gulp.task('build', ['static', 'html', 'content', 'styles', 'scripts', 'fonts', 'images']);
 
+// Serve task
 gulp.task('serve', ['build', 'watch'], function() {
   browserSync.init({
     server: {
@@ -177,6 +201,9 @@ gulp.task('serve', ['build', 'watch'], function() {
     }
   });
 });
+
+// Release task
+gulp.task('release', ['release:create', 'release:cleanup']);
 
 // Watch task
 gulp.task('watch', function() {
