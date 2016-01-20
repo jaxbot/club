@@ -13,15 +13,9 @@
   workshopDisplayLimit: 4
   events:
     -
-      name: 'No meeting'
-      date: 11/27/15
-    -
-      name: 'Rails Workshop (Last Meeting)'
-      date: 12/4/15
-    -
-      name: 'Knight Hacks Hackathon'
-      date: 01/15/16
-      url: 'http://knighthacks.org/'
+      name: 'First meeting of semester'
+      date: 01/22/16
+      url: 'https://www.facebook.com/events/437324313143048/'
   workshops:
     -
       name: 'Front End Web Development'
