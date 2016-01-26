@@ -13,9 +13,9 @@
   workshopDisplayLimit: 4
   events:
     -
-      name: 'First meeting of semester'
-      date: 01/22/16
-      url: 'https://www.facebook.com/events/920057518091546/'
+      name: 'Python Flask Workshop'
+      date: 01/29/16
+      url: 'https://www.facebook.com/events/449711108564425'
   workshops:
     -
       name: 'Front End Web Development'
