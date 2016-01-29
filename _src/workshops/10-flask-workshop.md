@@ -11,22 +11,61 @@ Welcome to the Knight Hacks Introduction to Flask workshop! We all know that
 JavaScript is taking over the world with all of the different types of frameworks
 that exist. Today, however, we are going to show the power of Python.
 
-### Table of contents
+### Table of Contents
 - [Prerequisites](#prerequisites)
 - [Hello, World](#hello-world)
+- [Baby Steps to MVC](#baby-steps-to-mvc)
 
 ### Prerequisites
-Refer over to [my repo](https://github.com/maxcell/flask-workshop/blob/master/README.md)
+You are probably super excited to start learning how
+to use a Flask, the framework, of course. But before
+you can start, you want to be sure to have everything working,
+especially if you want to keep up.
+
+There are pretty much four important things that you are going to
+need to have installed: Python (obviously), pip (a Python package
+management system), virtualenv (the virtual environment we will use Flask in),
+and Flask (which is why you are even here).
+
+- Make sure to have the latest version of Python v2 installed. (As of Jan. 28th, Python2.7.11).
+  - You are able to use Python3 as well but be sure to have the latest. (As of Jan. 28th, Python3.5.1)
+- Make sure to have `pip` installed, if you have anything greater than 2.7.9, you should have it installed already.
+  You can actually update this by doing  (OSX) `pip install -U pip` or `python -m pip install -U pip`
+  - If you use `python3`, you may need to utilize `pip3` or `pip` depending if you are Unix or Windows.
+- Make sure to have `virtualenv`. We install this with `pip install virtualenv` or `pip3 install virtualenv`
+  depending on Python2 or Python3
+
+```
+# *** Don't care too much to read my blob? Come over here ***
+# Python2 (similar to Python3)
+# If python wasn't already there, and you have Homebrew
+$ brew install python
+$ pip install -U pip
+$ pip install virtualenv
+```
+- If you are on Windows, take a look at [@jaxbot's instructions](https://gist.github.com/jaxbot/47ec564e2712e3c75d42).
+Practically the same instructions but may be a bit clearer.
+
+And now we are ready to go! Just got to install Flask and that is gonna be a part
+of this workshop as well!
+
 
 ### Hello, World
-The first thing we want to make sure we do is setup a folder so let's go ahead
-and make a folder called `practice-flask`. Inside of this folder, we are going
-to hold all of the pieces to the application we want. We want to be sure to have
-a `virtualenv` ready, so go ahead and write out `virtualenv venv`. This will
-create a folder `venv/`. Whenever we want to activate our `virtualenv`, we will
-write out `. venv/bin/activate`. With that, you are ready to go ahead and install
-Flask! `pip install Flask` or `python -m pip install Flask`.
-
+Let's set up a new folder `practice-flask`, our `virtualenv`, and `Flask`:
+```
+$ mkdir practice-flask
+$ cd practice-flask/
+$ virtualenv venv
+```
+With our `venv` we are going to be actually using this as a virtual environment
+(huh, `virtualenv ~> virtual environment`). Let's move onto getting our Flask app started:
+```
+$ . venv/bin/activate
+# (If on windows you may need to do . venv\Scripts\activate instead)
+$ pip install Flask
+# (Potentially may need -m pip install Flask)
+$ touch routes.py
+```
 Finally, from there we can just go ahead and open our favorite text editor
 and we can make some progress to our first Flask application. We are going to
 need a "server" and we will name it `routes.py`. Inside of there will be several
@@ -58,8 +97,25 @@ its own if this is intended to be a module.
 The `@app.route('/')` is known as a function decorator. This particular one will actually
 bind the function we put underneath with it and then return out the view we give
 it. So what we are saying is whenever we go to this route, we will load up this view.
+We need to be sure to have our function returning something, our program will cry
+at us if we don't have anything coming from it.
 
 The last portion `if __name__ == '__main':` is actually to ensure the fact that
 we run this as our server through the Python interpreter instead of it being used
 as our imported module. And then once we run `python routes.py`. It will load up
 into `localhost:5000`. And we should see our lovely `Hello World!`
+
+### Baby Steps to MVC
+At this point, we actually have a lot of awesome skills to getting us to working
+with MVC for Flask. We already know pretty basic pieces to getting our views up.
+Let's change our view to handle `variable routing`.
+
+```
+@app.route('/hello')
+@app.route('/hello/<name>')
+def greetings(name="World"):
+    return 'Hello {}'.format(name)
+```
+Here
+```
+```
