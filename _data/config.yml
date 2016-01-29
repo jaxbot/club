@@ -18,6 +18,11 @@
       url: 'https://www.facebook.com/events/449711108564425'
   workshops:
     -
+      name: 'Flask Web Development (Python)'
+      date: 1/29/2016
+      time: 6:15 PM
+      url: '/workshops/flask-workshop'
+    -
       name: 'Front End Web Development'
       date: 11/13/2015
       time: 6:15 PM
