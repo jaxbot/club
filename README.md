@@ -1,4 +1,4 @@
-# KnightHacks.club
+# Techknights.org
 
 Run:
 ```
