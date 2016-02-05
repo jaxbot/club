@@ -18,6 +18,11 @@
       url: 'https://www.facebook.com/events/1134882013203569/'
   workshops:
     -
+      name: 'Node.js Twitterbot Workshop'
+      date: 2/5/2016
+      time: 6:15 PM
+      url: '/workshops/nodejs-twitterbot'
+    -
       name: 'Flask Web Development (Python)'
       date: 1/29/2016
       time: 6:15 PM
