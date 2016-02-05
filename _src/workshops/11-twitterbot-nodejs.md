@@ -272,7 +272,7 @@ If you get it working, how about extending it further? There are so many possibi
 I recommend changing the hashtag you're listening to as you might get others using the same hashtag. Try to make it unique.
 
 #### Here are some hints that might help:
-* HOW DO RANDOM NUMBER
+* `Math.random()` returns a random double
 * A string array:
 ```javascript
 ['AN','ARRAY','OF','STRINGS','LOOKS','LIKE','THIS']
@@ -287,12 +287,12 @@ One of the things you might want to do is reply to the person who tweeted with y
 
 You can access the username of the person who tweeted with your hashtag by doing:
 
-`tweet.LOOK THIS UP`
+`tweet.user.screen_name`
 
-In order to mention them, concatinate an "@" symbol at the beginning by doing:
+In order to mention them, concatenate an "@" symbol at the beginning by doing:
 
-`var mentionString = "@" + tweet.LOOKTHIS UUP;`
+`var mentionString = "@" + tweet.user.screen_name;`
 
-then just concatinate that to the string you want to tweet out and boom, you're now replying to the person who tweeted at you.
+then just concatenate that to the string you want to tweet out and boom, you're now replying to the person who tweeted at you.
 
 Those are some hints, but like in most programming conundrums: Google it! There are resources online at your disposal that give you the answer you're looking for. StackOverflow is a great website for answers to small questions like "How do I do X in javascript". You can also ask someone walking around.
