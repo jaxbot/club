@@ -113,7 +113,7 @@ The javascript hello world is actually only 1 line of code but let's go ahead an
 
 1. Open up a terminal or command prompt.
 2. mentally think of where you want your project folder to go (for example, on the Desktop)
-3. In the terminal, type: `cd ` and then navigate to the directory of your choice. (i.e. `cd ~/Desktop`)
+3. In the terminal, type: `cd ` and then navigate to the directory of your choice. (i.e. `cd Desktop`)
 4. make a folder in that directory by doing `mkdir twitterbot`
 5. now go in to that folder by doing: `cd twitterbot/`
 
@@ -296,4 +296,3 @@ In order to mention them, concatinate an "@" symbol at the beginning by doing:
 then just concatinate that to the string you want to tweet out and boom, you're now replying to the person who tweeted at you.
 
 Those are some hints, but like in most programming conundrums: Google it! There are resources online at your disposal that give you the answer you're looking for. StackOverflow is a great website for answers to small questions like "How do I do X in javascript". You can also ask someone walking around.
-
