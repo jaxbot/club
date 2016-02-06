@@ -70,7 +70,7 @@ Finally, from there we can just go ahead and open our favorite text editor
 and we can make some progress to our first Flask application. We are going to
 need a "server" and we will name it `routes.py`. Inside of there will be several
 things that we will walk through.
-```
+```python
 from flask import Flask
 app = Flask(__name__)
 
@@ -110,7 +110,7 @@ At this point, we actually have a lot of awesome skills to getting us to working
 with MVC for Flask. We already know pretty basic pieces to getting our views up.
 Let's change our view to handle `variable routing`.
 
-```
+```python
 @app.route('/hello')
 @app.route('/hello/<name>')
 def greetings(name="World"):
@@ -119,7 +119,7 @@ def greetings(name="World"):
 Here, what we are doing is allow us to create a new route for us to travel to.
 So when we go to `localhost:5000/hello`, we actually see a new view with `Hello World`.
 If we travel to a new route `localhost:5000/hello/Robot` and it will say `Hello Robot`.
-```
+```python
 @app.route('/add_num/<num1>/<num2>')
 def add_num(num1, num2):
   return '{} + {} = {}'.format(num1, num2, num1 + num2)

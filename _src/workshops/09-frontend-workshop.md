@@ -12,7 +12,7 @@ Begin by cloning down this repo containing the necessary files for our app:
 
 Navigate to the directory you cloned the repo down to and Open `index.html`. As you can see there's not much in it:
 
-```
+```html
 <!doctype html>
 <html>
 	<head>
@@ -33,7 +33,7 @@ This is just some basic scaffolding that links to an external Google Fonts style
 
 Let's begin scaffolding the actual to-do list. Add this block of HTML after the opening `<body>` tag:
 
-```
+```html
 <main class="TodoListContainer">
   <div class="TodoList">
     <h1 class="title">To-do</h1>
@@ -64,7 +64,7 @@ We've added quite a few elements, so let's break this down a bit.
 
 Now, add this remaining bit of HTML after the previous block we've added.
 
-```
+```html
 <div id="itemTemplate" class="template item">
   <div class="checkBox">
     <input type="checkbox" id="item_id">
@@ -78,7 +78,7 @@ This bit of HTML is serves as a template for new items in our to-do list. It wil
 
 Your file should now look like so:
 
-```
+```html
 <!doctype html>
 <html>
 	<head>
@@ -123,7 +123,7 @@ Your file should now look like so:
 
 That's it as far as the HTML is concerned; let's style everything now. Open the `todolist.css` file.
 
-```
+```scss
 * {
 	box-sizing: border-box;
 }
@@ -145,7 +145,7 @@ Some base styling has been included. We're using the `*` selector to target all 
 
 Add this CSS after `.template`:
 
-```
+```scss
 .TodoListContainer {
 	position: relative;
 
@@ -238,7 +238,7 @@ As you can see, that's a lot of CSS, so it won't be very time efficient to do an
 
 We're almost there! Add this remaining CSS after `.magic`:
 
-```
+```scss
 .item {
 	padding: 10px 20px;
 
@@ -325,7 +325,7 @@ Phew, we're done with the CSS for this thing! If you open `index.html` in your b
 
 Let's make this work now. Open `todolist.js`:
 
-```
+```javascript
 document.addEventListener('DOMContentLoaded', function() {
 	var items    = [];
 	var inputBox = document.querySelector(".inputBoxContainer");
@@ -338,7 +338,7 @@ Some groundwork has been laid out for us already. As explained in the [intro wor
 
 Let's get the button working now. Replace `// the magic happens here` with this code:
 
-```
+```javascript
 document.querySelector("#addButton").addEventListener("click", function() {
   inputBox.classList.toggle("visible");
   document.querySelector("#newTodoLabel").focus();
@@ -349,7 +349,7 @@ This code is listening for when we click the add button. When that happens our `
 
 Now we need to handle inputting data into the input field. Add this code after the previous block:
 
-```
+```javascript
 document.querySelector("#newTodoLabel").addEventListener("keydown", function(event) {
   if (event.keyCode === 13) {
     items.push({ title: event.target.value });
@@ -373,7 +373,7 @@ For reference, `event.target` presents the object that dispatched the event to b
 
 Last but not least, let's define the `updateList()` function. Add this code after the previous block we've written:
 
-```
+```javascript
 function updateList() {
   var html     = "";
   var template = document.querySelector("#itemTemplate").innerHTML;

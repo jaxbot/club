@@ -17,7 +17,7 @@ HTML is the standardized markup language used in the creation of web pages; the 
 
 Open the `index.html` file within the directory you cloned down in your text-editor/IDE. You'll notice there is some HTML within the file already:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,7 +48,7 @@ Off the bat there are quite a few things missing here, so let's add them in!
 
 First of all, we need a title for this web page. Easy enough! Simply add in a `<title>` tag between the two `<head>` tags and after the `<meta>` tag, like so:
 
-```
+```html
 <head>
   <meta charset="UTF-8">
 
@@ -62,7 +62,7 @@ Now we'll need a header, some content, and a footer. Let's start with the header
 
 Add this HTML between the opening and closing `<body>` tags:
 
-```
+```html
 <header>
   <img class="logo" src="logo.png" alt="Knight Hacks logo">
 </header>
@@ -72,7 +72,7 @@ The `<header>` tag is defining the header for our web page, and the `<img>` repr
 
 Next, let's add the main content to our page. Add this HTML after the closing `<header>` tag:
 
-```
+```html
 <main>
   <h1>Knight Hacks Workshop!</h1>
 
@@ -86,7 +86,7 @@ The `<main>` tag is representing the main content of the page within the body, t
 
 Finally, let's add a footer to this page. Add the following HTML after the closing `<main>` tag:
 
-```
+```html
 <footer>
   <p>Made with love by the Knight Hacks club!</p>
 </footer>
@@ -94,7 +94,7 @@ Finally, let's add a footer to this page. Add the following HTML after the closi
 As you can probably guess by this point, the `<footer>` tag represents the footer of this web page. However, it can also be used to represent the footer of any other section of a web page.
 
 The file should now look like this:
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -136,7 +136,7 @@ CSS is the standardized stylehseet language used to describe how HTML elements w
 
 Before we write some CSS, add this HTML on the line after the closing `<title>` tag:
 
-```
+```html
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,700">
 <link rel="stylesheet" href="styles.css">
 ```
@@ -144,7 +144,7 @@ These `<link>` elements are referencing external stylesheets, in this case a sty
 
 Now, open `styles.css` in the root directory of our project and let's get going.
 
-```
+```css
 body {
   font-size: 14px;
 }
@@ -152,7 +152,7 @@ body {
 
 We clearly aren't starting with much to work with here, but that's okay! Right now, this CSS selector is targeting the `<body>` element and applying a property to it, the font-size property to be exact. Let's add some base styling to the body of the web page:
 
-```
+```css
 body {
   padding-top: 32px;
 
@@ -185,7 +185,7 @@ Three new CSS properties are now being added to this selector.
 
 We're off to a great start! Refresh your browser tab and you'll see these changes instantly take effect! But, let's not let that stop us, we still need to style the rest of the content; that will involve writing some new selectors. Add the following CSS after the body selector:
 
-```
+```css
 header .logo {
   width: 275px;
   height: 73px;
@@ -235,7 +235,7 @@ Something important to keep in mind: The difference bettwen classes and ids in C
 
 Save your file, it should look like this:
 
-```
+```css
 body {
   padding-top: 64px;
 
@@ -295,7 +295,7 @@ We're going to use JavaScript to make the button on our web page display the "Ha
 
 We need to add one more bit of HTML to our document before really beginning. So, insert this tag before the closing `<body>` tag in our HTML:
 
-```
+```html
 <script src="scripts.js"></script>
 ```
 
@@ -303,7 +303,7 @@ The `<script>` tag can do two things. It can reference an external script to be 
 
 Now, let's open `scripts.js` and write some code! Add this code into the blank file:
 
-```
+```javascript
 document.addEventListener('DOMContentLoaded', function() {
 
 });
@@ -316,7 +316,7 @@ Let's break this down a bit:
 
 Now, we're going to write the code that really matters. Add this code into the function being passed as the second argument:
 
-```
+```javascript
 document.querySelector('#kh-button').addEventListener('click', function() {
   document.querySelector('#hidden-message').classList.toggle('hidden');
 });
@@ -328,7 +328,7 @@ When the button is clicked, another `.querySelector()` method called from the `d
 
 Your scripts.js file should now look like this:
 
-```
+```javascript
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('#kh-button').addEventListener('click', function() {
     document.querySelector('#hidden-message').classList.toggle('hidden');
