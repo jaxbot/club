@@ -579,3 +579,7 @@ Twitter.stream('statuses/filter', {track: '#TechKnightsDemoMagic'}, function(str
   });
 });
 ```
+
+If you really want to look at the code, I've also put it on GitHub [here](https://github.com/tylerl0706/TechKnightsTwitterNodeDemo)!
+
+Enjoy!
