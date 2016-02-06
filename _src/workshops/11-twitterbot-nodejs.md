@@ -556,7 +556,7 @@ Twitter.stream('statuses/filter', {track: '#TechKnightsDemoMagic'}, function(str
     // calculate the random index (Math.random returns a double between 0 and 1)
     var randomIndex = Math.round(Math.random() * arrOfMagicSayings.length);
 
-    //build our reply string
+    //build our reply string grabbing the string in that randomIndex we've calculated
     var reply = "Hi @" + tweet.user.screen_name + ", " + arrOfMagicSayings[randomIndex];
 
     //call the post function to tweet something
