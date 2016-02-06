@@ -129,7 +129,7 @@ Now it's time to actually make our javascript file and write our Hello World!
 4. Save the file and go back to the terminal we had open.
 5. In order to run our javascript file, type `node app.js` in the terminal and hit enter! You should see "Hello World!" printed out after. You just used Node.js!
 
-I won't go too deep in to javascript's syntax. But it resembles C in some ways so I'm sure you'll pick it up. If you have any trouble, just ask ask or Google it!
+I won't go too deep in to javascript's syntax. But it resembles C in some ways so I'm sure you'll pick it up. If you have any trouble, just ask or Google it!
 
 ## npm - Node Package Manager
 
@@ -272,7 +272,7 @@ If you get it working, how about extending it further? There are so many possibi
 I recommend changing the hashtag you're listening to as you might get others using the same hashtag. Try to make it unique.
 
 #### Here are some hints that might help:
-* `Math.random()` returns a random double
+* `Math.random()` returns a random double between 0 and 1
 * A string array:
 ```javascript
 ['AN','ARRAY','OF','STRINGS','LOOKS','LIKE','THIS']
@@ -298,7 +298,7 @@ then just concatenate that to the string you want to tweet out and boom, you're 
 Those are some hints, but like in most programming conundrums: Google it! There are resources online at your disposal that give you the answer you're looking for. StackOverflow is a great website for answers to small questions like "How do I do X in javascript". You can also ask someone walking around.
 
 ## SOLUTIONS
-These are some of the solutions for the example project ideas, along with the basic "reply" example.
+These are all of the solutions for the example project ideas, along with the basic "reply" example.
 
 ### Basic "reply" solution
 This code shows you how to reply to someone that used a certain hashtag.
@@ -424,3 +424,162 @@ Twitter.stream('statuses/filter', {track: '#TechKnightsDemoTip'}, function(strea
   });
 });
 ```
+
+### Random Number Gen solution
+
+This solution shows you how to make a random number generator by tweeting:
+
+`<lower bound> <upper bound> #TechKnightsDemoRandom`
+
+for example:
+`0 100 #TechKnightsDemoRandom`would respond with:
+`Hi @TylerLeonhardt, a random number between 0 and 100 is 42!`
+
+Here's the code:
+
+```javascript
+var TwitterPackage = require('twitter');
+
+// importing my secret.json file
+var secret = require("./secret");
+
+// my secret.json file looks like this:
+// {
+//   "consumer_key": "...",
+//   "consumer_secret": "...",
+//   "access_token_key": "...",
+//   "access_token_secret": "..."
+// }
+
+//make a new Twitter object
+var Twitter = new TwitterPackage(secret);
+
+// Call the stream function and pass in 'statuses/filter', our filter object, and our callback
+Twitter.stream('statuses/filter', {track: '#TechKnightsDemoRandom'}, function(stream) {
+
+  // ... when we get tweet data...
+  stream.on('data', function(tweet) {
+
+    // print out the text of the tweet that came in
+    console.log(tweet.text);
+
+    //split up the tweet's text
+    var tipArr = tweet.text.split(" ");
+
+    // turn those Strings in to a floats
+    var lowerBound = parseInt(tipArr[0]);
+    var upperBound = parseInt(tipArr[1]);
+
+    // calculate the random number (Math.random returns a double between 0 and 1)
+    var randomNum = Math.random() * (upperBound - lowerBound) + lowerBound;
+
+    //build our reply string
+    var reply = "Hi @" + tweet.user.screen_name + ", a random number between " + tipArr[0] + " and " + tipArr[1] + " is " + Math.round(randomNum) + "!";
+
+    //call the post function to tweet something
+    Twitter.post('statuses/update', {status: reply},  function(error, tweetReply, response){
+
+      //if we get an error print it out
+      if(error){
+        console.log(error);
+      }
+
+      //print the text of the tweet we sent out
+      console.log(tweetReply.text);
+    });
+  });
+
+  // ... when we get an error...
+  stream.on('error', function(error) {
+    //print out the error
+    console.log(error);
+  });
+});
+```
+
+### Magic 8 Ball solution
+
+This solution shows you how to make a "magic 8 ball bot" that will tweet with a random response to anything that uses the hashtag "TechKnightsDemoMagic".
+
+Here's the code:
+
+```javascript
+var TwitterPackage = require('twitter');
+
+// importing my secret.json file
+var secret = require("./secret");
+
+// my secret.json file looks like this:
+// {
+//   "consumer_key": "...",
+//   "consumer_secret": "...",
+//   "access_token_key": "...",
+//   "access_token_secret": "..."
+// }
+
+//make a new Twitter object
+var Twitter = new TwitterPackage(secret);
+
+// we will randomly pick one of these items in this array
+var arrOfMagicSayings = [
+  "Signs point to yes.",
+  "Yes.",
+  "Reply hazy, try again.",
+  "Without a doubt.",
+  "My sources say no.",
+  "As I see it, yes.",
+  "You may rely on it.",
+  "Concentrate and ask again.",
+  "Outlook not so good.",
+  "It is decidedly so.",
+  "Better not tell you now.",
+  "Very doubtful.",
+  "Yes - definitely.",
+  "It is certain.",
+  "Cannot predict now.",
+  "Most likely.",
+  "Ask again later.",
+  "My reply is no.",
+  "Outlook good.",
+  "Don't count on it."
+]
+
+// Call the stream function and pass in 'statuses/filter', our filter object, and our callback
+Twitter.stream('statuses/filter', {track: '#TechKnightsDemoMagic'}, function(stream) {
+
+  // ... when we get tweet data...
+  stream.on('data', function(tweet) {
+
+    // print out the text of the tweet that came in
+    console.log(tweet.text);
+
+    // calculate the random index (Math.random returns a double between 0 and 1)
+    var randomIndex = Math.round(Math.random() * arrOfMagicSayings.length);
+
+    //build our reply string grabbing the string in that randomIndex we've calculated
+    var reply = "Hi @" + tweet.user.screen_name + ", " + arrOfMagicSayings[randomIndex];
+
+    //call the post function to tweet something
+    Twitter.post('statuses/update', {status: reply},  function(error, tweetReply, response){
+
+      //if we get an error print it out
+      if(error){
+        console.log(error);
+      }
+
+      //print the text of the tweet we sent out
+      console.log(tweetReply.text);
+    });
+  });
+
+  // ... when we get an error...
+  stream.on('error', function(error) {
+    //print out the error
+    console.log(error);
+  });
+});
+```
+
+If you really want to look at the code, I've also put it on GitHub [here](https://github.com/tylerl0706/TechKnightsTwitterNodeDemo)!
+
+Enjoy!
