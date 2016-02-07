@@ -123,7 +123,7 @@ Your file should now look like so:
 
 That's it as far as the HTML is concerned; let's style everything now. Open the `todolist.css` file.
 
-```scss
+```css
 * {
 	box-sizing: border-box;
 }
