@@ -42,7 +42,7 @@ Android studio should drop you off at your main content layout at this point (af
 Before we get started, make sure to initialize a git repository in the project folder (not necessary, but good practice). There is a button in the bottom left labeled **Terminal**, click on that and it should open a terminal. Initialize a git repo in it.
 
 
-```
+```bash
 $ git init
 Initialized empty Git repository in /Users/ivey/www/SimpleApp/.git/
 $ git status
@@ -65,8 +65,8 @@ Untracked files:
         settings.gradle
 
 nothing added to commit but untracked files present (use "git add" to track)
-// I'm going to 'git add .' here, as I checked what was going to be added and am sure I want all of it to be committed.
-// Just be careful doing this otherwise.
+# I'm going to 'git add .' here, as I checked what was going to be added and am sure I want all of it to be committed.
+# Just be careful doing this otherwise.
 $ git add .
 $ git commit -m "Initial commit"
 [master (root-commit) 11a4482] Initial commit
@@ -88,7 +88,7 @@ Scroll down in the **Palette** window until you see **button** under **Widgets**
 
 If you switch over to the **Text** tab, you will see what code was added when we dragged that button onto the screen. You can also see these changes with `git diff` in the terminal.
 
-```
+```xml
 <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@ Let's make the button a little prettier. We can change the text by clicking on t
 <img src="/pics/workshops/android/android_workshop_07.png" alt="Move button to top right and change text and background color">
 
 **Code**:
-```
+```xml
 <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -121,7 +121,7 @@ Let's move the "Hello World!" text view to the center, and increase the text siz
 <img src="/pics/workshops/android/android_workshop_08.png" alt="Move hello world text to the center">
 
 **Code**:
-```
+```xml
 <TextView android:text="Hello World!" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -136,7 +136,7 @@ Now we can add a text input box next to the button. Grab a **Plain Text** compon
 <img src="/pics/workshops/android/android_workshop_09.png" alt="Add an input field next to button">
 
 **Code**:
-```
+```xml
 <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -196,7 +196,7 @@ Before we leave the layout file, add an onClick to the button. Click on the butt
 <img src="/pics/workshops/android/android_workshop_10.png" alt="Add an onClick method to button">
 
 **Code**:
-```
+```xml
 <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -210,7 +210,7 @@ Before we leave the layout file, add an onClick to the button. Click on the butt
 
 We also need to give the "Hello World!" textView an id, here's the code for that:
 
-```
+```xml
 <TextView android:text="Hello World!"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -226,7 +226,7 @@ Now we need to add this `simple_click` method and make it do something. Edit the
 
 Somewhere in this file, add the following code:
 
-```
+```java
 public void simple_click(View view) {
         TextView t = (TextView)findViewById(R.id.textView);
         t.setText("Goodbye!");
@@ -234,7 +234,7 @@ public void simple_click(View view) {
 ```
 What this does is it finds the `TextView` with the id `textView` and sets the text to "Goodbye!". If you are using Android Studio, it will automatically add an import for TextView for you, otherwise don't forget to add this:
 
-```
+```java
 import android.widget.TextView;
 ```
 
@@ -299,7 +299,7 @@ All we have to do, is have the `simple_click` method check if there is text in t
 To do this, we have to grab the text from the editText, convert it to a string (because it isn't already for some odd reason), and check if it matches the empty string.
 
 **Code**:
-```
+```java
 public void simple_click(View view) {
         EditText e = (EditText) findViewById(R.id.editText);
         TextView t = (TextView) findViewById(R.id.textView);
@@ -313,7 +313,7 @@ public void simple_click(View view) {
 
 Don't forget to add an import for EditText!
 
-```
+```java
 import android.widget.EditText;
 ```
 
