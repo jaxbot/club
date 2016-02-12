@@ -18,6 +18,11 @@
       url: 'https://www.facebook.com/events/209079682775653/'
   workshops:
     -
+      name: 'Dev Environments and Tools'
+      date: 2/12/2016
+      time: 6:15 PM
+      url: '/workshops/dev-environments'
+    -
       name: 'Node.js Twitterbot Workshop'
       date: 2/5/2016
       time: 6:15 PM
