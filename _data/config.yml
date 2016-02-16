@@ -13,9 +13,9 @@
   workshopDisplayLimit: 4
   events:
     -
-      name: 'Dev Environment Workshop'
-      date: 2/12/16
-      url: 'https://www.facebook.com/events/209079682775653/'
+      name: 'JavaScript Workshop & Club Elections'
+      date: 2/19/16
+      url: 'https://www.facebook.com/events/464079680453758/'
   workshops:
     -
       name: 'Dev Environments and Tools'
