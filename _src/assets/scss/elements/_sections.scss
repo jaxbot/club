@@ -146,6 +146,34 @@
   footer {
     flex: none;
   }
+
+  &.light {
+    background: #fff;
+    border: none;
+    header {
+      color: #000;
+      h1 {
+        color: #000;
+      }
+    }
+    .section__content {
+      padding: 0;
+
+      h1, h2, h3, h4 {
+        color: #000;
+      }
+      .markdown-body {
+        border: none;
+        color: #000;
+        code {
+          background-color: #272822;
+        }
+      }
+      pre {
+        background-color: #272822;
+      }
+    }
+  }
 }
 
 .social-icons {

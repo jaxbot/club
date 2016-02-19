@@ -16,7 +16,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
 
-    <meta property="og:image" content="http://knighthacks.club/assets/img/ogthumbnail.jpg" />
+    <meta property="og:image" content="http://techknights.org/assets/img/ogthumbnail.jpg" />
+    <link rel="canonical" href="{{ site.production_url }}{{ page.slug }}" />
 
     {% block head %}
 
@@ -26,7 +27,7 @@
     {% endblock %}
   </head>
 
-  <body>
+  <body class="{% block page-classes %}vanilla{% endblock %}">
     {% include "./partials/header.html" %}
 
     {% include "./partials/navigation.html" %}

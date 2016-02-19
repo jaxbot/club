@@ -1,6 +1,7 @@
 ---
-  title: Knight Hacks
+  title: Tech Knights
   url: ''
+  production_url: 'http://techknights.org/'
   author: The Knight Hacks Team
   email: team@knighthacks.org
   description: Giving people a space to learn and do things they’ve never done before
@@ -17,6 +18,11 @@
       date: 2/19/16
       url: 'https://www.facebook.com/events/464079680453758/'
   workshops:
+    -
+      name: 'JavaScript & ES6'
+      date: 2/19/2016
+      time: 6:15 PM
+      url: '/workshops/javascript'
     -
       name: 'Dev Environments and Tools'
       date: 2/12/2016
