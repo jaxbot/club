@@ -270,7 +270,7 @@ function bar() {
 foo();
 ```
 
-Thee answer is 5, 2. A little strange, since we declared `i` in the outer scope, redeclared it in the inner scope of a function, then went to another context where the outer scope version was used, then back to one where our new scope was used.
+The answer is 5, 2. A little strange, since we declared `i` in the outer scope, redeclared it in the inner scope of a function, then went to another context where the outer scope version was used, then back to one where our new scope was used.
 
 But that output isn't nearly as strange as this:
 
