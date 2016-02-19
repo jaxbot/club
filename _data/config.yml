@@ -19,6 +19,11 @@
       url: 'https://www.facebook.com/events/464079680453758/'
   workshops:
     -
+      name: 'JavaScript & ES6'
+      date: 2/19/2016
+      time: 6:15 PM
+      url: '/workshops/javascript'
+    -
       name: 'Dev Environments and Tools'
       date: 2/12/2016
       time: 6:15 PM
