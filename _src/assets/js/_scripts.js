@@ -20,3 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
       Bastide.mailingList.subscribe();
   }, false)
 }, false );
+function toggleLights() {
+  document.getElementById("workshop-section").classList.toggle("light");
+  document.querySelector('.nav-menu').classList.toggle('active');
+}

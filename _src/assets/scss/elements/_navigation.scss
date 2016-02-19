@@ -100,6 +100,10 @@
       &:hover {
         background-color: rgba(0,0,0,0.2);
       }
+
+      &.if-workshop {
+        display: none;
+      }
     }
 
     li.nav-menu__social {
@@ -121,6 +125,18 @@
         span {
           font-size: rem-calc(18);
         }
+      }
+    }
+  }
+}
+.workshop {
+  .nav-menu {
+    &.active {
+      max-height: rem-calc(300);
+    }
+    li {
+      .if-workshop {
+        display: inline-block;
       }
     }
   }
