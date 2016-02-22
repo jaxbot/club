@@ -14,9 +14,9 @@
   workshopDisplayLimit: 4
   events:
     -
-      name: 'JavaScript Workshop & Club Elections'
-      date: 2/19/16
-      url: 'https://www.facebook.com/events/464079680453758/'
+      name: 'Git Workshop'
+      date: 2/26/16
+      url: 'https://www.facebook.com/events/453746464829548/'
   workshops:
     -
       name: 'JavaScript & ES6'
