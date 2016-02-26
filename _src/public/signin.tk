@@ -40,7 +40,7 @@
 		</style>
 	</head>
 	<body>
-		<img src="logo.png">
+		<img src="assets/img/logo.png">
 		<div id="form">
 			<div id="error">
 				An error occurred trying to save your form. Please inform one of the TechKnights operations people in the room.
