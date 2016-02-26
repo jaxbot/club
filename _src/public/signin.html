@@ -25,6 +25,9 @@
 			#loading {
 				display: none;
 			}
+			#error {
+				display: none;
+			}
 			img {
 				max-width: 90%;
 				margin-bottom: 50px;
@@ -39,6 +42,9 @@
 	<body>
 		<img src="logo.png">
 		<div id="form">
+			<div id="error">
+				An error occurred trying to save your form. Please inform one of the TechKnights operations people in the room.
+			</div>
 			<input type="text" id="name" placeholder="Your name">
 			<input type="text" id="email" placeholder="you@knights.ucf.edu">
 			<button onclick="addRecord()">Sign in</button>
@@ -59,6 +65,10 @@
 					if (xhr.responseText.indexOf("success") !== -1) {
 						document.getElementById("loading").style.display = "none";
 						document.getElementById("success").style.display = "block";
+					} else {
+						document.getElementById("loading").style.display = "none";
+						document.getElementById("error").style.display = "block";
+						document.getElementById("form").style.display = "block";
 					}
 				};
 				document.getElementById("form").style.display = "none";
