@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+		<title>TechKnights Sign In</title>
+		<style>
+			body {
+				font-family: 'Roboto', sans-serif;
+				text-align: center;
+				max-width: 500px;
+				margin: auto;
+				position: relative;
+			}
+			input {
+				display: block;
+				width: 100%;
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+			#success {
+				display: none;
+			}
+			#loading {
+				display: none;
+			}
+			#error {
+				display: none;
+			}
+			img {
+				max-width: 90%;
+				margin-bottom: 50px;
+				margin-top: 20px;
+			}
+			button {
+				width: 100%;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="logo.png">
+		<div id="form">
+			<div id="error">
+				An error occurred trying to save your form. Please inform one of the TechKnights operations people in the room.
+			</div>
+			<input type="text" id="name" placeholder="Your name">
+			<input type="text" id="email" placeholder="you@knights.ucf.edu">
+			<button onclick="addRecord()">Sign in</button>
+		</div>
+		<div id="success">
+			You have successfully signed in. Enjoy the meeting!
+		</div>
+		<div id="loading">
+			Loading...
+		</div>
+		<script>
+			function addRecord() {
+				var xhr = new XMLHttpRequest();
+				var name = document.getElementById("name").value;
+				var email = document.getElementById("email").value;
+				xhr.open("GET", "https://script.google.com/macros/s/AKfycbxSJYmozqCFHhYSd0x3YpsFab-38NodWeqhGaSgHw5I05BaVg0/exec?Name=" + name + "&Email=" + email);
+				xhr.onload = function() {
+					if (xhr.responseText.indexOf("success") !== -1) {
+						document.getElementById("loading").style.display = "none";
+						document.getElementById("success").style.display = "block";
+					} else {
+						document.getElementById("loading").style.display = "none";
+						document.getElementById("error").style.display = "block";
+						document.getElementById("form").style.display = "block";
+					}
+				};
+				document.getElementById("form").style.display = "none";
+				document.getElementById("loading").style.display = "block";
+				xhr.send();
+				localStorage['name'] = name;
+				localStorage['email'] = email;
+			}
+			if (localStorage['name']) {
+				document.getElementById('name').value = localStorage['name'];
+			}
+			if (localStorage['email']) {
+				document.getElementById('email').value = localStorage['email'];
+			}
+		</script>
+	</body>
+</html>
+
