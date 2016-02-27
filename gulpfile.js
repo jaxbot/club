@@ -1,5 +1,6 @@
 'use strict';
 
+console.log("Hello user! :) I fight for the programs");
 // Gulp plugins
 var del         = require('del'),
     fs          = require('fs'),
